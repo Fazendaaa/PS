@@ -39,7 +39,6 @@ function fetchData() {
 
     return res.json();
   }).then(json => {
-    console.log(json)
     data.value = json;
   }).catch(err => {
     error.value = err;
