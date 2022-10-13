@@ -1,15 +1,10 @@
 services:
-  ps:
-    build:
-      context: .
-      target: RUNNER
-    command: npm run dev
-    volumes:
-      - ${PWD}:/usr/src/
+  viva:
+    build: .
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.ps.tls=true'
-      - 'traefik.http.routers.ps.rule=Host(`ps.docker.localhost`)'
+      - "traefik.enable=true"
+      - "traefik.http.routers.viva.tls=true"
+      - "traefik.http.routers.viva.rule=Host(`viva.docker.localhost`)"
     networks:
       - proxy
 
@@ -29,17 +24,17 @@ services:
     security_opt:
       - no-new-privileges:true
     ports:
-      - '80:80'
-      - '443:443'
-      - '8080:8080'
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ${HOME}/.certs:/etc/certs:ro
       - ${HOME}/.traefik/traefik.yml:/etc/traefik/traefik.yml:ro
       - ${HOME}/.traefik/config.yml:/etc/traefik/config.yml:ro
     labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.traefik=true'
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik=true"
     networks:
       - proxy
 

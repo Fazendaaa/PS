@@ -39,3 +39,5 @@ COPY --from=BUILD /usr/src/dist/ .
 RUN [ "npm", "install", "--global", "serve" ]
 
 ENTRYPOINT [ "serve", "--single", "--listen", "80", "." ]
+
+EXPOSE 80
