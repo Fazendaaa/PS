@@ -2,7 +2,7 @@ services:
   ps:
     build:
       context: .
-      target: BASE
+      target: RUNNER
     command: npm run dev
     volumes:
       - ${PWD}:/usr/src/
