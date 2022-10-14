@@ -1,11 +1,14 @@
 <template>
-  <v-img src="@/assets/signin.svg"></v-img>
+  <SingUp />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import SingUp from "@/components/SingUp.vue";
 
 export default defineComponent({
-  name: "SignInComponent",
+  components: {
+    SingUp,
+  },
 });
 </script>

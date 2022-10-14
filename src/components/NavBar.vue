@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar grow value="1" color="white">
+  <v-app-bar color="white">
     <v-btn v-for="item in items" :key="item.title" :to="item.path">
       <span>{{ item.title }}</span>
       <v-icon>{{ item.icon }}</v-icon>
