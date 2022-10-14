@@ -56,14 +56,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "AdminView",
 
   setup() {
+    const toggle = ref(["red "]);
+
     return {
-      toggle: ["red"],
+      toggle,
       buttons: ["Resultados", "Ranking", "Historico", "Avaliacoes"],
       results: ["Individual", "Ligas"],
       prescription: [
