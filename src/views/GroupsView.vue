@@ -1,10 +1,94 @@
 <template>
   <h1 v-html="$vuetify.locale.t('groups.groups')" />
 
-  <div v-for="(button, index) in buttons" v-bind:key="index">
-    <v-btn block class="my-4">
-      <span v-html="$vuetify.locale.t(`groups.${button}`)" />
-    </v-btn>
+  <div v-if="admin">
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-pencil</v-icon>
+          <span v-html="$vuetify.locale.t('groups.register')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.name')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.responsible')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-btn block color="green" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.accept')" />
+          </v-btn>
+          <v-btn block color="red" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.cancel')" />
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-format-list-bulleted</v-icon>
+          <span v-html="$vuetify.locale.t('groups.all')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-list lines="one">
+            <v-list-item
+              v-for="item in groups"
+              :key="item"
+              :title="item"
+              subtitle="..."
+            ></v-list-item>
+          </v-list>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </div>
+
+  <div v-else>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-head-question</v-icon>
+          <span v-html="$vuetify.locale.t('groups.suggestion')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.name')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.responsible')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-btn block color="green" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.submit')" />
+          </v-btn>
+          <v-btn block color="red" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.cancel')" />
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-format-list-bulleted</v-icon>
+          <span v-html="$vuetify.locale.t('groups.mine')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-list lines="one">
+            <v-list-item
+              v-for="item in groups"
+              :key="item"
+              :title="item"
+              subtitle="..."
+            ></v-list-item>
+          </v-list>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </div>
 </template>
 
@@ -16,15 +100,14 @@ export default defineComponent({
   name: "GroupsView",
 
   setup() {
-    const adminButtons = ["suggestion", "register"];
-    const userButtons = ["suggestion", "mine"];
+    const groups = ["Test A", "Test A", "Test A", "Test A"];
     const store = useStore();
-    const buttons = store.getters.isAdmin ? adminButtons : userButtons;
 
     store.commit("setTheme", "groups");
 
     return {
-      buttons,
+      groups,
+      admin: store.getters.isAdmin,
     };
   },
 });
