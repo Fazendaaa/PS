@@ -8,6 +8,8 @@ import activities from "@/locales/en/activities";
 import results from "@/locales/en/results";
 import prescription from "@/locales/en/prescription";
 import service from "@/locales/en/service";
+import notFound from "@/locales/en/notFound";
+import error from "@/locales/en/error";
 
 export default {
   login,
@@ -20,4 +22,6 @@ export default {
   results,
   prescription,
   service,
+  notFound,
+  error,
 };

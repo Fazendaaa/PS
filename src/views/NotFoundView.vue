@@ -1,15 +1,15 @@
 <template>
-  <v-img src="@/assets/notFound.svg" />
-  <p>Numero nao cadastrado no sistema!</p>
-  <p>Entre em contato com os responsaveis ou tente novamente</p>
+  <v-img height="125" src="@/assets/notFound.svg" />
+  <h1 v-html="$vuetify.locale.t('notFound.title')" />
+  <p v-html="$vuetify.locale.t('notFound.text')" />
 
-  <v-btn>
-    <span> Voltar </span>
+  <v-btn block class="my-4" :to="{ name: 'login' }">
+    <span v-html="$vuetify.locale.t('notFound.back')" />
   </v-btn>
 
-  <v-btn>
+  <v-btn block class="my-4">
     <v-icon>mdi-whatsapp</v-icon>
-    <span> Contate-nos </span>
+    <span v-html="$vuetify.locale.t('notFound.contact')" />
   </v-btn>
 </template>
 

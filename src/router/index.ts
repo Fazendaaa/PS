@@ -8,6 +8,12 @@ const routes: Array<RouteRecordRaw> = [
     component: LoginView,
   },
   {
+    path: "/:catchAll(.*)*",
+    name: "error",
+    component: () =>
+      import(/* webpackChunkName: "reader" */ "../views/ErrorView.vue"),
+  },
+  {
     path: "/notfound",
     name: "notfound",
     component: () =>
