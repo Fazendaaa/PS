@@ -20,34 +20,44 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "signup" */ "../views/SignUpView.vue"),
   },
   {
-    path: "/admin",
-    name: "admin",
+    path: "/activities",
+    name: "activities",
     component: () =>
-      import(/* webpackChunkName: "admin" */ "../views/AdminView.vue"),
+      import(
+        /* webpackChunkName: "activities" */ "../views/ActivitiesView.vue"
+      ),
   },
   {
-    path: "/post",
-    name: "post",
+    path: "/groups",
+    name: "groups",
     component: () =>
-      import(/* webpackChunkName: "post" */ "../views/PostView.vue"),
+      import(/* webpackChunkName: "groups" */ "../views/GroupsView.vue"),
   },
   {
-    path: "/quiz",
-    name: "quiz",
+    path: "/prescription",
+    name: "prescription",
     component: () =>
-      import(/* webpackChunkName: "quiz" */ "../views/QuizView.vue"),
+      import(
+        /* webpackChunkName: "prescription" */ "../views/PrescriptionView.vue"
+      ),
   },
   {
-    path: "/user",
-    name: "user",
+    path: "/results",
+    name: "results",
     component: () =>
-      import(/* webpackChunkName: "user" */ "../views/UserView.vue"),
+      import(/* webpackChunkName: "results" */ "../views/ResultsView.vue"),
   },
   {
-    path: "/task",
-    name: "task",
+    path: "/service",
+    name: "service",
     component: () =>
-      import(/* webpackChunkName: "task" */ "../views/TaskView.vue"),
+      import(/* webpackChunkName: "service" */ "../views/ServiceView.vue"),
+  },
+  {
+    path: "/tips",
+    name: "tips",
+    component: () =>
+      import(/* webpackChunkName: "service" */ "../views/TipsView.vue"),
   },
 ];
 

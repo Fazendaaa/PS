@@ -1,0 +1,29 @@
+<template>
+  <h1 v-html="$vuetify.locale.t('prescription.prescription')" />
+
+  <div v-for="(button, index) in buttons" v-bind:key="index">
+    <v-btn>
+      <span v-html="$vuetify.locale.t(`prescription.${button}`)" />
+    </v-btn>
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "PrescriptionView",
+
+  setup() {
+    return {
+      buttons: [
+        "physicalActivity",
+        "nutrition",
+        "psychology",
+        "challenge",
+        "map",
+      ],
+    };
+  },
+});
+</script>
