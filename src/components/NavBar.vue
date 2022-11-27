@@ -6,7 +6,7 @@
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
     </v-app-bar>
-    <Profile />
+    <UserView />
     <v-bottom-navigation
       class="hidden-lg-and-up"
       grow
@@ -19,27 +19,28 @@
       </v-btn>
     </v-bottom-navigation>
   </div>
+
   <div v-else>
     <SignIn />
   </div>
 </template>
 
 <script lang="ts">
+import UserView from "@/views/UserView.vue";
 import { defineComponent } from "vue";
-import Profile from "./Profile.vue";
 import SignIn from "./SignIn.vue";
 
 export default defineComponent({
   nome: "NavBarComponent",
 
   components: {
-    Profile,
     SignIn,
+    UserView,
   },
 
   setup() {
     return {
-      logged: false,
+      logged: true,
       items: [
         {
           title: "groups",

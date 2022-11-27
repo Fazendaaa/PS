@@ -3,7 +3,7 @@
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
     <v-btn>
-      <span>{{ button }}</span>
+      <span v-html="$vuetify.locale.t(`navbar.${button}`)" />
     </v-btn>
   </div>
 
@@ -20,7 +20,7 @@ export default defineComponent({
 
   setup() {
     return {
-      buttons: ["Cabelo", "Cor da Pele", "Roupas", "etc"],
+      buttons: ["hair", "skin", "clothes", "others"],
     };
   },
 });
