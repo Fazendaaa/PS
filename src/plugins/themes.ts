@@ -20,6 +20,7 @@ export const tips = {
   colors: {
     background: "#594545",
     surface: "#9E7676",
+    secondary: "#815B5B",
   },
 };
 
@@ -29,6 +30,7 @@ export const activities = {
   colors: {
     background: "#6ECCAF",
     surface: "#F3ECB0",
+    primary: "white",
   },
 };
 

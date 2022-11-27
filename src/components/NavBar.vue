@@ -1,11 +1,12 @@
 <template>
   <div v-if="logged">
-    <v-app-bar density="compact" bg-color="white" class="hidden-md-and-down">
+    <v-app-bar density="compact" color="white" class="hidden-md-and-down">
       <v-btn v-for="item in items" :key="item.title" :to="item.path">
-        <span>{{ item.title }}</span>
+        <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
     </v-app-bar>
+
     <v-bottom-navigation bg-color="white" class="hidden-lg-and-up">
       <v-btn v-for="item in items" :key="item.title" :to="item.path">
         <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />

@@ -2,7 +2,7 @@
   <h1 v-html="$vuetify.locale.t('results.results')" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
-    <v-btn>
+    <v-btn block class="my-4">
       <span v-html="$vuetify.locale.t(`results.${button}`)" />
     </v-btn>
   </div>

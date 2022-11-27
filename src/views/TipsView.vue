@@ -3,18 +3,32 @@
 
   <div v-if="admin">
     <div v-for="(button, index) in adminButtons" v-bind:key="index">
-      <v-btn>
+      <v-btn block class="my-4">
         <span v-html="$vuetify.locale.t(`tips.${button}`)" />
       </v-btn>
     </div>
   </div>
 
   <div v-else>
-    <div v-for="(button, index) in userPosts" v-bind:key="index">
-      <v-btn>
-        <span v-html="$vuetify.locale.t(`tips.${button}`)" />
-      </v-btn>
-    </div>
+    <v-card>
+      <v-toolbar color="secondary">
+        <v-tabs v-model="tab" grow>
+          <v-tab value="read" v-html="$vuetify.locale.t('tips.read')" />
+          <v-tab value="unread" v-html="$vuetify.locale.t('tips.unread')" />
+        </v-tabs>
+      </v-toolbar>
+
+      <v-card-text>
+        <v-window v-model="tab">
+          <v-window-item value="read">
+            {{ $vuetify.locale.t("tips.read") }}
+          </v-window-item>
+          <v-window-item value="unread">
+            {{ $vuetify.locale.t("tips.unread") }}
+          </v-window-item>
+        </v-window>
+      </v-card-text>
+    </v-card>
   </div>
 </template>
 
@@ -36,5 +50,9 @@ export default defineComponent({
       userPosts: [""],
     };
   },
+
+  data: () => ({
+    tab: null,
+  }),
 });
 </script>
