@@ -10,19 +10,21 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "ServiceView",
 
   setup() {
+    const userButtons = ["professionals", "about"];
+    const adminButtons = [...userButtons, ...["groups", "motivationalSMS"]];
+    const store = useStore();
+    const buttons = store.getters.isAdmin ? adminButtons : userButtons;
+
+    store.commit("setTheme", "service");
+
     return {
-      buttons: [
-        "physicalActivity",
-        "nutrition",
-        "psychology",
-        "challenge",
-        "map",
-      ],
+      buttons,
     };
   },
 });

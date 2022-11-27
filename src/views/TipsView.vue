@@ -20,13 +20,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "TipsView",
 
   setup() {
+    const store = useStore();
+
+    store.commit("setTheme", "tips");
+
     return {
-      admin: true,
+      admin: store.getters.isAdmin,
       adminButtons: ["view", "new"],
       userPosts: [""],
     };

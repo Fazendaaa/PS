@@ -10,15 +10,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "GroupsView",
 
   setup() {
-    const admin = true;
     const adminButtons = ["suggestion", "register"];
     const userButtons = ["suggestion", "mine"];
-    const buttons = admin ? adminButtons : userButtons;
+    const store = useStore();
+    const buttons = store.getters.isAdmin ? adminButtons : userButtons;
+
+    store.commit("setTheme", "groups");
 
     return {
       buttons,

@@ -1,6 +1,6 @@
 <template>
   <v-no-ssr>
-    <v-app>
+    <v-app :theme="this.$store.state.theme">
       <NavBar />
       <v-main>
         <router-view />

@@ -7,6 +7,7 @@ import tips from "@/locales/pt/tips";
 import activities from "@/locales/pt/activities";
 import results from "@/locales/pt/results";
 import prescription from "@/locales/pt/prescription";
+import service from "@/locales/pt/service";
 
 export default {
   login,
@@ -18,4 +19,5 @@ export default {
   activities,
   results,
   prescription,
+  service,
 };

@@ -1,5 +1,5 @@
 <template>
-  <v-img src="@/assets/login.svg"></v-img>
+  <v-img cover src="@/assets/login.svg"></v-img>
 </template>
 
 <script lang="ts">
