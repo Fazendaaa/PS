@@ -1,6 +1,5 @@
 <template>
   <v-img src="@/assets/login.svg"></v-img>
-  <p class="subheading grey--text" v-html="$vuetify.locale.t('login.login')" />
   <div v-if="logged">
     <SignIn />
   </div>
