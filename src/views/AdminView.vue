@@ -53,6 +53,12 @@
       <span> {{ button }} </span>
     </v-btn>
   </div>
+
+  <div v-for="(button, index) in communication" v-bind:key="index">
+    <v-btn>
+      <span> {{ button }} </span>
+    </v-btn>
+  </div>
 </template>
 
 <script lang="ts">
@@ -85,6 +91,7 @@ export default defineComponent({
         "Desafio E",
         "Adicionar Desafio",
       ],
+      communication: ["Liguas", "Profissionais", "SMS Motivacional", "Sobre"],
     };
   },
 });

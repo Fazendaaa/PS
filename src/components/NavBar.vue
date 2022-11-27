@@ -1,17 +1,17 @@
 <template>
-  <v-app-bar color="white">
+  <!-- <v-app-bar color="white">
     <v-btn v-for="item in items" :key="item.title" :to="item.path">
       <span>{{ item.title }}</span>
       <v-icon>{{ item.icon }}</v-icon>
     </v-btn>
-  </v-app-bar>
+  </v-app-bar> -->
 
-  <!-- <v-bottom-navigation class="hidden-lg-and-up" grow value="1" color="primary">
+  <v-bottom-navigation class="hidden-lg-and-up" grow value="1" color="primary">
     <v-btn v-for="item in items" :key="item.title" :to="item.path">
       <span>{{ item.title }}</span>
       <v-icon>{{ item.icon }}</v-icon>
     </v-btn>
-  </v-bottom-navigation> -->
+  </v-bottom-navigation>
 </template>
 
 <script lang="ts">
