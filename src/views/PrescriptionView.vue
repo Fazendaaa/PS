@@ -2,9 +2,14 @@
   <h1 v-html="$vuetify.locale.t('prescription.prescription')" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
-    <v-btn block class="my-4">
-      <span v-html="$vuetify.locale.t(`prescription.${button}`)" />
-    </v-btn>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <span v-html="$vuetify.locale.t(`prescription.${button}`)" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text> FOO </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </div>
 </template>
 

@@ -7,7 +7,7 @@ export default createStore({
       // undefined !== localStorage.getItem("admin")
       //   ? localStorage.getItem("admin")
       //   :
-      false,
+      true,
   },
   getters: {
     isAdmin: (state) => state.admin,

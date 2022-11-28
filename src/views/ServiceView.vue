@@ -1,30 +1,82 @@
 <template>
   <h1 v-html="$vuetify.locale.t('service.service')" />
 
-  <div v-for="(button, index) in buttons" v-bind:key="index">
-    <v-btn block class="my-4">
-      <span v-html="$vuetify.locale.t(`service.${button}`)" />
-    </v-btn>
+  <div v-if="admin">
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <span v-html="$vuetify.locale.t('service.groups')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          Estava no Figma mas não tem nada do que esta parte em si deveria ser
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <span v-html="$vuetify.locale.t('service.motivationalSMS')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-switch
+            v-model="toggle"
+            :label="$vuetify.locale.t('service.working')"
+            color="green"
+            value="red"
+            hide-details
+          />
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </div>
+
+  <v-expansion-panels variant="inset" class="my-4">
+    <v-expansion-panel>
+      <v-expansion-panel-title>
+        <span v-html="$vuetify.locale.t('service.professionals')" />
+      </v-expansion-panel-title>
+      <v-expansion-panel-text>
+        <div v-for="professional in professionals" v-bind:key="professional">
+          <v-btn block class="my-4">
+            <v-icon>mdi-whatsapp</v-icon>
+            <span v-html="$vuetify.locale.t(`service.${professional}`)" />
+          </v-btn>
+        </div>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+
+    <v-expansion-panel>
+      <v-expansion-panel-title>
+        <span v-html="$vuetify.locale.t('service.about')" />
+      </v-expansion-panel-title>
+      <v-expansion-panel-text>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "ServiceView",
 
   setup() {
-    const userButtons = ["professionals", "about"];
-    const adminButtons = [...userButtons, ...["groups", "motivationalSMS"]];
     const store = useStore();
-    const buttons = store.getters.isAdmin ? adminButtons : userButtons;
 
     store.commit("setTheme", "service");
 
     return {
-      buttons,
+      toggle: ref(["green"]),
+      admin: store.getters.isAdmin,
+      professionals: ["trainer", "nutritionist", "psychologist"],
     };
   },
 });
