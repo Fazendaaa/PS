@@ -15,7 +15,7 @@
 <script lang="ts">
 // https://www.npmjs.com/package/vue-timer-hook
 import { defineComponent } from "vue";
-import { watchEffect, onMounted } from "vue";
+// import { watchEffect, onMounted } from "vue";
 import { useTimer } from "vue-timer-hook";
 
 export default defineComponent({
@@ -24,11 +24,13 @@ export default defineComponent({
   setup() {
     const time = new Date();
     time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
+    // @ts-expect-error: wrong typing in third-party library
     const timer = useTimer(time);
     const restartFive = () => {
       // Restarts to 5 minutes timer
       const time = new Date();
       time.setSeconds(time.getSeconds() + 300);
+      // @ts-expect-error: wrong typing in third-party library
       timer.restart(time);
     };
 

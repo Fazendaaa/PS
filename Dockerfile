@@ -22,6 +22,7 @@ EXPOSE 80
 FROM node:lts-alpine3.15 AS BUILD
 
 WORKDIR /usr/src
+
 COPY --from=BASE /usr/src/ .
 
 RUN [ "npm", "run", "build" ]
