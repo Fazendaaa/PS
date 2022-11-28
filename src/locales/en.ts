@@ -10,6 +10,8 @@ import prescription from "@/locales/en/prescription";
 import service from "@/locales/en/service";
 import notFound from "@/locales/en/notFound";
 import error from "@/locales/en/error";
+import tip from "@/locales/en/tip";
+import quiz from "@/locales/en/quiz";
 
 export default {
   login,
@@ -24,4 +26,6 @@ export default {
   service,
   notFound,
   error,
+  tip,
+  quiz,
 };
