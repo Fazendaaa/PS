@@ -5,7 +5,10 @@
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
-          <span v-html="$vuetify.locale.t(`activities.${button}`)" />
+          <span
+            class="my-text"
+            v-html="$vuetify.locale.t(`activities.${button}`)"
+          />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-select
@@ -62,3 +65,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.my-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>

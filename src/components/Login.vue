@@ -1,5 +1,5 @@
 <template>
-  <v-container class="hero" />
+  <v-container class="background" />
 </template>
 
 <script lang="ts">
@@ -11,9 +11,16 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.hero {
-  background: url("@/assets/login.svg");
+/* https://codepen.io/averri/pen/baqoLX */
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url("@/assets/login.svg") no-repeat center center;
   background-size: cover;
-  height: 95vh;
+  background-color: red;
+  transform: scale(1.1);
 }
 </style>

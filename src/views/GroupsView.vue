@@ -6,7 +6,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-pencil</v-icon>
-          <span v-html="$vuetify.locale.t('groups.register')" />
+          <span class="my-text" v-html="$vuetify.locale.t('groups.register')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
@@ -39,7 +39,8 @@
               :key="item"
               :title="item"
               subtitle="..."
-            ></v-list-item>
+              class="my-text"
+            />
           </v-list>
         </v-expansion-panel-text>
       </v-expansion-panel>
@@ -51,14 +52,19 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-head-question</v-icon>
-          <span v-html="$vuetify.locale.t('groups.suggestion')" />
+          <span
+            class="my-text"
+            v-html="$vuetify.locale.t('groups.suggestion')"
+          />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
+            class="my-text"
             :label="$vuetify.locale.t('groups.name')"
             hide-details="auto"
           ></v-text-field>
           <v-text-field
+            class="my-text"
             :label="$vuetify.locale.t('groups.responsible')"
             hide-details="auto"
           ></v-text-field>
@@ -75,7 +81,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-format-list-bulleted</v-icon>
-          <span v-html="$vuetify.locale.t('groups.mine')" />
+          <span class="my-text" v-html="$vuetify.locale.t('groups.mine')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">
@@ -112,3 +118,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.my-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>

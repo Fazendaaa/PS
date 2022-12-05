@@ -1,18 +1,11 @@
 <template>
   <div v-if="logged">
-    <v-app-bar density="compact" color="white" class="hidden-md-and-down">
+    <v-app-bar color="white">
       <v-btn v-for="item in items" :key="item.title" :to="item.path">
         <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
     </v-app-bar>
-
-    <v-bottom-navigation bg-color="white" class="hidden-lg-and-up">
-      <v-btn v-for="item in items" :key="item.title" :to="item.path">
-        <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />
-        <v-icon>{{ item.icon }}</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
   </div>
 
   <div v-else>
@@ -88,7 +81,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 // https://stackoverflow.com/a/61583022/7092954
-.v-bottom-navigation {
+.v-app-bar {
   overflow-x: scroll;
 }
 </style>

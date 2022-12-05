@@ -5,9 +5,12 @@
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
-          <span v-html="$vuetify.locale.t(`prescription.${button}`)" />
+          <span
+            class="my-text"
+            v-html="$vuetify.locale.t(`prescription.${button}`)"
+          />
         </v-expansion-panel-title>
-        <v-expansion-panel-text> FOO </v-expansion-panel-text>
+        <v-expansion-panel-text class="my-text"> FOO </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
@@ -37,3 +40,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.my-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>

@@ -4,7 +4,7 @@
   <div v-if="admin">
     <div v-for="(button, index) in adminButtons" v-bind:key="index">
       <v-btn block class="my-4">
-        <span v-html="$vuetify.locale.t(`tips.${button}`)" />
+        <span class="my-text" v-html="$vuetify.locale.t(`tips.${button}`)" />
       </v-btn>
     </div>
   </div>
@@ -13,8 +13,16 @@
     <v-card>
       <v-toolbar color="secondary">
         <v-tabs v-model="tab" grow>
-          <v-tab value="unread" v-html="$vuetify.locale.t('tips.unread')" />
-          <v-tab value="read" v-html="$vuetify.locale.t('tips.read')" />
+          <v-tab
+            class="my-text"
+            value="unread"
+            v-html="$vuetify.locale.t('tips.unread')"
+          />
+          <v-tab
+            class="my-text"
+            value="read"
+            v-html="$vuetify.locale.t('tips.read')"
+          />
         </v-tabs>
       </v-toolbar>
 
@@ -61,3 +69,10 @@ export default defineComponent({
   }),
 });
 </script>
+
+<style scoped>
+.my-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>

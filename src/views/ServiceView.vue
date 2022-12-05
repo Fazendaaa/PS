@@ -5,16 +5,10 @@
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
-          <span v-html="$vuetify.locale.t('service.groups')" />
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          Estava no Figma mas não tem nada do que esta parte em si deveria ser
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-
-      <v-expansion-panel>
-        <v-expansion-panel-title>
-          <span v-html="$vuetify.locale.t('service.motivationalSMS')" />
+          <span
+            class="my-text"
+            v-html="$vuetify.locale.t('service.motivationalSMS')"
+          />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-switch
@@ -32,7 +26,10 @@
   <v-expansion-panels variant="inset" class="my-4">
     <v-expansion-panel>
       <v-expansion-panel-title>
-        <span v-html="$vuetify.locale.t('service.professionals')" />
+        <span
+          class="my-text"
+          v-html="$vuetify.locale.t('service.professionals')"
+        />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <div v-for="professional in professionals" v-bind:key="professional">
@@ -46,7 +43,7 @@
 
     <v-expansion-panel>
       <v-expansion-panel-title>
-        <span v-html="$vuetify.locale.t('service.about')" />
+        <span class="my-text" v-html="$vuetify.locale.t('service.about')" />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -81,3 +78,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.my-text {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+</style>
