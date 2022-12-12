@@ -43,18 +43,20 @@ export default defineComponent({
       show: ref({}),
       entries: [
         {
-          title: "Test 1",
-          subtitle: "subtitle test 1",
-          src: "https://th.bing.com/th/id/R.5889891e6ba7c4026c85e0467fa60158?rik=sfQ%2fA6AdZJIb%2fg&pid=ImgRaw&r=0",
+          title: "Recomendações nutricionais",
+          subtitle: "Passos para uma alimentação saudável",
+          src: "https://nationaldebtadvisors.co.za/wp-content/uploads/2016/05/Groceries.jpg",
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Uma alimentação saudável é aquela que reúne os seguintes atributos: é acessível e não é cara, valoriza a variedade, as preparações alimentares usadas tradicionalmente, é harmônica em quantidade e qualidade, naturalmente colorida e segura sanitariamente.",
         },
         {
-          title: "Test 2",
-          subtitle: "subtitle test 2",
-          src: "https://th.bing.com/th/id/OIP.VOshgjk9vKiKizEpfN5HSQHaE8?pid=ImgDet&rs=1",
+          title: "Utilize óleo, sal e açúcar com moderação",
+          subtitle: "Mude você também os hábitos",
+          src: "http://advancednaturalwellness.net/wp-content/uploads/2016/10/salt-sugar-oil.png",
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Ao preparar ou temperar refeições, utilize pequenas quantidades de óleos, gorduras, sal e açúcar. Se o uso for moderado, esses ingredientes culinários contribuem para deixar a alimentação mais saborosa sem torná-la nutricionalmente desbalanceada.  \
+\
+Dica: Os brasileiros consomem muito mais açúcar e sódio (presente no sal) do que o recomendável. Veja dados e entenda importância de reduzir o consumo excessivo desses nutrientes, com dicas reunidas em um conteúdo especial sobre sódio e sobre açúcar. ",
         },
       ],
     };

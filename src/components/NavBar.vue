@@ -1,6 +1,6 @@
 <template>
   <div v-if="logged">
-    <v-app-bar color="white">
+    <v-app-bar color="white" class="overflow">
       <v-btn v-for="item in items" :key="item.title" :to="item.path">
         <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />
         <v-icon>{{ item.icon }}</v-icon>
@@ -81,7 +81,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 // https://stackoverflow.com/a/61583022/7092954
-.v-app-bar {
+.overflow {
   overflow-x: scroll;
 }
 </style>

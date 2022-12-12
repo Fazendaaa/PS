@@ -1,6 +1,6 @@
 export default {
   service: "Atendimento Profissional",
-  professionals: "Professionais",
+  professionals: "Profissionais",
   about: "Sobre",
   groups: "Grupos",
   motivationalSMS: "SMS Motivational",

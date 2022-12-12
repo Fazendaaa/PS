@@ -1,8 +1,8 @@
 <template>
   <v-no-ssr>
     <v-app :theme="this.$store.state.theme">
-      <NavBar />
       <v-layout style="z-index: 0">
+        <NavBar />
         <v-navigation-drawer
           class="hidden-md-and-down"
           :width="width"

@@ -42,7 +42,7 @@ export default defineComponent({
     store.commit("setTheme", "tips");
 
     return {
-      title: "Pergunta 1",
+      title: "Recomendações nutricionais",
       subtitle: "Uma alimentação adequada é:",
       options: [
         "Acessível, varaida e harmonica",

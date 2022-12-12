@@ -19,7 +19,7 @@
             v-html="$vuetify.locale.t('tips.unread')"
           />
           <v-tab
-            class="my-text"
+            class="my-text bg-grey"
             value="read"
             v-html="$vuetify.locale.t('tips.read')"
           />
