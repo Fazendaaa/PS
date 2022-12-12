@@ -10,7 +10,9 @@
             v-html="$vuetify.locale.t(`prescription.${button}`)"
           />
         </v-expansion-panel-title>
-        <v-expansion-panel-text class="my-text"> FOO </v-expansion-panel-text>
+        <v-expansion-panel-text class="my-text">
+          <ChallengesView />
+        </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
   </div>
@@ -19,13 +21,17 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
+import ChallengesView from "./ChallengesView.vue";
 
 export default defineComponent({
   name: "PrescriptionView",
 
+  components: {
+    ChallengesView,
+  },
+
   setup() {
     const store = useStore();
-
     store.commit("setTheme", "prescription");
 
     return {
