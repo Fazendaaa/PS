@@ -1,7 +1,7 @@
 <template>
   <h1 v-html="$vuetify.locale.t('service.service')" />
 
-  <div v-if="admin">
+  <div v-if="this.$store.getters.isAdmin">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
@@ -72,7 +72,6 @@ export default defineComponent({
 
     return {
       toggle: ref(["green"]),
-      admin: store.getters.isAdmin,
       professionals: ["trainer", "nutritionist", "psychologist"],
     };
   },

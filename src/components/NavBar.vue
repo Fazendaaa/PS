@@ -1,7 +1,11 @@
 <template>
   <div v-if="logged">
     <v-app-bar color="white" class="overflow">
-      <v-btn v-for="item in items" :key="item.title" :to="item.path">
+      <v-btn
+        v-for="item in this.$store.getters.isAdmin ? adminItems : userItems"
+        :key="item.title"
+        :to="item.path"
+      >
         <span v-html="$vuetify.locale.t(`navbar.${item.title}`)" />
         <v-icon>{{ item.icon }}</v-icon>
       </v-btn>
@@ -15,7 +19,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "vuex";
 import SignIn from "./SignIn.vue";
 
 export default defineComponent({
@@ -68,11 +71,10 @@ export default defineComponent({
       ],
       ...baseItems,
     ];
-    const store = useStore();
-    const items = store.getters.isAdmin ? adminItems : userItems;
 
     return {
-      items,
+      adminItems,
+      userItems,
       logged: true,
     };
   },

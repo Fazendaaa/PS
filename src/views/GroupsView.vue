@@ -1,7 +1,7 @@
 <template>
   <h1 v-html="$vuetify.locale.t('groups.groups')" />
 
-  <div v-if="admin">
+  <div v-if="this.$store.getters.isAdmin">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
@@ -113,7 +113,6 @@ export default defineComponent({
 
     return {
       groups,
-      admin: store.getters.isAdmin,
     };
   },
 });

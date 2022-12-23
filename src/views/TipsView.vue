@@ -1,7 +1,7 @@
 <template>
   <h1 v-html="$vuetify.locale.t('tips.tips')" />
 
-  <div v-if="admin">
+  <div v-if="this.$store.getters.isAdmin">
     <div v-for="(button, index) in adminButtons" v-bind:key="index">
       <v-btn block class="my-4">
         <span class="my-text" v-html="$vuetify.locale.t(`tips.${button}`)" />
@@ -58,7 +58,6 @@ export default defineComponent({
     store.commit("setTheme", "tips");
 
     return {
-      admin: store.getters.isAdmin,
       adminButtons: ["view", "new"],
       userPosts: [""],
     };
