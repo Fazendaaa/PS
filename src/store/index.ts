@@ -4,10 +4,10 @@ export default createStore({
   state: {
     theme: "light",
     admin:
-      // undefined !== localStorage.getItem("admin")
-      //   ? localStorage.getItem("admin")
-      //   :
-      false,
+      undefined !== localStorage.getItem("admin")
+        ? // @ts-expect-error: any
+          JSON.parse(localStorage.getItem("admin"))
+        : false,
   },
   getters: {
     isAdmin: (state) => state.admin,
@@ -18,6 +18,12 @@ export default createStore({
       localStorage.setItem("theme", value);
 
       return value;
+    },
+    toggleAdmin: (state) => {
+      state.admin = !state.admin;
+      localStorage.setItem("admin", JSON.stringify(state.admin));
+
+      return state.admin;
     },
   },
   actions: {},

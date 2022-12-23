@@ -2,6 +2,7 @@
   <v-no-ssr>
     <v-app :theme="this.$store.state.theme">
       <v-layout style="z-index: 0">
+        <SystemTray />
         <NavBar />
         <v-navigation-drawer
           class="hidden-md-and-down"
@@ -23,12 +24,14 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import NavBar from "./components/NavBar.vue";
+import SystemTray from "./components/SystemTray.vue";
 
 export default defineComponent({
   name: "App",
 
   components: {
     NavBar,
+    SystemTray,
   },
 
   setup() {
