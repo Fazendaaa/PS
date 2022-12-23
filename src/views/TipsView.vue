@@ -2,11 +2,53 @@
   <h1 v-html="$vuetify.locale.t('tips.tips')" />
 
   <div v-if="this.$store.getters.isAdmin">
-    <div v-for="(button, index) in adminButtons" v-bind:key="index">
-      <v-btn block class="my-4">
-        <span class="my-text" v-html="$vuetify.locale.t(`tips.${button}`)" />
-      </v-btn>
-    </div>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-eye</v-icon>
+          <span class="my-text" v-html="$vuetify.locale.t('tips.view')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.name')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.responsible')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-btn block color="green" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.accept')" />
+          </v-btn>
+          <v-btn block color="red" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.cancel')" />
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-pencil</v-icon>
+          <span class="my-text" v-html="$vuetify.locale.t('tips.new')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.name')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-text-field
+            :label="$vuetify.locale.t('groups.responsible')"
+            hide-details="auto"
+          ></v-text-field>
+          <v-btn block color="green" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.accept')" />
+          </v-btn>
+          <v-btn block color="red" class="my-4">
+            <span v-html="$vuetify.locale.t('groups.cancel')" />
+          </v-btn>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
   </div>
 
   <div v-else>
@@ -58,7 +100,6 @@ export default defineComponent({
     store.commit("setTheme", "tips");
 
     return {
-      adminButtons: ["view", "new"],
       userPosts: [""],
     };
   },
