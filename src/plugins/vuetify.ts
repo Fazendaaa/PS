@@ -13,6 +13,7 @@ import {
   service,
   results,
   prescription,
+  user,
 } from "./themes";
 import pt from "@/locales/pt";
 import en from "@/locales/en";
@@ -28,7 +29,7 @@ export const i18n = new createI18n({
     undefined !== localStorage.getItem("translation")
       ? (localStorage.getItem("translation") as string)
       : "pt",
-  fallbackLocale: "pt",
+  fallbackLocale: "en",
   messages,
 });
 
@@ -43,6 +44,7 @@ export default createVuetify({
       service,
       results,
       prescription,
+      user,
     },
   },
   locale: {

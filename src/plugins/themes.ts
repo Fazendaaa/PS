@@ -55,6 +55,13 @@ export const service = {
   },
 };
 
+export const user = {
+  dark: true,
+  colors: {
+    background: "#413B3B",
+  },
+};
+
 export const themeOptions = [
   "light",
   "groups",
@@ -63,4 +70,5 @@ export const themeOptions = [
   "results",
   "prescription",
   "service",
+  "user",
 ];

@@ -54,6 +54,11 @@ export default defineComponent({
     const userItems = [
       ...[
         {
+          title: "user",
+          path: "/user",
+          icon: "mdi-account",
+        },
+        {
           title: "activities",
           path: "/activities",
           icon: "mdi-format-list-checkbox",

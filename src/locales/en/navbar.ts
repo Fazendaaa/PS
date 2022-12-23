@@ -1,4 +1,5 @@
 export default {
+  user: "User",
   groups: "Groups",
   tips: "Tips",
   activities: "Activities",
