@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # viva
 
 ## Project setup
@@ -32,3 +33,19 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# viva
+
+- [viva](#viva)
+  - [Running](#running)
+
+## Running
+
+Follow [this](https://fazenda.hashnode.dev/https-para-desenvolvimento-local) blogpost then run:
+
+```shell
+docker-compose up --build
+```
+
+And access <https://viva.docker.localhost/> in your browser
+>>>>>>> 263cd9d2efd2ed7d95afcbc52a935d63a74c696c
