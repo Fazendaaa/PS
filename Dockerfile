@@ -8,11 +8,11 @@ COPY package.json .
 
 RUN [ "npm", "install" ]
 
-COPY .browserslistrc .
-COPY .stylelintrc .
+COPY .browserslistrc ./
+COPY .stylelintrc ./
 COPY ./public ./public/
-COPY *.js .
-COPY *.json .
+COPY *.js ./
+COPY *.json ./
 COPY ./src/ ./src/
 
 EXPOSE 80
@@ -35,7 +35,7 @@ LABEL project="ps"
 
 WORKDIR /usr/src
 
-COPY --from=BUILD /usr/src/dist/ .
+COPY --from=BUILD /usr/src/dist/ ./
 
 RUN [ "npm", "install", "--global", "serve" ]
 
