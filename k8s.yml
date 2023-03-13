@@ -43,50 +43,19 @@ spec:
   type: ClusterIP
 
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
 metadata:
-  annotations:
-    cert-manager.io/issuer: rancher
-  name: viva-ingress
+  name: viva-tls
   namespace: default
 spec:
-  rules:
-    - host: viva.fazenda.solutions
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: viva
-                port:
-                  number: 80
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host(`viva.fazenda.solutions`)
+      services:
+        - name: viva
+          port: 80
   tls:
-    - hosts:
-        - viva.fazenda.solutions
-      secretName: viva-cert
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/issuer: rancher
-  name: viva-ingress-tls
-  namespace: cattle-system
-spec:
-  rules:
-    - host: viva.fazenda.solutions
-      http:
-        paths:
-          - pathType: Prefix
-            path: /
-            backend:
-              service:
-                name: viva
-                port:
-                  number: 80
-  tls:
-    - hosts:
-        - viva.fazenda.solutions
-      secretName: viva-cert-tls
+    certResolver: default
