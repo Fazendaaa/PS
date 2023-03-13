@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -59,3 +60,97 @@ spec:
           port: 80
   tls:
     certResolver: default
+=======
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: viva
+  labels:
+    app: viva
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      application: viva
+  template:
+    metadata:
+      labels:
+        application: viva
+    spec:
+      containers:
+        - image: fazenda/ps
+          imagePullPolicy: Always
+          name: viva
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          securityContext:
+            privileged: false
+      imagePullSecrets:
+        - name: regcred
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: viva
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    application: viva
+  type: ClusterIP
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: rancher
+  name: viva-ingress
+  namespace: default
+spec:
+  rules:
+    - host: viva.fazenda.solutions
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: viva
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - viva.fazenda.solutions
+      secretName: viva-cert
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/issuer: rancher
+  name: viva-ingress-tls
+  namespace: cattle-system
+spec:
+  rules:
+    - host: viva.fazenda.solutions
+      http:
+        paths:
+          - pathType: Prefix
+            path: /
+            backend:
+              service:
+                name: viva
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - viva.fazenda.solutions
+      secretName: viva-cert-tls
+>>>>>>> c4779abbd69352c0e76171265d50f79556eb111a
