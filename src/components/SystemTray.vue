@@ -1,6 +1,6 @@
 <template>
   <v-system-bar color="white">
-    <v-btn
+    <!--<v-btn
       :color="this.$store.getters.isAdmin ? 'green' : 'red'"
       @click="this.$store.commit('toggleAdmin')"
     >
@@ -8,7 +8,7 @@
     </v-btn>
     <v-btn color="blue" @click="toggleLang()">
       <span>LANG</span>
-    </v-btn>
+    </v-btn>-->
   </v-system-bar>
 </template>
 
