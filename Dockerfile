@@ -10,7 +10,8 @@ RUN [ "npm", "install" ]
 
 COPY .browserslistrc ./
 COPY .stylelintrc ./
-COPY ./public ./public/
+COPY ./data/ ./data/
+COPY ./public/ ./public/
 COPY *.js ./
 COPY *.json ./
 COPY ./src/ ./src/

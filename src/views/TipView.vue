@@ -34,31 +34,28 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import json from "../../data/mock.json";
+
+const parseCategory = (category: any): any =>
+  category.questions.map((item: any) => {
+    return {
+      title: item.title,
+      subtitle: item.title,
+      content: item.text,
+      src: "https://nationaldebtadvisors.co.za/wp-content/uploads/2016/05/Groceries.jpg",
+    };
+  });
 
 export default defineComponent({
   name: "TipView",
 
   setup() {
+    const categories = json.categories;
+    const entries = categories.map((item) => parseCategory(item)).flat();
+
     return {
       show: ref({}),
-      entries: [
-        {
-          title: "Recomendações nutricionais",
-          subtitle: "Passos para uma alimentação saudável",
-          src: "https://nationaldebtadvisors.co.za/wp-content/uploads/2016/05/Groceries.jpg",
-          content:
-            "Uma alimentação saudável é aquela que reúne os seguintes atributos: é acessível e não é cara, valoriza a variedade, as preparações alimentares usadas tradicionalmente, é harmônica em quantidade e qualidade, naturalmente colorida e segura sanitariamente.",
-        },
-        {
-          title: "Utilize óleo, sal e açúcar com moderação",
-          subtitle: "Mude você também os hábitos",
-          src: "http://advancednaturalwellness.net/wp-content/uploads/2016/10/salt-sugar-oil.png",
-          content:
-            "Ao preparar ou temperar refeições, utilize pequenas quantidades de óleos, gorduras, sal e açúcar. Se o uso for moderado, esses ingredientes culinários contribuem para deixar a alimentação mais saborosa sem torná-la nutricionalmente desbalanceada.  \
-\
-Dica: Os brasileiros consomem muito mais açúcar e sódio (presente no sal) do que o recomendável. Veja dados e entenda importância de reduzir o consumo excessivo desses nutrientes, com dicas reunidas em um conteúdo especial sobre sódio e sobre açúcar. ",
-        },
-      ],
+      entries: entries,
     };
   },
 });
