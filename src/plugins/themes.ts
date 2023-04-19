@@ -58,7 +58,8 @@ export const service = {
 export const user = {
   dark: false,
   colors: {
-    background: "#FFFFFF",
+    background: "#E5E5E5",
+    surface: "#E5E5E5",
   },
 };
 
