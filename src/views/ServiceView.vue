@@ -33,10 +33,7 @@
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <div v-for="professional in professionals" v-bind:key="professional">
-          <v-btn block class="my-4">
-            <v-icon>mdi-whatsapp</v-icon>
-            <span v-html="$vuetify.locale.t(`service.${professional}`)" />
-          </v-btn>
+          <WhatsApp :content="`service.`.concat(professional)" />
         </div>
       </v-expansion-panel-text>
     </v-expansion-panel>
@@ -59,11 +56,16 @@
 </template>
 
 <script lang="ts">
+import WhatsApp from "@/components/WhatsApp.vue";
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 
 export default defineComponent({
   name: "ServiceView",
+
+  components: {
+    WhatsApp,
+  },
 
   setup() {
     const store = useStore();

@@ -25,10 +25,10 @@ const messages = {
 
 export const i18n = new createI18n({
   legacy: false,
-  locale:
-    undefined !== localStorage.getItem("translation")
-      ? (localStorage.getItem("translation") as string)
-      : "pt",
+  locale: "pt",
+  // undefined !== localStorage.getItem("translation")
+  //   ? (localStorage.getItem("translation") as string)
+  //   : "pt",
   fallbackLocale: "en",
   messages,
 });
