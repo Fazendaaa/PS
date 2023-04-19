@@ -33,7 +33,9 @@
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <div v-for="professional in professionals" v-bind:key="professional">
-          <WhatsApp :content="`service.`.concat(professional)" />
+          <WhatsApp
+            :content="$vuetify.locale.t(`service.`.concat(professional))"
+          />
         </div>
       </v-expansion-panel-text>
     </v-expansion-panel>
