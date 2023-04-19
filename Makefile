@@ -1,3 +1,6 @@
+include .env
+export $(shell sed 's/=.*//' .env)
+
 REGISTRY_OWNER:=fazenda
 MULTIARCH:=true
 ARCHS:=linux/amd64
@@ -29,7 +32,12 @@ setup:
 	@docker buildx inspect --bootstrap
 
 build:
-	@docker buildx build --platform $(ARCHS) --push --tag ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} .
+	@docker buildx build \
+	--platform $(ARCHS) \
+	--build-arg VUE_APP_WA_NUMBER=${VUE_APP_WA_NUMBER} \
+	--push \
+	--tag ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} \
+	.
 
 test:
 	@docker-compose --file=docker-compose.test.yml up --build
