@@ -5,7 +5,7 @@ REGISTRY_OWNER:=fazenda
 MULTIARCH:=true
 ARCHS:=linux/amd64
 PROJECT:=ps
-PROJECT_TAG:=latest
+PROJECT_TAG:=$(shell date '+%d-%m-%Y-%H%M%S')
 
 ifeq (true, $(MULTIARCH))
 	ARCHS:=linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7
@@ -38,6 +38,7 @@ build:
 	--push \
 	--tag ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} \
 	.
+	@echo "Built: ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG}"
 
 test:
 	@docker-compose --file=docker-compose.test.yml up --build
