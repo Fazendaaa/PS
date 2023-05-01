@@ -80,8 +80,28 @@
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
-          <v-icon>mdi-format-list-bulleted</v-icon>
+          <v-icon>mdi-folder-account</v-icon>
           <span class="my-text" v-html="$vuetify.locale.t('groups.mine')" />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text>
+          <v-list lines="one">
+            <v-list-item v-for="item in groups" :key="item.name">
+              <template v-slot:prepend>
+                <v-btn icon :href="item.link" target="_blank">
+                  <v-icon>mdi-message-text</v-icon>
+                </v-btn>
+              </template>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+    <v-expansion-panels variant="inset" class="my-4">
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <v-icon>mdi-format-list-bulleted</v-icon>
+          <span class="my-text" v-html="$vuetify.locale.t('groups.all')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">
