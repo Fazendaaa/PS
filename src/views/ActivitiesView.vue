@@ -18,7 +18,30 @@
             variant="solo"
           />
           <div v-if="activity">
-            <Stopwatch />
+            <v-expansion-panels variant="inset" class="my-4">
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  <span
+                    class="my-text"
+                    v-html="$vuetify.locale.t('activities.automatic')"
+                  />
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <Stopwatch />
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  <span
+                    class="my-text"
+                    v-html="$vuetify.locale.t('activities.manual')"
+                  />
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <Stopwatch />
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </div>
         </v-expansion-panel-text>
       </v-expansion-panel>
