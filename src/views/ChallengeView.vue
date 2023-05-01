@@ -1,9 +1,24 @@
 <template>
   <v-card>
-    <h1>Title</h1>
+    <h1>{{ challenge.title }}</h1>
     <v-card-text>
       {{ challenge.content }}
     </v-card-text>
+    <div v-if="error">Error while loading social share</div>
+    <Suspense v-else>
+      <template #default>
+        <Share
+          title="Título"
+          description="Descrição"
+          quote="quote"
+          hashtags="hashtags"
+        />
+      </template>
+      <template #fallback>
+        <div align="center">loading navigation...</div>
+      </template>
+    </Suspense>
+
     <v-btn block color="red" :to="{ name: 'prescription' }">
       <span>close</span>
     </v-btn>
@@ -11,13 +26,18 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from "vue";
+import { computed, defineComponent, onErrorCaptured, ref } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "vuex";
+import Share from "@/components/Share.vue";
 import json from "../../data/challenge.json";
 
 export default defineComponent({
   name: "ChallengeView",
+
+  components: {
+    Share,
+  },
 
   setup() {
     const route = useRoute();
@@ -32,6 +52,15 @@ export default defineComponent({
         return "";
       }
     });
+    const error = ref(false);
+    const errorMessage = ref("");
+
+    onErrorCaptured((e) => {
+      errorMessage.value = `${e}`;
+      error.value = true;
+
+      return true;
+    });
     const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
     const store = useStore();
 
@@ -39,6 +68,8 @@ export default defineComponent({
 
     return {
       challenge,
+      error,
+      errorMessage,
     };
   },
 });
