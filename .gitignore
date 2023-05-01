@@ -2,3 +2,4 @@ node_modules
 data/mock.json
 .env
 data/groups.json
+data/challenge.json

@@ -1,6 +1,6 @@
 <template>
   <div v-for="item in buttons" v-bind:key="item.title">
-    <v-btn block :to="{ name: 'challenge' }">
+    <v-btn block :to="{ name: 'challenge', params: { id: item.id } }">
       <span>{{ item.title }}</span>
     </v-btn>
     <span align="center">{{ item.subtitle }}</span>
@@ -11,30 +11,19 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
+import json from "../../data/challenge.json";
 
 export default defineComponent({
   name: "ChallengesView",
 
   setup() {
+    const store = useStore();
+
+    store.commit("setTheme", "prescription");
+
     return {
-      buttons: [
-        {
-          title: "Desafio A",
-          subtitle: "Restam 3 dias - 20/06/2022",
-        },
-        {
-          title: "Desafio B",
-          subtitle: "Restam 3 dias - 20/06/2022",
-        },
-        {
-          title: "Desafio C",
-          subtitle: "Restam 3 dias - 20/06/2022",
-        },
-        {
-          title: "Desafio D",
-          subtitle: "Restam 3 dias - 20/06/2022",
-        },
-      ],
+      buttons: json,
     };
   },
 });
