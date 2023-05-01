@@ -85,12 +85,14 @@
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">
-            <v-list-item
-              v-for="item in groups"
-              :key="item"
-              :title="item"
-              subtitle="..."
-            ></v-list-item>
+            <v-list-item v-for="item in groups" :key="item.name">
+              <template v-slot:prepend>
+                <v-btn icon :href="item.link" target="_blank">
+                  <v-icon>mdi-message-text</v-icon>
+                </v-btn>
+              </template>
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+            </v-list-item>
           </v-list>
         </v-expansion-panel-text>
       </v-expansion-panel>
@@ -101,18 +103,18 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useStore } from "vuex";
+import json from "../../data/groups.json";
 
 export default defineComponent({
   name: "GroupsView",
 
   setup() {
-    const groups = ["Test A", "Test A", "Test A", "Test A"];
     const store = useStore();
 
     store.commit("setTheme", "groups");
 
     return {
-      groups,
+      groups: json,
     };
   },
 });
