@@ -4,11 +4,7 @@
     <p>{{ topic.text }}</p>
 
     <v-container>
-      <quiz-question
-        v-if="currentQuestion"
-        :question="topic.questions[currentQuestionIndex]"
-        :onCorrectAnswer="nextQuestion"
-      />
+      <quiz-question :question="topic.questions" />
     </v-container>
 
     <v-dialog v-model="showModel">
@@ -30,7 +26,7 @@ import { defineComponent, ref, computed, watch } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import json from "../../data/mock.json";
-import QuizQuestion from "./QuizQuestionView.vue";
+import QuizQuestion from "@/views/QuizQuestionView.vue";
 
 const setTopic = (id: any): any => {
   return json.quizzes.find((id: any) => id === id);

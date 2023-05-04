@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h3>{{ question.question }}</h3>
+    <h3>{{ currentQuestion.question }}</h3>
+
     <v-radio-group v-model="selectedOption">
       <v-radio
-        v-for="(option, index) in question.options"
+        v-for="(option, index) in currentQuestion.options"
         :key="index"
         :value="index"
         :label="option as string"
@@ -18,27 +19,29 @@ import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "QuizQuestion",
+
   props: {
     question: {
       type: Object,
       required: true,
     },
-    onCorrectAnswer: {
-      type: Function,
-      required: true,
-    },
   },
+
   setup(props) {
     const selectedOption = ref(0);
-
+    const index = ref(0);
+    const currentQuestion = ref(props.question[index.value]);
     const checkAnswer = () => {
-      const correctOptionIndex = props.question.correct_answer - 1;
+      const correctOptionIndex = currentQuestion.value.correct_answer - 1;
+
       if (selectedOption.value === correctOptionIndex) {
-        props.onCorrectAnswer();
+        index.value = index.value + 1;
+        currentQuestion.value = props.question[index.value];
       }
     };
-    console.log(props);
+
     return {
+      currentQuestion,
       selectedOption,
       checkAnswer,
     };
