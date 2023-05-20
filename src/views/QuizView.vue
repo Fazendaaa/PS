@@ -1,54 +1,85 @@
 <template>
-  <h1>{{ title }}</h1>
+  <div>
+    <h1>{{ topic.title }}</h1>
+    <p>{{ topic.text }}</p>
 
-  <p>{{ subtitle }}</p>
+    <v-container>
+      <quiz-question :question="topic.questions" />
+    </v-container>
 
-  <v-row>
-    <v-col
-      cols="12"
-      sm="4"
-      md="4"
-      v-for="option in options"
-      v-bind:key="option"
-    >
-      <v-checkbox
-        :label="option"
-        color="red-darken-3"
-        value="red-darken-3"
-        hide-details
-      ></v-checkbox>
-    </v-col>
-  </v-row>
-
-  <v-btn color="green" block class="my-4">
-    <span v-html="$vuetify.locale.t('quiz.submit')" />
-  </v-btn>
-
-  <v-btn color="red" block class="my-4" :to="{ name: 'tips' }">
-    <span v-html="$vuetify.locale.t('quiz.cancel')" />
-  </v-btn>
+    <v-dialog v-model="showModel">
+      <v-card>
+        <v-card-title>Questionário completo</v-card-title>
+        <v-card-text> Parabéns, você completou o questionário! </v-card-text>
+        <v-card-actions>
+          <v-btn block color="green" class="my-4" :to="{ name: 'tips' }">
+            <span class="my-text" v-html="$vuetify.locale.t('tip.answer')" />
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref, computed, watch } from "vue";
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+import json from "../../data/mock.json";
+import QuizQuestion from "@/views/QuizQuestionView.vue";
+
+const setTopic = (id: any): any => {
+  return json.quizzes.find((id: any) => id === id);
+};
 
 export default defineComponent({
   name: "QuizView",
-
+  components: {
+    QuizQuestion,
+  },
   setup() {
     const store = useStore();
-
     store.commit("setTheme", "tips");
+    const route = useRoute();
+    const paramID = computed(() => {
+      if (undefined !== route.params.id) {
+        const id =
+          "string" == typeof route.params.id
+            ? route.params.id
+            : route.params.id[0];
+        return id;
+      } else {
+        return "";
+      }
+    });
+    var topic = setTopic(paramID);
+    watch(paramID, () => {
+      topic = setTopic(paramID.value);
+    });
+    const currentQuestionIndex = ref(0);
+    const quizCompleted = ref(false);
+    const currentQuestion = computed(() => topic[currentQuestionIndex.value]);
+    const nextQuestion = () => {
+      if (currentQuestionIndex.value < topic.length) {
+        currentQuestionIndex.value++;
+      } else {
+        quizCompleted.value = true;
+      }
+    };
+
+    const showModel = ref(false);
+    const showTips = () => {
+      showModel.value = true;
+    };
 
     return {
-      title: "Recomendações nutricionais",
-      subtitle: "Uma alimentação adequada é:",
-      options: [
-        "Acessível, varaida e harmonica",
-        "Cara e acessível",
-        "Harmonica e valorizada",
-      ],
+      topic: topic,
+      currentQuestionIndex,
+      currentQuestion,
+      nextQuestion,
+      quizCompleted,
+      showModel,
+      showTips,
     };
   },
 });

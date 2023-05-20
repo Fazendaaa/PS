@@ -5,7 +5,7 @@
     class="mx-auto"
     max-width="344"
   >
-    <v-img :src="item.src" height="200px" cover></v-img>
+    <v-img :src="item.img" height="200px" cover></v-img>
 
     <v-card-title class="my-text"> {{ item.title }} </v-card-title>
     <v-card-subtitle class="my-text"> {{ item.subtitle }} </v-card-subtitle>
@@ -24,7 +24,12 @@
         <v-divider />
         <v-card-text> {{ item.content }} </v-card-text>
         <v-divider />
-        <v-btn block color="green" class="my-4" :to="{ name: 'quiz' }">
+        <v-btn
+          block
+          color="green"
+          class="my-4"
+          :to="{ name: 'quiz', params: { id: item.id } }"
+        >
           <span class="my-text" v-html="$vuetify.locale.t('tip.answer')" />
         </v-btn>
       </div>
@@ -36,26 +41,24 @@
 import { defineComponent, ref } from "vue";
 import json from "../../data/mock.json";
 
-const parseCategory = (category: any): any =>
-  category.questions.map((item: any) => {
-    return {
-      title: item.title,
-      subtitle: item.title,
-      content: item.text,
-      src: "https://nationaldebtadvisors.co.za/wp-content/uploads/2016/05/Groceries.jpg",
-    };
-  });
-
 export default defineComponent({
   name: "TipView",
 
   setup() {
-    const categories = json.categories;
-    const entries = categories.map((item) => parseCategory(item)).flat();
+    const data = json.quizzes;
+    const entries = data.map((item) => ({
+      title: item.title,
+      subtitle: item.text,
+      content: item.text,
+      img: item.img,
+      id: item.id,
+    }));
+    console.log(entries);
+    const show = ref<Record<string, boolean>>({});
 
     return {
-      show: ref({}),
-      entries: entries,
+      show,
+      entries,
     };
   },
 });
