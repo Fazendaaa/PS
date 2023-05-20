@@ -8,14 +8,23 @@ services:
     networks:
       - proxy
 
-  siever:
-    image: fazenda/siever
-    container_name: siever
+  api:
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.siever.tls=true"
-      - "traefik.http.services.siever.loadbalancer.server.port=80"
-      - "traefik.http.routers.siever.rule=Host(`siever.docker.localhost`)"
+      - "traefik.http.routers.api.tls=true"
+      - "traefik.http.routers.api.rule=Host(`api.docker.localhost`)"
+    networks:
+      - proxy
+
+  database:
+    image: mongo:6.0.5
+    restart: on-failure
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=example
     networks:
       - proxy
 

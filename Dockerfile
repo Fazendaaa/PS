@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.15 AS BASE
+FROM node:14.21.3-alpine3.17 AS BASE
 
 WORKDIR /usr/src
 
@@ -20,7 +20,7 @@ EXPOSE 80
 
 
 
-FROM node:lts-alpine3.15 AS BUILD
+FROM node:14.21.3-alpine3.17 AS BUILD
 
 WORKDIR /usr/src
 
@@ -32,7 +32,7 @@ RUN [ "npm", "run", "build" ]
 
 
 
-FROM node:lts-alpine3.15 AS RUNNER
+FROM node:14.21.3-alpine3.17 AS RUNNER
 LABEL author="fazenda"
 LABEL project="ps"
 
