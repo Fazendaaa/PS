@@ -32,6 +32,7 @@ export default defineComponent({
 
   setup() {
     const store = useStore();
+
     store.commit("setTheme", "prescription");
 
     return {

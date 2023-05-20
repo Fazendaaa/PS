@@ -39,7 +39,9 @@
         </div>
       </v-expansion-panel-text>
     </v-expansion-panel>
+  </v-expansion-panels>
 
+  <v-expansion-panels variant="inset" class="my-4">
     <v-expansion-panel>
       <v-expansion-panel-title>
         <span class="my-text" v-html="$vuetify.locale.t('service.about')" />

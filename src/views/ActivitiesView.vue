@@ -1,5 +1,6 @@
 <template>
   <h1 v-html="$vuetify.locale.t('activities.activities')" />
+  <v-time-picker v-model="picker" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
     <v-expansion-panels variant="inset" class="my-4">
@@ -18,7 +19,32 @@
             variant="solo"
           />
           <div v-if="activity">
-            <Stopwatch />
+            <v-expansion-panels variant="inset" class="my-4">
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  <span
+                    class="my-text"
+                    v-html="$vuetify.locale.t('activities.automatic')"
+                  />
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <Stopwatch />
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  <span
+                    class="my-text"
+                    v-html="$vuetify.locale.t('activities.manual')"
+                  />
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <div>
+                    <v-time-picker v-model="picker" />
+                  </div>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+            </v-expansion-panels>
           </div>
         </v-expansion-panel-text>
       </v-expansion-panel>
@@ -52,6 +78,7 @@ export default defineComponent({
         "occupationalActivity",
       ],
       activity: ref(""),
+      picker: "",
       items: [
         "Varrer",
         "Limpar casa",

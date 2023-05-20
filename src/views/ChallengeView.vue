@@ -1,15 +1,24 @@
 <template>
   <v-card>
-    <h1>Title</h1>
+    <h1>{{ challenge.title }}</h1>
     <v-card-text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      {{ challenge.content }}
     </v-card-text>
+    <div v-if="error">Error while loading social share</div>
+    <Suspense v-else>
+      <template #default>
+        <Share
+          title="Título"
+          description="Descrição"
+          quote="quote"
+          hashtags="hashtags"
+        />
+      </template>
+      <template #fallback>
+        <div align="center">loading navigation...</div>
+      </template>
+    </Suspense>
+
     <v-btn block color="red" :to="{ name: 'prescription' }">
       <span>close</span>
     </v-btn>
@@ -17,9 +26,51 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent, onErrorCaptured, ref } from "vue";
+import { useRoute } from "vue-router";
+import { useStore } from "vuex";
+import Share from "@/components/Share.vue";
+import json from "../../data/challenge.json";
 
 export default defineComponent({
   name: "ChallengeView",
+
+  components: {
+    Share,
+  },
+
+  setup() {
+    const route = useRoute();
+    const paramID = computed(() => {
+      if (undefined !== route.params.id) {
+        const id =
+          "string" == typeof route.params.id
+            ? route.params.id
+            : route.params.id[0];
+        return id;
+      } else {
+        return "";
+      }
+    });
+    const error = ref(false);
+    const errorMessage = ref("");
+
+    onErrorCaptured((e) => {
+      errorMessage.value = `${e}`;
+      error.value = true;
+
+      return true;
+    });
+    const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
+    const store = useStore();
+
+    store.commit("setTheme", "prescription");
+
+    return {
+      challenge,
+      error,
+      errorMessage,
+    };
+  },
 });
 </script>

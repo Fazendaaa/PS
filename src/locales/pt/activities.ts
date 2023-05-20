@@ -5,4 +5,6 @@ export default {
   voluntaryActivity: "Atividade voluntária",
   physicalActivity: "Atividades físicas de transporte e lazer",
   occupationalActivity: "Atividades ocupacionais",
+  manual: "Inserir tempo manualmente",
+  automatic: "Inserir tempo automaticamente",
 };
