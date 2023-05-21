@@ -52,7 +52,7 @@ export default defineComponent({
         return "";
       }
     });
-    var topic = setTopic(paramID);
+    let topic = setTopic(paramID);
     watch(paramID, () => {
       topic = setTopic(paramID.value);
     });

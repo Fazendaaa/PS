@@ -1,6 +1,5 @@
 <template>
   <h1 v-html="$vuetify.locale.t('activities.activities')" />
-  <v-time-picker v-model="picker" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
     <v-expansion-panels variant="inset" class="my-4">
@@ -40,7 +39,7 @@
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div>
-                    <v-time-picker v-model="picker" />
+                    <vue-timepicker :modelValue="picker" />
                   </div>
                 </v-expansion-panel-text>
               </v-expansion-panel>
@@ -56,12 +55,16 @@
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 import Stopwatch from "@/components/Stopwatch.vue";
+// @ts-expect-error: missing type declaration
+import VueTimepicker from "vue3-timepicker";
+import "vue3-timepicker/dist/VueTimepicker.css";
 
 export default defineComponent({
   name: "ActivitiesView",
 
   components: {
     Stopwatch,
+    VueTimepicker,
   },
 
   setup() {
