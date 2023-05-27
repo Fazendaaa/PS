@@ -17,3 +17,4 @@ And access <https://viva.docker.localhost/> in your browser
 ## References
 
 - [How to use click to chat](https://faq.whatsapp.com/5913398998672934)
+- [Como criar uma WebApi com Node.js, Express e TypeScript](https://www.luiztools.com.br/post/como-criar-uma-webapi-com-node-js-express-e-typescript/)
