@@ -1,4 +1,5 @@
-import { getUser } from "../models/user";
+import { User } from "../models/user";
+import { addUser } from "../mongo/user";
 
 export const getUserController = async (id: number) => {
   const user = { foo: "getid" };
@@ -12,10 +13,15 @@ export const getUsersController = async () => {
   return user;
 };
 
-export const insertUserController = () => {
-  const user = { foo: "insertuser" };
+export const insertUserController = async () => {
+  const user = new User();
 
-  return user;
+  user.name = "Fazenda";
+  user.birthday = "27";
+
+  const added = await addUser(user);
+
+  return added;
 };
 
 export const updateUserController = () => {

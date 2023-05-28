@@ -36,12 +36,12 @@ export const getUsersAPIBroker = async (
   }
 };
 
-export const insertUserAPIBroker = (
+export const insertUserAPIBroker = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  const user = insertUserController();
+  const user = await insertUserController();
 
   if (null !== user) {
     res.json(user);
@@ -50,7 +50,7 @@ export const insertUserAPIBroker = (
   }
 };
 
-export const updateUserAPIBroker = (
+export const updateUserAPIBroker = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -64,7 +64,7 @@ export const updateUserAPIBroker = (
   }
 };
 
-export const deleteUserAPIBroker = (
+export const deleteUserAPIBroker = async (
   req: Request,
   res: Response,
   next: NextFunction

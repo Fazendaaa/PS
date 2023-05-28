@@ -12,6 +12,13 @@ services:
     build:
       context: ./api/
       dockerfile: Dockerfile
+    environment:
+      - DB_USERNAME=root
+      - DB_PASSWORD=example
+      - DB_NAME=
+      - DB_HOST=mongodb
+      - DB_PORT=27017
+      - DB_SRV=false
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api.tls=true"
@@ -19,12 +26,30 @@ services:
     networks:
       - proxy
 
-  database:
+  mongodb:
     image: mongo:6.0.5
     restart: on-failure
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=example
+    networks:
+      - proxy
+
+  mongo-express:
+    image: mongo-express
+    container_name: mongo-express
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=root
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=example
+      - ME_CONFIG_BASICAUTH_USERNAME=viva
+      - ME_CONFIG_BASICAUTH_PASSWORD=viva
+    depends_on:
+      - mongodb
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mongo-express.tls=true"
+      - "traefik.http.routers.mongo-express.rule=Host(`mongo-express.docker.localhost`)"
     networks:
       - proxy
 
