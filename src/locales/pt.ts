@@ -12,6 +12,7 @@ import notFound from "@/locales/pt/notFound";
 import error from "@/locales/pt/error";
 import tip from "@/locales/pt/tip";
 import quiz from "@/locales/pt/quiz";
+import user from "@/locales/pt/user";
 
 export default {
   login,
@@ -28,4 +29,5 @@ export default {
   error,
   tip,
   quiz,
+  user,
 };

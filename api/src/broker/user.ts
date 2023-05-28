@@ -13,7 +13,7 @@ export const getUserAPIBroker = async (
   next: NextFunction
 ) => {
   const id = req.params.id;
-  const user = await getUserController(parseInt(id));
+  const user = await getUserController(id);
 
   if (null !== user) {
     res.json(user);

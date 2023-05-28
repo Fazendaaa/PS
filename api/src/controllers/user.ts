@@ -1,27 +1,18 @@
 import { User } from "../models/user";
-import { addUser } from "../mongo/user";
+import { addUser, getUser, getUsers } from "../mongo/user";
 
-export const getUserController = async (id: number) => {
-  const user = { foo: "getid" };
+export const getUserController = async (mobile: string) => getUser(mobile);
 
-  return user;
-};
-
-export const getUsersController = async () => {
-  const user = { foo: "getusers" };
-
-  return user;
-};
+export const getUsersController = async () => getUsers();
 
 export const insertUserController = async () => {
   const user = new User();
 
   user.name = "Fazenda";
   user.birthday = "27";
+  user.mobile = "00000000000";
 
-  const added = await addUser(user);
-
-  return added;
+  return addUser(user);
 };
 
 export const updateUserController = () => {

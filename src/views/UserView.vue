@@ -6,11 +6,18 @@
   <br />
 
   <v-expansion-panels variant="inset" class="my-4">
+    <v-expansion-panel v-for="(button, index) in fields" v-bind:key="index">
+      <v-expansion-panel-title v-html="$vuetify.locale.t(`user.${button}`)" />
+      <v-expansion-panel-text>
+        <span> {{ data[button] }} </span>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+
     <v-expansion-panel v-for="(button, index) in buttons" v-bind:key="index">
-      <v-expansion-panel-title v-html="$vuetify.locale.t(`navbar.${button}`)" />
+      <v-expansion-panel-title v-html="$vuetify.locale.t(`user.${button}`)" />
       <v-expansion-panel-text>
         <v-btn>
-          <span v-html="$vuetify.locale.t(`navbar.${button}`)" />
+          <span v-html="$vuetify.locale.t(`user.${button}`)" />
         </v-btn>
       </v-expansion-panel-text>
     </v-expansion-panel>
@@ -39,45 +46,39 @@
     </v-expansion-panels>
   </div>
 
-  <v-btn block class="my-4">
+  <v-btn block color="green" class="my-4">
     <v-icon>mdi-check</v-icon>
     <span>Salvar</span>
   </v-btn>
-  <v-btn block class="my-4">
+  <v-btn block color="red" class="my-4">
     <v-icon>mdi-cancel</v-icon>
     <span>Cancelar</span>
   </v-btn>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
+import { requestData } from "@/scripts/api";
 
 export default defineComponent({
   name: "UserView",
 
   setup() {
     const store = useStore();
+    const mobile = "00000000000";
+    const data = ref({});
 
     store.commit("setTheme", "user");
 
-    fetch("https://api.docker.localhost/users/", { method: "POST" })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          console.log("Network response was not ok.");
-        }
-      })
-      .then(console.log)
-      .catch((error) => {
-        console.log(
-          "There has been a problem with your fetch operation: " + error.message
-        );
-      });
+    requestData(`users/${mobile}`, "GET").then((response) => {
+      data.value = response;
+    });
 
     return {
+      data,
       buttons: ["hair", "skin", "clothes", "others"],
+      fields: ["name", "age", "illness", "medication"],
     };
   },
 });

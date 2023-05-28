@@ -16,12 +16,37 @@ const schema = new Schema<User>({
 const userModel = model("User", schema);
 
 export const addUser = async (user: User) => {
-  const conn = await connection();
+  await connection();
   const added = new userModel(user);
   await added.save();
 
-  console.log(added);
-  console.log(added.name);
+  return added;
+};
+
+export const getUser = async (mobile: string) => {
+  await connection();
+
+  return userModel.findOne({ mobile });
+};
+
+export const getUsers = async () => {
+  await connection();
+
+  return userModel.find();
+};
+
+export const updateUser = async (user: User) => {
+  await connection();
+  const added = new userModel(user);
+  await added.save();
+
+  return added;
+};
+
+export const deleteUser = async (user: User) => {
+  await connection();
+  const added = new userModel(user);
+  await added.save();
 
   return added;
 };
