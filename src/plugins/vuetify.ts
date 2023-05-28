@@ -14,7 +14,7 @@ import {
   results,
   prescription,
   user,
-} from "./themes";
+} from "@/plugins/themes";
 import pt from "@/locales/pt";
 import en from "@/locales/en";
 

@@ -2,11 +2,14 @@ FROM node:14.21.3-alpine3.17 AS BASE
 
 WORKDIR /usr/src
 
+RUN [ "npm", "install", "--global", "npm@9" ]
 RUN [ "npm", "install", "--global", "@vue/cli" ]
 
 COPY package.json .
+COPY package-lock.json .
 
-RUN [ "npm", "install" ]
+RUN [ "npm", "install", "--force" ]
+RUN [ "npm", "ci", "--force" ]
 
 COPY .browserslistrc ./
 COPY .stylelintrc ./

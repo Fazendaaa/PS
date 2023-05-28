@@ -1,20 +1,20 @@
 import express from "express";
 import {
-  deleteUserController,
-  getUserController,
-  getUsersController,
-  insertUserController,
-  updateUserController,
-} from "../controllers/user";
+  deleteUserAPIBroker,
+  getUserAPIBroker,
+  getUsersAPIBroker,
+  insertUserAPIBroker,
+  updateUserAPIBroker,
+} from "../broker/user";
 
 export const usersRouter = express.Router();
 
-usersRouter.get("/:id", getUserController);
+usersRouter.get("/:id", getUserAPIBroker);
 
-usersRouter.get("/", getUsersController);
+usersRouter.get("/", getUsersAPIBroker);
 
-usersRouter.post("/", insertUserController);
+usersRouter.post("/", insertUserAPIBroker);
 
-usersRouter.patch("/:id", updateUserController);
+usersRouter.patch("/:id", updateUserAPIBroker);
 
-usersRouter.delete("/:id", deleteUserController);
+usersRouter.delete("/:id", deleteUserAPIBroker);
