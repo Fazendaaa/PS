@@ -10,7 +10,7 @@ export const insertUserController = async () => {
 
   user.name = "Fazenda";
   user.birthday = "27";
-  user.mobile = "00000000000";
+  user.mobile = "16987654321";
 
   return addUser(user);
 };

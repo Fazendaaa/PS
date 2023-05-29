@@ -2,24 +2,29 @@
   <v-no-ssr>
     <v-app :theme="this.$store.state.theme">
       <v-layout style="z-index: 0">
-        <SystemTray />
-        <NavBar />
-        <v-navigation-drawer
-          class="hidden-md-and-down"
-          :width="width"
-        ></v-navigation-drawer>
-        <v-navigation-drawer
-          class="hidden-md-and-down"
-          :width="width"
-          location="right"
-        ></v-navigation-drawer>
-        <v-main>
-          <router-view v-slot="{ Component }">
-            <keep-alive>
-              <component :is="Component" />
-            </keep-alive>
-          </router-view>
-        </v-main>
+        <div v-if="this.$store.getters.isLogged">
+          <SystemTray />
+          <NavBar />
+          <v-navigation-drawer
+            class="hidden-md-and-down"
+            :width="width"
+          ></v-navigation-drawer>
+          <v-navigation-drawer
+            class="hidden-md-and-down"
+            :width="width"
+            location="right"
+          ></v-navigation-drawer>
+          <v-main>
+            <router-view v-slot="{ Component }">
+              <keep-alive>
+                <component :is="Component" />
+              </keep-alive>
+            </router-view>
+          </v-main>
+        </div>
+        <router-view v-else>
+          <SignIn />
+        </router-view>
       </v-layout>
     </v-app>
   </v-no-ssr>
@@ -28,6 +33,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import NavBar from "@/components/NavBar.vue";
+import SignIn from "@/components/SignIn.vue";
 import SystemTray from "@/components/SystemTray.vue";
 
 export default defineComponent({
@@ -35,6 +41,7 @@ export default defineComponent({
 
   components: {
     NavBar,
+    SignIn,
     SystemTray,
   },
 

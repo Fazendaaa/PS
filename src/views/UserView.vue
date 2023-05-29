@@ -71,7 +71,7 @@ export default defineComponent({
 
   setup() {
     const store = useStore();
-    const mobile = "00000000000";
+    const mobile = "16987654321";
     const data = ref({});
 
     store.commit("setTheme", "user");

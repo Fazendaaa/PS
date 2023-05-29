@@ -1,6 +1,7 @@
 export default {
-  hair: "Hair color",
-  skin: "Skin tone",
-  clothes: "Clothes",
-  others: "Others",
+  mobileMessage: "Digite o número do seu celular com o DDD:",
+  mobile: "XX XXXX XXXXX",
+  passwordMessage: "Digite sua senha:",
+  password: "Senha aqui",
+  login: "Entrar",
 };
