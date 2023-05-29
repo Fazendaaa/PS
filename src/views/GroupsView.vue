@@ -1,12 +1,15 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('groups.groups')" />
+  <h1 class="header" v-html="$vuetify.locale.t('groups.groups')" />
 
   <div v-if="this.$store.getters.isAdmin">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-pencil</v-icon>
-          <span class="my-text" v-html="$vuetify.locale.t('groups.register')" />
+          <span
+            class="upper-bold"
+            v-html="$vuetify.locale.t('groups.register')"
+          />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
@@ -39,7 +42,7 @@
               :key="item"
               :title="item"
               subtitle="..."
-              class="my-text"
+              class="upper-bold"
             />
           </v-list>
         </v-expansion-panel-text>
@@ -53,18 +56,18 @@
         <v-expansion-panel-title>
           <v-icon>mdi-head-question</v-icon>
           <span
-            class="my-text"
+            class="upper-bold"
             v-html="$vuetify.locale.t('groups.suggestion')"
           />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
-            class="my-text"
+            class="upper-bold"
             :label="$vuetify.locale.t('groups.name')"
             hide-details="auto"
           ></v-text-field>
           <v-text-field
-            class="my-text"
+            class="upper-bold"
             :label="$vuetify.locale.t('groups.responsible')"
             hide-details="auto"
           ></v-text-field>
@@ -81,7 +84,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-folder-account</v-icon>
-          <span class="my-text" v-html="$vuetify.locale.t('groups.mine')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('groups.mine')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">
@@ -101,7 +104,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-format-list-bulleted</v-icon>
-          <span class="my-text" v-html="$vuetify.locale.t('groups.all')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('groups.all')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">
@@ -141,8 +144,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>

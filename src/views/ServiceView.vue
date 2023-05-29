@@ -1,12 +1,12 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('service.service')" />
+  <h1 class="header" v-html="$vuetify.locale.t('service.service')" />
 
   <div v-if="this.$store.getters.isAdmin">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
           <span
-            class="my-text"
+            class="upper-bold"
             v-html="$vuetify.locale.t('service.motivationalSMS')"
           />
         </v-expansion-panel-title>
@@ -27,7 +27,7 @@
     <v-expansion-panel>
       <v-expansion-panel-title>
         <span
-          class="my-text"
+          class="upper-bold"
           v-html="$vuetify.locale.t('service.professionals')"
         />
       </v-expansion-panel-title>
@@ -44,7 +44,7 @@
   <v-expansion-panels variant="inset" class="my-4">
     <v-expansion-panel>
       <v-expansion-panel-title>
-        <span class="my-text" v-html="$vuetify.locale.t('service.about')" />
+        <span class="upper-bold" v-html="$vuetify.locale.t('service.about')" />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -85,8 +85,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>

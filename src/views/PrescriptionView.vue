@@ -1,16 +1,16 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('prescription.prescription')" />
+  <h1 class="header" v-html="$vuetify.locale.t('prescription.prescription')" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
           <span
-            class="my-text"
+            class="upper-bold"
             v-html="$vuetify.locale.t(`prescription.${button}`)"
           />
         </v-expansion-panel-title>
-        <v-expansion-panel-text class="my-text">
+        <v-expansion-panel-text class="upper-bold">
           <ChallengesView />
         </v-expansion-panel-text>
       </v-expansion-panel>
@@ -49,8 +49,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>

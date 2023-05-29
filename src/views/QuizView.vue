@@ -13,7 +13,7 @@
         <v-card-text> Parabéns, você completou o questionário! </v-card-text>
         <v-card-actions>
           <v-btn block color="green" class="my-4" :to="{ name: 'tips' }">
-            <span class="my-text" v-html="$vuetify.locale.t('tip.answer')" />
+            <span class="upper-bold" v-html="$vuetify.locale.t('tip.answer')" />
           </v-btn>
         </v-card-actions>
       </v-card>

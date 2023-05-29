@@ -6,7 +6,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-eye</v-icon>
-          <span class="my-text" v-html="$vuetify.locale.t('tips.view')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('tips.view')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
@@ -29,7 +29,7 @@
       <v-expansion-panel>
         <v-expansion-panel-title>
           <v-icon>mdi-pencil</v-icon>
-          <span class="my-text" v-html="$vuetify.locale.t('tips.new')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('tips.new')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-text-field
@@ -56,12 +56,12 @@
       <v-toolbar color="secondary">
         <v-tabs v-model="tab" grow>
           <v-tab
-            class="my-text"
+            class="upper-bold"
             value="unread"
             v-html="$vuetify.locale.t('tips.unread')"
           />
           <v-tab
-            class="my-text bg-grey"
+            class="upper-bold bg-grey"
             value="read"
             v-html="$vuetify.locale.t('tips.read')"
           />
@@ -111,8 +111,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>

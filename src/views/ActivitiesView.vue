@@ -1,12 +1,12 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('activities.activities')" />
+  <h1 class="header" v-html="$vuetify.locale.t('activities.activities')" />
 
   <div v-for="(button, index) in buttons" v-bind:key="index">
     <v-expansion-panels variant="inset" class="my-4">
       <v-expansion-panel>
         <v-expansion-panel-title>
           <span
-            class="my-text"
+            class="upper-bold"
             v-html="$vuetify.locale.t(`activities.${button}`)"
           />
         </v-expansion-panel-title>
@@ -22,7 +22,7 @@
               <v-expansion-panel>
                 <v-expansion-panel-title>
                   <span
-                    class="my-text"
+                    class="upper-bold"
                     v-html="$vuetify.locale.t('activities.automatic')"
                   />
                 </v-expansion-panel-title>
@@ -33,7 +33,7 @@
               <v-expansion-panel>
                 <v-expansion-panel-title>
                   <span
-                    class="my-text"
+                    class="upper-bold"
                     v-html="$vuetify.locale.t('activities.manual')"
                   />
                 </v-expansion-panel-title>
@@ -97,8 +97,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>

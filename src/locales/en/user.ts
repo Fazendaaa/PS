@@ -1,4 +1,5 @@
 export default {
+  user: "User",
   hair: "hair",
   skin: "skin",
   clothes: "clothes",

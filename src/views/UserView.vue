@@ -1,20 +1,25 @@
 <template>
-  <br />
+  <h1 class="header" v-html="$vuetify.locale.t('user.user')" />
   <div class="d-flex flex-column justify-space-between align-center">
-    <v-img aspect-ratio="1" width="300" cover src="@/assets/avatar.svg" />
+    <v-img width="200" cover src="@/assets/avatar.svg" />
   </div>
-  <br />
 
   <v-expansion-panels variant="inset" class="my-4">
     <v-expansion-panel v-for="(button, index) in fields" v-bind:key="index">
-      <v-expansion-panel-title v-html="$vuetify.locale.t(`user.${button}`)" />
+      <v-expansion-panel-title
+        class="upper-bold"
+        v-html="$vuetify.locale.t(`user.${button}`)"
+      />
       <v-expansion-panel-text>
         <span> {{ data[button] }} </span>
       </v-expansion-panel-text>
     </v-expansion-panel>
 
     <v-expansion-panel v-for="(button, index) in buttons" v-bind:key="index">
-      <v-expansion-panel-title v-html="$vuetify.locale.t(`user.${button}`)" />
+      <v-expansion-panel-title
+        class="upper-bold"
+        v-html="$vuetify.locale.t(`user.${button}`)"
+      />
       <v-expansion-panel-text>
         <v-btn>
           <span v-html="$vuetify.locale.t(`user.${button}`)" />
@@ -77,9 +82,13 @@ export default defineComponent({
 
     return {
       data,
-      buttons: ["hair", "skin", "clothes", "others"],
+      buttons: ["hair", "skin", "others"],
       fields: ["name", "age", "illness", "medication"],
     };
   },
 });
 </script>
+
+<style scoped>
+@import "@/assets/fonts.css";
+</style>

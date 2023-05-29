@@ -5,7 +5,10 @@
     <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-view-list</v-icon>
-        <span class="my-text" v-html="$vuetify.locale.t('results.results')" />
+        <span
+          class="upper-bold"
+          v-html="$vuetify.locale.t('results.results')"
+        />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <v-text-field
@@ -28,7 +31,10 @@
     <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-chevron-triple-up</v-icon>
-        <span class="my-text" v-html="$vuetify.locale.t('results.ranking')" />
+        <span
+          class="upper-bold"
+          v-html="$vuetify.locale.t('results.ranking')"
+        />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <v-text-field
@@ -51,7 +57,10 @@
     <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-history</v-icon>
-        <span class="my-text" v-html="$vuetify.locale.t('results.history')" />
+        <span
+          class="upper-bold"
+          v-html="$vuetify.locale.t('results.history')"
+        />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
         <v-text-field
@@ -75,7 +84,7 @@
       <v-expansion-panel-title>
         <v-icon>mdi-alert-box</v-icon>
         <span
-          class="my-text"
+          class="upper-bold"
           v-html="$vuetify.locale.t('results.evaluations')"
         />
       </v-expansion-panel-title>
@@ -113,3 +122,7 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+@import "@/assets/fonts.css";
+</style>

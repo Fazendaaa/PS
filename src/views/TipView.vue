@@ -7,15 +7,15 @@
   >
     <v-img :src="item.img" height="200px" cover></v-img>
 
-    <v-card-title class="my-text"> {{ item.title }} </v-card-title>
-    <v-card-subtitle class="my-text"> {{ item.subtitle }} </v-card-subtitle>
+    <v-card-title class="upper-bold"> {{ item.title }} </v-card-title>
+    <v-card-subtitle class="upper-bold"> {{ item.subtitle }} </v-card-subtitle>
 
     <v-card-actions>
       <v-btn @click="show[item.title] = !show[item.title]">
         <v-icon
           :icon="show[item.title] ? 'mdi-chevron-up' : 'mdi-chevron-down'"
         />
-        <span class="my-text" v-html="$vuetify.locale.t('tip.about')" />
+        <span class="upper-bold" v-html="$vuetify.locale.t('tip.about')" />
       </v-btn>
     </v-card-actions>
 
@@ -30,7 +30,7 @@
           class="my-4"
           :to="{ name: 'quiz', params: { id: item.id } }"
         >
-          <span class="my-text" v-html="$vuetify.locale.t('tip.answer')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('tip.answer')" />
         </v-btn>
       </div>
     </v-expand-transition>
@@ -65,8 +65,5 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.my-text {
-  text-transform: uppercase;
-  font-weight: bold;
-}
+@import "@/assets/fonts.css";
 </style>
