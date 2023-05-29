@@ -1,5 +1,5 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('tips.tips')" />
+  <h1 class="header" v-html="$vuetify.locale.t('tips.tips')" />
 
   <div v-if="this.$store.getters.isAdmin">
     <v-expansion-panels variant="inset" class="my-4">
