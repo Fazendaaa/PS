@@ -81,3 +81,7 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+@import "@/assets/fonts.css";
+</style>

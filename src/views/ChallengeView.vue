@@ -28,7 +28,6 @@
 <script lang="ts">
 import { computed, defineComponent, onErrorCaptured, ref } from "vue";
 import { useRoute } from "vue-router";
-import { useStore } from "vuex";
 import Share from "@/components/Share.vue";
 import json from "../../data/challenge.json";
 
@@ -62,9 +61,6 @@ export default defineComponent({
       return true;
     });
     const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
-    const store = useStore();
-
-    store.commit("setTheme", "prescription");
 
     return {
       challenge,
@@ -74,3 +70,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.v-main {
+  background-color: #7421b1;
+}
+</style>

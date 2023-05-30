@@ -123,6 +123,12 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-@import "@/assets/fonts.css";
+<style>
+.v-main {
+  background-color: #ff7e35;
+}
+
+.header {
+  color: white;
+}
 </style>

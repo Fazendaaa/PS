@@ -71,10 +71,8 @@ export default defineComponent({
 
   setup() {
     const store = useStore();
-    const mobile = "16987654321";
+    const mobile = store.getters.getUser["mobile"];
     const data = ref({});
-
-    store.commit("setTheme", "user");
 
     requestData(`users/${mobile}`, "GET").then((response) => {
       data.value = response;
@@ -89,6 +87,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-@import "@/assets/fonts.css";
+<style>
+.v-main {
+  background-color: #e5e5e5;
+}
 </style>

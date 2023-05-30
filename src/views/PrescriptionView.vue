@@ -48,6 +48,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-@import "@/assets/fonts.css";
+<style>
+.v-main {
+  background-color: #7421b1;
+}
 </style>

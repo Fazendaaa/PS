@@ -2,7 +2,6 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    theme: "light",
     admin:
       undefined !== localStorage.getItem("admin")
         ? // @ts-expect-error: any
@@ -17,14 +16,9 @@ export default createStore({
   getters: {
     isAdmin: (state) => state.admin,
     isLogged: (state) => null !== state.user,
+    getUser: (state) => state.user,
   },
   mutations: {
-    setTheme: (state, value) => {
-      state.theme = value;
-      localStorage.setItem("theme", value);
-
-      return value;
-    },
     setUser: (state, value) => {
       state.user = value;
       localStorage.setItem("user", JSON.stringify(value));

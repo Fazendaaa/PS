@@ -11,20 +11,21 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "vuex";
 import json from "../../data/challenge.json";
 
 export default defineComponent({
   name: "ChallengesView",
 
   setup() {
-    const store = useStore();
-
-    store.commit("setTheme", "prescription");
-
     return {
       buttons: json,
     };
   },
 });
 </script>
+
+<style>
+.v-main {
+  background-color: #7421b1;
+}
+</style>

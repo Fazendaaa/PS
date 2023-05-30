@@ -110,6 +110,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-@import "@/assets/fonts.css";
+<style>
+.v-main {
+  background-color: #881800;
+}
 </style>

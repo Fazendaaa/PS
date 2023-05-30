@@ -69,8 +69,7 @@ export default defineComponent({
 
   setup() {
     const store = useStore();
-
-    store.commit("setTheme", "activities");
+    const mobile = store.getters.getUser["mobile"];
 
     return {
       buttons: [
@@ -96,6 +95,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-@import "@/assets/fonts.css";
+<style>
+.v-main {
+  background-color: #00964f;
+}
 </style>

@@ -15,3 +15,9 @@ export default defineComponent({
   name: "ErrorView",
 });
 </script>
+
+<style>
+.v-main {
+  background-color: #d9e4dd;
+}
+</style>

@@ -48,3 +48,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style>
+.v-main {
+  background-color: #7421b1;
+}
+</style>

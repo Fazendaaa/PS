@@ -20,3 +20,9 @@ export default defineComponent({
   name: "NotFoundView",
 });
 </script>
+
+<style>
+.v-main {
+  background-color: #881800;
+}
+</style>
