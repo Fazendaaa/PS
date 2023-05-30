@@ -62,7 +62,6 @@
 <script lang="ts">
 import WhatsApp from "@/components/WhatsApp.vue";
 import { defineComponent, ref } from "vue";
-import { useStore } from "vuex";
 
 export default defineComponent({
   name: "ServiceView",
@@ -72,10 +71,6 @@ export default defineComponent({
   },
 
   setup() {
-    const store = useStore();
-
-    store.commit("setTheme", "service");
-
     return {
       toggle: ref(["green"]),
       professionals: ["trainer", "nutritionist", "psychologist"],

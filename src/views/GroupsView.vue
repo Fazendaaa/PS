@@ -125,17 +125,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "vuex";
 import json from "../../data/groups.json";
 
 export default defineComponent({
   name: "GroupsView",
 
   setup() {
-    const store = useStore();
-
-    store.commit("setTheme", "groups");
-
     return {
       groups: json,
     };

@@ -20,7 +20,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "vuex";
 import ChallengesView from "./ChallengesView.vue";
 
 export default defineComponent({
@@ -31,10 +30,6 @@ export default defineComponent({
   },
 
   setup() {
-    const store = useStore();
-
-    store.commit("setTheme", "prescription");
-
     return {
       buttons: [
         "physicalActivity",

@@ -84,7 +84,6 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { useStore } from "vuex";
 import TipView from "@/views/TipView.vue";
 
 export default defineComponent({
@@ -95,10 +94,6 @@ export default defineComponent({
   },
 
   setup() {
-    const store = useStore();
-
-    store.commit("setTheme", "tips");
-
     return {
       userPosts: [""],
     };

@@ -23,7 +23,6 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed, watch } from "vue";
-import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import json from "../../data/mock.json";
 import QuizQuestion from "@/views/QuizQuestionView.vue";
@@ -38,8 +37,6 @@ export default defineComponent({
     QuizQuestion,
   },
   setup() {
-    const store = useStore();
-    store.commit("setTheme", "tips");
     const route = useRoute();
     const paramID = computed(() => {
       if (undefined !== route.params.id) {
