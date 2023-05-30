@@ -120,8 +120,4 @@ export default defineComponent({
 .v-main {
   background-color: #ff7e35;
 }
-
-.header {
-  color: white;
-}
 </style>
