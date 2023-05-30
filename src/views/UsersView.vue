@@ -18,6 +18,7 @@
   />
   <v-text-field
     :label="$vuetify.locale.t('users.mobile')"
+    :rules="rules"
     v-model="mobile"
     hide-details="auto"
     clearable
@@ -35,7 +36,7 @@
     <v-icon>mdi-check</v-icon>
     <span>Cadastrar</span>
   </v-btn>
-  <v-btn block color="red" class="my-4">
+  <v-btn block color="red" class="my-4" @click="cancel()">
     <v-icon>mdi-cancel</v-icon>
     <span>Cancelar</span>
   </v-btn>
@@ -60,18 +61,19 @@ const cancelUser = (
   name: Ref<string>,
   birthday: Ref<string>,
   mobile: Ref<string>,
-  isAdmin: Ref<boolean>
+  toggle: Ref<string[]>
 ) => {
   name.value = "";
   birthday.value = "";
   mobile.value = "";
+  toggle.value = ["green"];
 };
 
 const addUser = async (
   name: Ref<string>,
   birthday: Ref<string>,
   mobile: Ref<string>,
-  isAdmin: Ref<boolean>,
+  toggle: Ref<string[]>,
   dialog: Ref<boolean>,
   message: Ref<string>
 ) => {
@@ -79,14 +81,14 @@ const addUser = async (
     name: name.value,
     birthday: birthday.value,
     mobile: mobile.value,
-    isAdmin: isAdmin.value,
+    isAdmin: 2 === toggle.value.length,
   });
 
   dialog.value = true;
 
   if (null !== user) {
     message.value = `User ${name.value} added`;
-    cancelUser(name, birthday, mobile, isAdmin);
+    cancelUser(name, birthday, mobile, toggle);
   } else {
     message.value = `Error while adding user ${name.value}`;
   }
@@ -102,7 +104,6 @@ export default defineComponent({
     const message = ref("");
     const toggle = ref(["green"]);
     const dialog = ref(false);
-    const isAdmin = ref(false);
 
     return {
       name,
@@ -111,7 +112,13 @@ export default defineComponent({
       toggle,
       dialog,
       message,
-      add: () => addUser(name, birthday, mobile, isAdmin, dialog, message),
+      add: () => addUser(name, birthday, mobile, toggle, dialog, message),
+      cancel: () => cancelUser(name, birthday, mobile, toggle),
+      rules: [
+        (value: string) => !!value || "Required.",
+        (value: string) =>
+          (value && 11 === value.length) || "Tem que ser 11 dígitos",
+      ],
     };
   },
 });

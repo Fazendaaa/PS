@@ -71,7 +71,8 @@ export default defineComponent({
         auth(store, mobile, password),
       rules: [
         (value: string) => !!value || "Required.",
-        (value: string) => (value && value.length >= 11) || "Min 11 characters",
+        (value: string) =>
+          (value && 11 === value.length) || "Tem que ser 11 dígitos",
       ],
     };
   },

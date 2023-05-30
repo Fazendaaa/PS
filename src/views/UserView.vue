@@ -57,8 +57,8 @@ export default defineComponent({
 
     return {
       data,
-      buttons: ["hair", "skin", "others"],
-      fields: ["name", "age", "illness", "medication"],
+      fields: ["name", "age"],
+      buttons: ["illness", "medication", "hair", "skin", "others"],
     };
   },
 });
