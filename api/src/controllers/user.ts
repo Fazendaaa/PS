@@ -1,6 +1,13 @@
 import { User } from "../models/user";
 import { addUser, getUser, getUsers } from "../mongo/user";
 
+interface InsertUser {
+  isAdmin: boolean;
+  name: string;
+  birthday: string;
+  mobile: string;
+}
+
 export const authUserController = async (mobile: string, password: string) => {
   const user = (await getUser(mobile)) || { password: "" };
 
@@ -15,14 +22,19 @@ export const getUserController = async (mobile: string) => getUser(mobile);
 
 export const getUsersController = async () => getUsers();
 
-export const insertUserController = async () => {
+export const insertUserController = async ({
+  isAdmin,
+  name,
+  birthday,
+  mobile,
+}: InsertUser) => {
   const user = new User();
 
-  user.name = "Fazenda";
-  user.birthday = "27";
-  user.mobile = "00000000000";
-  user.password = "00000000000";
-  user.isAdmin = true;
+  user.name = name;
+  user.birthday = birthday;
+  user.mobile = mobile;
+  user.password = mobile;
+  user.isAdmin = isAdmin;
 
   return addUser(user);
 };

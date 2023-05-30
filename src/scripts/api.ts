@@ -1,6 +1,6 @@
 const url = "https://api.docker.localhost/";
 
-export const requestData = async (
+export const callAPI = async (
   endpoint: string,
   method: string,
   body?: unknown

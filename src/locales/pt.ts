@@ -13,6 +13,7 @@ import error from "@/locales/pt/error";
 import tip from "@/locales/pt/tip";
 import quiz from "@/locales/pt/quiz";
 import user from "@/locales/pt/user";
+import users from "@/locales/pt/users";
 
 export default {
   login,
@@ -30,4 +31,5 @@ export default {
   tip,
   quiz,
   user,
+  users,
 };

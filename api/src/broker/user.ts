@@ -57,7 +57,8 @@ export const insertUserAPIBroker = async (
   res: Response,
   next: NextFunction
 ) => {
-  const user = await insertUserController();
+  const body = req.body;
+  const user = await insertUserController(body);
 
   if (null !== user) {
     res.json(user);

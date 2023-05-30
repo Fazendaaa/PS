@@ -1,4 +1,4 @@
-<template>
+<template v-if="false === this.$store.getters.isAdmin">
   <h1 class="header" v-html="$vuetify.locale.t('user.user')" />
   <div class="d-flex flex-column justify-space-between align-center">
     <v-img width="200" cover src="@/assets/avatar.svg" />
@@ -28,29 +28,6 @@
     </v-expansion-panel>
   </v-expansion-panels>
 
-  <div v-if="this.$store.getters.isAdmin">
-    <span>Questoes Iniciais</span>
-
-    <v-expansion-panels variant="inset" class="my-4">
-      <v-expansion-panel>
-        <v-expansion-panel-title>
-          <span>Questoes Iniciais</span>
-        </v-expansion-panel-title>
-        <v-expansion-panel-text>
-          <v-select
-            v-model="activity"
-            label="Atividade"
-            :items="items"
-            variant="solo"
-          />
-          <div v-if="activity">
-            <Stopwatch />
-          </div>
-        </v-expansion-panel-text>
-      </v-expansion-panel>
-    </v-expansion-panels>
-  </div>
-
   <v-btn block color="green" class="my-4">
     <v-icon>mdi-check</v-icon>
     <span>Salvar</span>
@@ -64,7 +41,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
-import { requestData } from "@/scripts/api";
+import { callAPI } from "@/scripts/api";
 
 export default defineComponent({
   name: "UserView",
@@ -74,7 +51,7 @@ export default defineComponent({
     const mobile = store.getters.getUser["mobile"];
     const data = ref({});
 
-    requestData(`users/${mobile}`, "GET").then((response) => {
+    callAPI(`users/${mobile}`, "GET").then((response) => {
       data.value = response;
     });
 

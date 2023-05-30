@@ -31,7 +31,7 @@
 </template>
 
 <script lang="ts">
-import { requestData } from "@/scripts/api";
+import { callAPI } from "@/scripts/api";
 import { defineComponent, ref } from "vue";
 import { Store, useStore } from "vuex";
 
@@ -40,7 +40,7 @@ const auth = async (
   mobile: string,
   password: string
 ): Promise<boolean> => {
-  const response = await requestData("users/auth/", "POST", {
+  const response = await callAPI("users/auth/", "POST", {
     mobile,
     password,
   });

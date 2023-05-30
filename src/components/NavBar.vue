@@ -58,6 +58,11 @@ export default defineComponent({
     const adminItems = [
       ...[
         {
+          title: "users",
+          path: "/users",
+          icon: "mdi-account",
+        },
+        {
           title: "results",
           path: "/results",
           icon: "mdi-file",

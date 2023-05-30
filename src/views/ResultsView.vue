@@ -1,4 +1,4 @@
-<template>
+<template v-if="this.$store.getters.isAdmin">
   <h1 class="header" v-html="$vuetify.locale.t('results.results')" />
 
   <v-expansion-panels>
