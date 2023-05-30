@@ -10,6 +10,13 @@ export default defineComponent({
 });
 </script>
 
+<style scoped>
+.v-img {
+  width: 100%;
+  height: 100%;
+}
+</style>
+
 <style>
 .v-main {
   background-color: #e5e5e5;

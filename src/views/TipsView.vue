@@ -26,7 +26,7 @@
         </v-expansion-panel-text>
       </v-expansion-panel>
 
-      <v-expansion-panel>
+      <v-expansion-panel variant="inset" class="my-4">
         <v-expansion-panel-title>
           <v-icon>mdi-pencil</v-icon>
           <span class="upper-bold" v-html="$vuetify.locale.t('tips.new')" />

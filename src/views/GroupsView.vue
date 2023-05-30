@@ -2,8 +2,8 @@
   <h1 class="header" v-html="$vuetify.locale.t('groups.groups')" />
 
   <div v-if="this.$store.getters.isAdmin">
-    <v-expansion-panels variant="inset" class="my-4">
-      <v-expansion-panel>
+    <v-expansion-panels>
+      <v-expansion-panel variant="inset" class="my-4">
         <v-expansion-panel-title>
           <v-icon>mdi-pencil</v-icon>
           <span
@@ -28,12 +28,11 @@
           </v-btn>
         </v-expansion-panel-text>
       </v-expansion-panel>
-    </v-expansion-panels>
-    <v-expansion-panels variant="inset" class="my-4">
-      <v-expansion-panel>
+
+      <v-expansion-panel variant="inset" class="my-4">
         <v-expansion-panel-title>
           <v-icon>mdi-format-list-bulleted</v-icon>
-          <span v-html="$vuetify.locale.t('groups.all')" />
+          <span class="upper-bold" v-html="$vuetify.locale.t('groups.all')" />
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-list lines="one">

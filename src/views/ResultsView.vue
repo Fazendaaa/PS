@@ -1,8 +1,8 @@
 <template>
   <h1 class="header" v-html="$vuetify.locale.t('results.results')" />
 
-  <v-expansion-panels variant="inset" class="my-4">
-    <v-expansion-panel>
+  <v-expansion-panels>
+    <v-expansion-panel variant="inset" class="my-4">
       <v-expansion-panel-title>
         <v-icon>mdi-view-list</v-icon>
         <span
@@ -28,7 +28,7 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel>
+    <v-expansion-panel variant="inset" class="my-4">
       <v-expansion-panel-title>
         <v-icon>mdi-chevron-triple-up</v-icon>
         <span
@@ -54,7 +54,7 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel>
+    <v-expansion-panel variant="inset" class="my-4">
       <v-expansion-panel-title>
         <v-icon>mdi-history</v-icon>
         <span
@@ -80,7 +80,7 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel>
+    <v-expansion-panel variant="inset" class="my-4">
       <v-expansion-panel-title>
         <v-icon>mdi-alert-box</v-icon>
         <span
