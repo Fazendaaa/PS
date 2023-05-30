@@ -10,12 +10,6 @@ export const insertGroupController = async ({
 }: Group) => {
   const group = new Group();
 
-  console.log({
-    name,
-    link,
-    responsible,
-  });
-
   group.name = name;
   group.link = link;
   group.responsible = responsible;

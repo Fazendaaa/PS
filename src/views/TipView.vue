@@ -53,7 +53,6 @@ export default defineComponent({
       img: item.img,
       id: item.id,
     }));
-    console.log(entries);
     const show = ref<Record<string, boolean>>({});
 
     return {
