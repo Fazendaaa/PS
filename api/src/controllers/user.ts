@@ -3,7 +3,6 @@ import { addUser, getUser, getUsers } from "../mongo/user";
 
 export const authUserController = async (mobile: string, password: string) => {
   const user = (await getUser(mobile)) || { password: "" };
-  console.log(user);
 
   if (user["password"] === password) {
     return user;

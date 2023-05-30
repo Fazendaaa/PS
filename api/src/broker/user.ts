@@ -14,7 +14,6 @@ export const authUserAPIBroker = async (
   next: NextFunction
 ) => {
   const body = req.body;
-  console.log(body);
   const user = await authUserController(body["mobile"], body["password"]);
 
   if (null !== user) {

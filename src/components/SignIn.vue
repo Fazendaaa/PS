@@ -45,8 +45,6 @@ const auth = async (
     password,
   });
 
-  console.log(response);
-
   if (null !== response) {
     store.commit("setUser", response);
 
