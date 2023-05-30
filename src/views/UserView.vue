@@ -91,4 +91,8 @@ export default defineComponent({
 .v-main {
   background-color: #e5e5e5;
 }
+
+.header {
+  color: black;
+}
 </style>

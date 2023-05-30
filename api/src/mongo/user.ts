@@ -12,6 +12,7 @@ const schema = new Schema<User>({
   mobile: String,
   password: String,
   birthday: String,
+  isAdmin: Boolean,
 });
 const userModel = model("User", schema);
 

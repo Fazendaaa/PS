@@ -1,11 +1,28 @@
 import { Request, Response, NextFunction } from "express";
 import {
+  authUserController,
   deleteUserController,
   getUserController,
   getUsersController,
   insertUserController,
   updateUserController,
 } from "../controllers/user";
+
+export const authUserAPIBroker = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const body = req.body;
+  console.log(body);
+  const user = await authUserController(body["mobile"], body["password"]);
+
+  if (null !== user) {
+    res.json(user);
+  } else {
+    res.sendStatus(404);
+  }
+};
 
 export const getUserAPIBroker = async (
   req: Request,

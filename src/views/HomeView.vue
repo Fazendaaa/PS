@@ -1,22 +1,17 @@
 <template>
-  <Login />
+  <v-img cover src="@/assets/login.svg" />
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import Login from "@/components/Login.vue";
 
 export default defineComponent({
-  name: "LoginView",
-
-  components: {
-    Login,
-  },
+  name: "HomeView",
 });
 </script>
 
 <style>
 .v-main {
-  background-color: #881800;
+  background-color: #e5e5e5;
 }
 </style>

@@ -8,6 +8,7 @@ export class User {
   mobile: string;
   password: string;
   birthday: string;
+  isAdmin: boolean;
 
   constructor() {
     this.hair = "";
@@ -19,5 +20,6 @@ export class User {
     this.mobile = "";
     this.password = "";
     this.birthday = "";
+    this.isAdmin = false;
   }
 }

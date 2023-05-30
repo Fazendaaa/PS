@@ -31,16 +31,24 @@
 </template>
 
 <script lang="ts">
+import { requestData } from "@/scripts/api";
 import { defineComponent, ref } from "vue";
 import { Store, useStore } from "vuex";
 
-const validatePassword = (
-  store: Store<any>,
+const auth = async (
+  store: Store<unknown>,
   mobile: string,
   password: string
-): boolean => {
-  if (mobile === password.split("").reverse().join("")) {
-    store.commit("setUser", { mobile });
+): Promise<boolean> => {
+  const response = await requestData("users/auth/", "POST", {
+    mobile,
+    password,
+  });
+
+  console.log(response);
+
+  if (null !== response) {
+    store.commit("setUser", response);
 
     return true;
   }
@@ -62,7 +70,7 @@ export default defineComponent({
       password,
       loading,
       checkPassword: (mobile: string, password: string) =>
-        validatePassword(store, mobile, password),
+        auth(store, mobile, password),
       rules: [
         (value: string) => !!value || "Required.",
         (value: string) => (value && value.length >= 11) || "Min 11 characters",

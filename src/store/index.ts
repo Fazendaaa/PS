@@ -2,11 +2,6 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    admin:
-      undefined !== localStorage.getItem("admin")
-        ? // @ts-expect-error: any
-          JSON.parse(localStorage.getItem("admin"))
-        : false,
     user:
       undefined !== localStorage.getItem("user")
         ? // @ts-expect-error: any
@@ -14,7 +9,7 @@ export default createStore({
         : {},
   },
   getters: {
-    isAdmin: (state) => state.admin,
+    isAdmin: (state) => (null !== state.user ? state.user["isAdmin"] : false),
     isLogged: (state) => null !== state.user,
     getUser: (state) => state.user,
   },
@@ -24,12 +19,6 @@ export default createStore({
       localStorage.setItem("user", JSON.stringify(value));
 
       return value;
-    },
-    toggleAdmin: (state) => {
-      state.admin = !state.admin;
-      localStorage.setItem("admin", JSON.stringify(state.admin));
-
-      return state.admin;
     },
   },
   actions: {},

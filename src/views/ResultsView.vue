@@ -1,5 +1,5 @@
 <template>
-  <h1 v-html="$vuetify.locale.t('results.results')" />
+  <h1 class="header" v-html="$vuetify.locale.t('results.results')" />
 
   <v-expansion-panels variant="inset" class="my-4">
     <v-expansion-panel>

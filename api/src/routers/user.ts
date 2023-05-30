@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  authUserAPIBroker,
   deleteUserAPIBroker,
   getUserAPIBroker,
   getUsersAPIBroker,
@@ -14,6 +15,8 @@ usersRouter.get("/:id", getUserAPIBroker);
 usersRouter.get("/", getUsersAPIBroker);
 
 usersRouter.post("/", insertUserAPIBroker);
+
+usersRouter.post("/auth", authUserAPIBroker);
 
 usersRouter.patch("/:id", updateUserAPIBroker);
 
