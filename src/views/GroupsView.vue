@@ -13,16 +13,26 @@
       <v-expansion-panel-text>
         <v-text-field
           :label="$vuetify.locale.t('groups.name')"
+          v-model="name"
           hide-details="auto"
-        ></v-text-field>
+          clearable
+        />
         <v-text-field
           :label="$vuetify.locale.t('groups.responsible')"
+          v-model="responsible"
           hide-details="auto"
-        ></v-text-field>
-        <v-btn block color="green" class="my-4">
+          clearable
+        />
+        <v-text-field
+          :label="$vuetify.locale.t('groups.link')"
+          v-model="link"
+          hide-details="auto"
+          clearable
+        />
+        <v-btn block color="green" class="my-4" @click="add()">
           <span v-html="$vuetify.locale.t('groups.accept')" />
         </v-btn>
-        <v-btn block color="red" class="my-4">
+        <v-btn block color="red" class="my-4" @click="cancel()">
           <span v-html="$vuetify.locale.t('groups.cancel')" />
         </v-btn>
       </v-expansion-panel-text>
@@ -43,12 +53,12 @@
           class="upper-bold"
           :label="$vuetify.locale.t('groups.name')"
           hide-details="auto"
-        ></v-text-field>
+        />
         <v-text-field
           class="upper-bold"
           :label="$vuetify.locale.t('groups.responsible')"
           hide-details="auto"
-        ></v-text-field>
+        />
         <v-btn block color="green" class="my-4">
           <span v-html="$vuetify.locale.t('groups.submit')" />
         </v-btn>
@@ -98,18 +108,91 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
+
+  <v-dialog v-model="dialog" width="auto">
+    <v-card>
+      <v-card-text>
+        {{ message }}
+      </v-card-text>
+      <v-card-actions>
+        <v-btn color="primary" block @click="dialog = false">Close</v-btn>
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import json from "../../data/groups.json";
+import { callAPI } from "@/scripts/api";
+import { defineComponent, Ref, ref } from "vue";
+
+interface Group {
+  name: string;
+  link: string;
+  responsible: string;
+}
+
+const updateGroupsList = (groups: Ref<Group[]>) =>
+  callAPI("groups/", "GET").then((response) => {
+    groups.value = response;
+  });
+
+const cancelGroup = (
+  name: Ref<string>,
+  responsible: Ref<string>,
+  link: Ref<string>
+) => {
+  name.value = "";
+  responsible.value = "";
+  link.value = "";
+};
+
+const addGroup = async (
+  name: Ref<string>,
+  responsible: Ref<string>,
+  link: Ref<string>,
+  dialog: Ref<boolean>,
+  message: Ref<string>,
+  groups: Ref<Group[]>
+) => {
+  const group = await callAPI("groups/", "POST", {
+    name: name.value,
+    responsible: responsible.value,
+    link: link.value,
+  });
+
+  dialog.value = true;
+
+  if (null !== group) {
+    message.value = `Group ${name.value} added`;
+    cancelGroup(name, responsible, link);
+    updateGroupsList(groups);
+  } else {
+    message.value = `Error while adding group ${name.value}`;
+  }
+};
 
 export default defineComponent({
   name: "GroupsView",
 
   setup() {
+    const groups = ref<Group[]>([]);
+    const name = ref("");
+    const responsible = ref("");
+    const link = ref("");
+    const message = ref("");
+    const dialog = ref(false);
+
+    updateGroupsList(groups);
+
     return {
-      groups: json,
+      name,
+      responsible,
+      link,
+      groups,
+      message,
+      dialog,
+      add: () => addGroup(name, responsible, link, dialog, message, groups),
+      cancel: () => cancelGroup(name, responsible, link),
     };
   },
 });

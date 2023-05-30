@@ -9,4 +9,5 @@ export default {
   cancel: "Cancel",
   name: "Group name",
   responsible: "Responsible",
+  link: "Link",
 };

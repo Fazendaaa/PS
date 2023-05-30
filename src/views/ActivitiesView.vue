@@ -53,7 +53,6 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { useStore } from "vuex";
 import Stopwatch from "@/components/Stopwatch.vue";
 // @ts-expect-error: missing type declaration
 import VueTimepicker from "vue3-timepicker";
@@ -68,9 +67,6 @@ export default defineComponent({
   },
 
   setup() {
-    const store = useStore();
-    const mobile = store.getters.getUser["mobile"];
-
     return {
       buttons: [
         "healthcare",
