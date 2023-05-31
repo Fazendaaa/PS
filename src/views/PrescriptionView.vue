@@ -12,6 +12,7 @@
         </v-expansion-panel-title>
         <v-expansion-panel-text class="upper-bold">
           <ChallengesView />
+          <OpenStreetMap />
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -20,12 +21,14 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import OpenStreetMap from "@/components/OpenStreetMap.vue";
 import ChallengesView from "./ChallengesView.vue";
 
 export default defineComponent({
   name: "PrescriptionView",
 
   components: {
+    OpenStreetMap,
     ChallengesView,
   },
 
