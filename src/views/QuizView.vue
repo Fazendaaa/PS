@@ -24,7 +24,7 @@
         <v-btn block color="red" :to="{ name: 'tips' }">Cancelar</v-btn>
 
         <v-dialog v-model="showWrong" width="auto">
-          <v-card>
+          <v-card color="white">
             <v-card-title>Não é esta</v-card-title>
             <v-card-text>Quer tentar de novo?</v-card-text>
             <v-card-actions>
@@ -52,7 +52,7 @@
         </v-dialog>
 
         <v-dialog v-model="showRight" width="auto">
-          <v-card>
+          <v-card color="white">
             <v-card-title>Questionário completo</v-card-title>
             <v-card-text>
               Parabéns, você completou o questionário!
@@ -72,6 +72,18 @@
         </v-dialog>
       </v-card-text>
     </div>
+
+    <div v-else>
+      <v-btn
+        block
+        color="red"
+        class="my-4"
+        @click="showWrong = false"
+        :to="{ name: 'tips' }"
+      >
+        <span class="upper-bold">Fechar</span>
+      </v-btn>
+    </div>
   </v-card>
 </template>
 
@@ -79,6 +91,16 @@
 import { defineComponent, ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import json from "../../data/mock.json";
+
+const addToAnswered = (id: number) => {
+  const answered: number[] =
+    null !== localStorage.getItem("answered")
+      ? // @ts-expect-error: any
+        JSON.parse(localStorage.getItem("answered"))
+      : [];
+
+  localStorage.setItem("answered", JSON.stringify([...answered, id]));
+};
 
 interface Question {
   question: string;
@@ -131,6 +153,7 @@ export default defineComponent({
           currentQuestion.value = questions[currentQuestionIndex.value];
         } else {
           showRight.value = true;
+          addToAnswered(topic.id);
         }
       } else {
         showWrong.value = true;

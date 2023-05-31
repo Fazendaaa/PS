@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, toRefs } from "vue";
 import json from "../../data/mock.json";
 
 // https://stackoverflow.com/a/50477423/7092954
@@ -73,6 +73,34 @@ const textEllipsis = (
   return str;
 };
 
+interface Quiz {
+  title: string;
+  text: string;
+  tips: string;
+  references: string;
+  img: string;
+  id: number;
+  questions: {
+    question: string;
+    options: string[];
+    correct_answer: number;
+  }[];
+}
+
+const filterData = (data: Quiz[], answered: boolean): Quiz[] => {
+  const local: number[] =
+    null !== localStorage.getItem("answered")
+      ? // @ts-expect-error: any
+        JSON.parse(localStorage.getItem("answered"))
+      : [];
+
+  if (answered) {
+    return data.filter((item) => local.includes(item.id));
+  } else {
+    return data.filter((item) => !local.includes(item.id));
+  }
+};
+
 export default defineComponent({
   name: "TipView",
 
@@ -84,8 +112,10 @@ export default defineComponent({
     },
   },
 
-  setup() {
-    const data = json.quizzes;
+  setup(props) {
+    const { readonly } = toRefs(props);
+    // @ts-expect-error: any
+    const data = filterData(json.quizzes, readonly.value);
     const entries = data.map((item) => ({
       title: item.title,
       subtitle: item.text,

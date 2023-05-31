@@ -57,23 +57,23 @@
         <v-tabs v-model="tab" grow>
           <v-tab
             class="upper-bold bg-orange"
-            value="unread"
-            v-html="$vuetify.locale.t('tips.unread')"
+            value="unanswered"
+            v-html="$vuetify.locale.t('tips.unanswered')"
           />
           <v-tab
             class="upper-bold bg-grey"
-            value="read"
-            v-html="$vuetify.locale.t('tips.read')"
+            value="answered"
+            v-html="$vuetify.locale.t('tips.answered')"
           />
         </v-tabs>
       </v-toolbar>
 
-      <v-card-text :class="'unread' === tab ? 'bg-orange' : 'bg-grey'">
+      <v-card-text :class="'unanswered' === tab ? 'bg-orange' : 'bg-grey'">
         <v-window v-model="tab">
-          <v-window-item value="unread" class="bg-orange">
+          <v-window-item value="unanswered" class="bg-orange">
             <TipView :readonly="false" />
           </v-window-item>
-          <v-window-item value="read" class="bg-grey">
+          <v-window-item value="answered" class="bg-grey">
             <TipView :readonly="true" />
           </v-window-item>
         </v-window>
