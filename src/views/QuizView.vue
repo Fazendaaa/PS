@@ -1,62 +1,78 @@
 <template>
-  <h1 class="header">{{ topic.title }}</h1>
-  <p class="header">{{ topic.text }}</p>
+  <v-card>
+    <br />
+    <v-card-title class="header">{{ topic.title }}</v-card-title>
+    <v-card-text class="header">
+      {{ topic.text }}
+    </v-card-text>
 
-  <h2 class="header">{{ currentQuestion.question }}</h2>
+    <div v-if="false === readonly">
+      <v-card-title class="header">{{ currentQuestion.question }}</v-card-title>
 
-  <v-radio-group v-model="selectedOption">
-    <v-radio
-      v-for="(option, index) in currentQuestion.options"
-      :key="index"
-      :value="index"
-      :label="option"
-      class="header"
-    />
-  </v-radio-group>
+      <v-card-text class="header">
+        <v-radio-group v-model="selectedOption">
+          <v-radio
+            v-for="(option, index) in currentQuestion.options"
+            :key="index"
+            :value="index"
+            :label="option"
+            class="header"
+          />
+        </v-radio-group>
 
-  <v-btn block color="green" @click="checkAnswer">Enviar Resposta</v-btn>
-  <v-btn block color="red" :to="{ name: 'tips' }">Cancelar</v-btn>
+        <v-btn block color="green" @click="checkAnswer">Enviar Resposta</v-btn>
+        <v-btn block color="red" :to="{ name: 'tips' }">Cancelar</v-btn>
 
-  <v-dialog v-model="showWrong" width="auto">
-    <v-card>
-      <v-card-title>Não é esta</v-card-title>
-      <v-card-text>Quer tentar de novo?</v-card-text>
-      <v-card-actions>
-        <v-btn block color="green" class="my-4" @click="showWrong = false">
-          <span class="upper-bold">Sim</span>
-        </v-btn>
-      </v-card-actions>
-      <v-card-actions>
-        <v-btn
-          block
-          color="red"
-          class="my-4"
-          @click="showWrong = false"
-          :to="{ name: 'tips' }"
-        >
-          <span class="upper-bold">Não</span>
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+        <v-dialog v-model="showWrong" width="auto">
+          <v-card>
+            <v-card-title>Não é esta</v-card-title>
+            <v-card-text>Quer tentar de novo?</v-card-text>
+            <v-card-actions>
+              <v-btn
+                block
+                color="green"
+                class="my-4"
+                @click="showWrong = false"
+              >
+                <span class="upper-bold">Sim</span>
+              </v-btn>
+            </v-card-actions>
+            <v-card-actions>
+              <v-btn
+                block
+                color="red"
+                class="my-4"
+                @click="showWrong = false"
+                :to="{ name: 'tips' }"
+              >
+                <span class="upper-bold">Não</span>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
 
-  <v-dialog v-model="showRight" width="auto">
-    <v-card>
-      <v-card-title>Questionário completo</v-card-title>
-      <v-card-text> Parabéns, você completou o questionário! </v-card-text>
-      <v-card-actions>
-        <v-btn
-          block
-          color="green"
-          class="my-4"
-          @click="showRight = false"
-          :to="{ name: 'tips' }"
-        >
-          <span class="upper-bold">Responder mais</span>
-        </v-btn>
-      </v-card-actions>
-    </v-card>
-  </v-dialog>
+        <v-dialog v-model="showRight" width="auto">
+          <v-card>
+            <v-card-title>Questionário completo</v-card-title>
+            <v-card-text>
+              Parabéns, você completou o questionário!
+            </v-card-text>
+            <v-card-actions>
+              <v-btn
+                block
+                color="green"
+                class="my-4"
+                @click="showRight = false"
+                :to="{ name: 'tips' }"
+              >
+                <span class="upper-bold">Responder mais</span>
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-dialog>
+      </v-card-text>
+    </div>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -86,6 +102,17 @@ export default defineComponent({
         return "";
       }
     });
+    const readonly = computed(() => {
+      if (undefined !== route.query.readonly) {
+        const id =
+          "string" == typeof route.query.readonly
+            ? "true" === route.query.readonly
+            : false;
+        return id;
+      } else {
+        return false;
+      }
+    });
     const topic = json.quizzes[parseInt(paramID.value) - 1];
     const currentQuestionIndex = ref(0);
     const showRight = ref(false);
@@ -111,6 +138,7 @@ export default defineComponent({
     };
 
     return {
+      readonly,
       topic,
       showRight,
       showWrong,
@@ -121,6 +149,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.v-card {
+  background-color: #881800;
+}
+</style>
 
 <style>
 .v-main {

@@ -28,9 +28,22 @@
           block
           color="green"
           class="my-4"
-          :to="{ name: 'quiz', params: { id: item.id } }"
+          :to="{
+            name: 'quiz',
+            params: { id: item.id },
+            query: { readonly: readonly.toString() },
+          }"
         >
-          <span class="upper-bold" v-html="$vuetify.locale.t('tip.answer')" />
+          <span
+            v-if="false === readonly"
+            class="upper-bold"
+            v-html="$vuetify.locale.t('tip.answer')"
+          />
+          <span
+            v-else
+            class="upper-bold"
+            v-html="$vuetify.locale.t('tip.read')"
+          />
         </v-btn>
       </div>
     </v-expand-transition>
@@ -62,6 +75,14 @@ const textEllipsis = (
 
 export default defineComponent({
   name: "TipView",
+
+  props: {
+    readonly: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
+  },
 
   setup() {
     const data = json.quizzes;

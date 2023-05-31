@@ -53,10 +53,10 @@
 
   <div v-else>
     <v-card>
-      <v-toolbar color="secondary">
+      <v-toolbar class="bg-orange">
         <v-tabs v-model="tab" grow>
           <v-tab
-            class="upper-bold"
+            class="upper-bold bg-orange"
             value="unread"
             v-html="$vuetify.locale.t('tips.unread')"
           />
@@ -68,13 +68,13 @@
         </v-tabs>
       </v-toolbar>
 
-      <v-card-text>
+      <v-card-text :class="'unread' === tab ? 'bg-orange' : 'bg-grey'">
         <v-window v-model="tab">
-          <v-window-item value="read">
-            <TipView />
+          <v-window-item value="unread" class="bg-orange">
+            <TipView :readonly="false" />
           </v-window-item>
-          <v-window-item value="unread">
-            <TipView />
+          <v-window-item value="read" class="bg-grey">
+            <TipView :readonly="true" />
           </v-window-item>
         </v-window>
       </v-card-text>
@@ -83,7 +83,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 import TipView from "@/views/TipView.vue";
 
 export default defineComponent({
@@ -94,14 +94,13 @@ export default defineComponent({
   },
 
   setup() {
+    const tab = ref("");
+
     return {
+      tab,
       userPosts: [""],
     };
   },
-
-  data: () => ({
-    tab: null,
-  }),
 });
 </script>
 
