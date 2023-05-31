@@ -1,5 +1,6 @@
 <template>
-  Compartilhe:
+  <br />
+  <h2 class="header">Compartilhe:</h2>
   <br />
   <ShareNetwork
     v-for="network in networks"
@@ -14,7 +15,7 @@
     flat
     style="text-decoration: none; color: inherit"
   >
-    <v-btn>
+    <v-btn block :color="network.color">
       <v-icon>{{ network.icon }}</v-icon>
       <span>{{ network.name }}</span>
     </v-btn>
@@ -67,21 +68,25 @@ export default defineComponent({
           network: "twitter",
           name: "Twitter",
           icon: "mdi-twitter",
+          color: "blue",
         },
         {
           network: "whatsapp",
           name: "Whatsapp",
           icon: "mdi-whatsapp",
+          color: "green",
         },
         {
           network: "telegram",
           name: "Telegram",
-          icon: "mdi-telegram",
+          icon: "mdi-send-variant",
+          color: "#81c6eb",
         },
         {
           network: "messenger",
           name: "Messenger",
           icon: "mdi-facebook-messenger",
+          color: "#e374b6",
         },
       ],
     };

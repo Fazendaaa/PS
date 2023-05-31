@@ -1,27 +1,30 @@
 <template>
   <v-card>
-    <h1>{{ challenge.title }}</h1>
+    <h1 class="header">{{ challenge.title }}</h1>
     <v-card-text>
       {{ challenge.content }}
-    </v-card-text>
-    <div v-if="error">Error while loading social share</div>
-    <Suspense v-else>
-      <template #default>
-        <Share
-          title="Título"
-          description="Descrição"
-          quote="quote"
-          hashtags="hashtags"
-        />
-      </template>
-      <template #fallback>
-        <div align="center">loading navigation...</div>
-      </template>
-    </Suspense>
 
-    <v-btn block color="red" :to="{ name: 'prescription' }">
-      <span>close</span>
-    </v-btn>
+      <div v-if="error">Error while loading social share</div>
+
+      <Suspense v-else>
+        <template #default>
+          <Share
+            title="Título"
+            description="Descrição"
+            quote="quote"
+            hashtags="hashtags"
+          />
+        </template>
+        <template #fallback>
+          <div align="center">loading navigation...</div>
+        </template>
+      </Suspense>
+
+      <br />
+      <v-btn block color="red" :to="{ name: 'prescription' }">
+        <span>Fechar</span>
+      </v-btn>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -70,6 +73,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.v-card {
+  background-color: #7421b1;
+}
+</style>
 
 <style>
 .v-main {
