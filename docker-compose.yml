@@ -19,6 +19,8 @@ services:
       - DB_HOST=mongodb
       - DB_PORT=27017
       - DB_SRV=false
+      - ADMIN_USERNAME=00000000000
+      - ADMIN_PASSWORD=00000000000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api.tls=true"
@@ -37,7 +39,7 @@ services:
 
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
+    restart: on-failure
     environment:
       - ME_CONFIG_MONGODB_SERVER=mongodb
       - ME_CONFIG_MONGODB_ADMINUSERNAME=root

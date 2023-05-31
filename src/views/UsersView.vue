@@ -81,6 +81,7 @@ const addUser = async (
     name: name.value,
     birthday: birthday.value,
     mobile: mobile.value,
+    password: mobile.value,
     isAdmin: 2 === toggle.value.length,
   });
 

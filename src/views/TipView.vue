@@ -5,7 +5,7 @@
     class="mx-auto"
     max-width="344"
   >
-    <v-img :src="item.img" height="200px" cover></v-img>
+    <v-img src="@/assets/images.jpeg" height="200px" cover></v-img>
 
     <v-card-title class="upper-bold"> {{ item.title }} </v-card-title>
     <v-card-subtitle class="upper-bold"> {{ item.subtitle }} </v-card-subtitle>
@@ -41,6 +41,25 @@
 import { defineComponent, ref } from "vue";
 import json from "../../data/mock.json";
 
+// https://stackoverflow.com/a/50477423/7092954
+const textEllipsis = (
+  str: string,
+  maxLength: number,
+  { side = "end", ellipsis = "..." } = {}
+) => {
+  if (str.length > maxLength) {
+    switch (side) {
+      case "start":
+        return ellipsis + str.slice(-(maxLength - ellipsis.length));
+      case "end":
+      default:
+        return str.slice(0, maxLength - ellipsis.length) + ellipsis;
+    }
+  }
+
+  return str;
+};
+
 export default defineComponent({
   name: "TipView",
 
@@ -49,7 +68,7 @@ export default defineComponent({
     const entries = data.map((item) => ({
       title: item.title,
       subtitle: item.text,
-      content: item.text,
+      content: textEllipsis(item.text, 100),
       img: item.img,
       id: item.id,
     }));

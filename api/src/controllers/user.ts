@@ -6,6 +6,7 @@ interface InsertUser {
   name: string;
   birthday: string;
   mobile: string;
+  password: string;
 }
 
 export const authUserController = async (mobile: string, password: string) => {
@@ -27,13 +28,14 @@ export const insertUserController = async ({
   name,
   birthday,
   mobile,
+  password,
 }: InsertUser) => {
   const user = new User();
 
   user.name = name;
   user.birthday = birthday;
   user.mobile = mobile;
-  user.password = mobile;
+  user.password = password;
   user.isAdmin = isAdmin;
 
   return addUser(user);
