@@ -1,13 +1,5 @@
 import { User } from "../models/user";
-import { addUser, getUser, getUsers } from "../mongo/user";
-
-interface InsertUser {
-  isAdmin: boolean;
-  name: string;
-  birthday: string;
-  mobile: string;
-  password: string;
-}
+import { addUser, getUser, getUsers, updateUser } from "../mongo/user";
 
 export const authUserController = async (mobile: string, password: string) => {
   const user = (await getUser(mobile)) || { password: "" };
@@ -29,7 +21,7 @@ export const insertUserController = async ({
   birthday,
   mobile,
   password,
-}: InsertUser) => {
+}: User) => {
   const user = new User();
 
   user.name = name;
@@ -41,11 +33,8 @@ export const insertUserController = async ({
   return addUser(user);
 };
 
-export const updateUserController = () => {
-  const user = { foo: "updateuser" };
-
-  return user;
-};
+export const updateUserController = (mobile: string, user: User) =>
+  updateUser(mobile, user);
 
 export const deleteUserController = () => {
   const user = { foo: "deleteuser" };

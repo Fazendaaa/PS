@@ -13,6 +13,7 @@ const schema = new Schema<User>({
   password: String,
   birthday: String,
   isAdmin: Boolean,
+  questionsAnswered: [Number],
 });
 const userModel = model("User", schema);
 
@@ -36,12 +37,28 @@ export const getUsers = async () => {
   return userModel.find();
 };
 
-export const updateUser = async (user: User) => {
-  await connection();
-  const added = new userModel(user);
-  await added.save();
+export const updateUser = async (mobile: string, user: User) => {
+  const found = await getUser(user["mobile"]);
 
-  return added;
+  if (null !== found) {
+    found.hair = user.hair;
+    found.skin = user.skin;
+    found.name = user.name;
+    found.illnesses = user.illnesses;
+    found.medication = user.medication;
+    found.docs = user.docs;
+    found.mobile = user.mobile;
+    found.password = user.password;
+    found.birthday = user.birthday;
+    found.isAdmin = user.isAdmin;
+    found.questionsAnswered = user.questionsAnswered;
+
+    await found.save();
+
+    return found;
+  }
+
+  return null;
 };
 
 export const deleteUser = async (user: User) => {

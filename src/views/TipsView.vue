@@ -94,11 +94,8 @@ export default defineComponent({
   },
 
   setup() {
-    const tab = ref("");
-
     return {
-      tab,
-      userPosts: [""],
+      tab: ref(""),
     };
   },
 });

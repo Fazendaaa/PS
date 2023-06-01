@@ -88,18 +88,22 @@
 </template>
 
 <script lang="ts">
+import { callAPI } from "@/scripts/api";
 import { defineComponent, ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import json from "../../data/mock.json";
 
-const addToAnswered = (id: number) => {
-  const answered: number[] =
-    null !== localStorage.getItem("answered")
-      ? // @ts-expect-error: any
-        JSON.parse(localStorage.getItem("answered"))
+const addToAnswered = async (id: number) => {
+  const user =
+    null !== localStorage.getItem("user") // @ts-expect-error: any
+      ? JSON.parse(localStorage.getItem("user"))
       : [];
 
-  localStorage.setItem("answered", JSON.stringify([...answered, id]));
+  user.questionsAnswered = [...user.questionsAnswered, id];
+  localStorage.setItem(
+    "user",
+    JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
+  );
 };
 
 interface Question {
@@ -126,11 +130,9 @@ export default defineComponent({
     });
     const readonly = computed(() => {
       if (undefined !== route.query.readonly) {
-        const id =
-          "string" == typeof route.query.readonly
-            ? "true" === route.query.readonly
-            : false;
-        return id;
+        return "string" == typeof route.query.readonly
+          ? "true" === route.query.readonly
+          : false;
       } else {
         return false;
       }

@@ -88,16 +88,16 @@ interface Quiz {
 }
 
 const filterData = (data: Quiz[], answered: boolean): Quiz[] => {
-  const local: number[] =
-    null !== localStorage.getItem("answered")
+  const user =
+    null !== localStorage.getItem("user")
       ? // @ts-expect-error: any
-        JSON.parse(localStorage.getItem("answered"))
-      : [];
+        JSON.parse(localStorage.getItem("user"))
+      : {};
 
   if (answered) {
-    return data.filter((item) => local.includes(item.id));
+    return data.filter((item) => user["questionsAnswered"].includes(item.id));
   } else {
-    return data.filter((item) => !local.includes(item.id));
+    return data.filter((item) => !user["questionsAnswered"].includes(item.id));
   }
 };
 

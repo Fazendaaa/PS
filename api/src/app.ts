@@ -1,15 +1,19 @@
 import { insertUserController } from "./controllers/user";
+import { User } from "./models/user";
 import { server } from "./server";
 import { Request, Response } from "express";
 
-const checkAdmin = (user: string, password: string) =>
-  insertUserController({
-    password,
-    isAdmin: true,
-    name: user,
-    birthday: "",
-    mobile: user,
-  });
+const checkAdmin = (name: string, password: string) => {
+  const user = new User();
+
+  user.name = name;
+  user.password = password;
+  user.isAdmin = true;
+  user.birthday = "";
+  user.mobile = name;
+
+  return insertUserController(user);
+};
 const port = 80;
 
 server.get("/", (req: Request, res: Response) => {

@@ -72,7 +72,9 @@ export const updateUserAPIBroker = async (
   res: Response,
   next: NextFunction
 ) => {
-  const user = updateUserController();
+  const id = req.params.id;
+  const body = req.body;
+  const user = await updateUserController(id, body);
 
   if (null !== user) {
     res.json(user);

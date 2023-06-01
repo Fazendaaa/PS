@@ -9,6 +9,7 @@ export class User {
   password: string;
   birthday: string;
   isAdmin: boolean;
+  questionsAnswered: number[];
 
   constructor() {
     this.hair = "";
@@ -21,5 +22,6 @@ export class User {
     this.password = "";
     this.birthday = "";
     this.isAdmin = false;
+    this.questionsAnswered = [];
   }
 }
