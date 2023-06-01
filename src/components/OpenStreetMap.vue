@@ -19,22 +19,27 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, toRefs } from "vue";
 
 export default defineComponent({
   name: "OpenStreetMapComponent",
 
-  setup() {
+  props: {
+    address: {
+      type: String,
+      required: true,
+      default: "",
+    },
+  },
+
+  setup(props) {
+    const { address } = toRefs(props);
     const center = ref([40, 40]);
     const projection = ref("EPSG:4326");
     const zoom = ref(18);
     const rotation = ref(0);
-    const address =
-      "Rua Rubens Arruda , 8-50 , Altos da cidade, 17014-300, Bauru".replaceAll(
-        " ",
-        "+"
-      );
-    const url = `http://nominatim.openstreetmap.org/search?q=${address}&format=json&polygon=1&addressdetails=1`;
+    const normalized = address.value.replaceAll(" ", "+");
+    const url = `http://nominatim.openstreetmap.org/search?q=${normalized}&format=json&polygon=1&addressdetails=1`;
 
     fetch(url)
       .then((response) => {
