@@ -1,8 +1,35 @@
 <template>
   <h1 class="header" v-html="$vuetify.locale.t('prescription.prescription')" />
 
-  <div v-for="(button, index) in buttons" v-bind:key="index">
-    <v-expansion-panels variant="inset" class="my-4">
+  <div v-if="this.$store.getters.isAdmin">
+    <v-expansion-panels
+      v-for="(button, index) in buttons"
+      v-bind:key="index"
+      variant="inset"
+      class="my-4"
+    >
+      <v-expansion-panel>
+        <v-expansion-panel-title>
+          <span
+            class="upper-bold"
+            v-html="$vuetify.locale.t(`prescription.${button.name}`)"
+          />
+        </v-expansion-panel-title>
+        <v-expansion-panel-text class="upper-bold">
+          <ChallengesView />
+          <OpenStreetMap :address="button.address" />
+        </v-expansion-panel-text>
+      </v-expansion-panel>
+    </v-expansion-panels>
+  </div>
+
+  <div v-else>
+    <v-expansion-panels
+      v-for="(button, index) in buttons"
+      v-bind:key="index"
+      variant="inset"
+      class="my-4"
+    >
       <v-expansion-panel>
         <v-expansion-panel-title>
           <span

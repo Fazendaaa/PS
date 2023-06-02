@@ -1,4 +1,4 @@
-<template v-if="false === this.$store.getters.isAdmin">
+<template>
   <h1 class="header" v-html="$vuetify.locale.t('user.user')" />
   <div class="d-flex flex-column justify-space-between align-center">
     <v-img width="200" cover src="@/assets/avatar.svg" />
