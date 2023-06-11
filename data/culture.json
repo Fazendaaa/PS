@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "name": "FIT60+ Voleibol adaptado de Iguaraçu do Tietê - Igaraçu do Tietê",
+    "address": "Rua Aniceto Astorga, s/n, Ginásio de Esportes Arlindo Fadoni, centro, 17350-000, Iguaraçu do Tiete, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 2,
+    "name": "FIT60+ Programa SESI - Bauru",
+    "address": "Rua Rubens Arruda , 8-50 , Altos da cidade, 17014-300, Bauru, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 3,
+    "name": "FIT60+ Centro de Referência do Idoso - São Sebastião",
+    "address": "Avenida Guarda Mor Lobo Viana, 812 , Porto Gde, 11600-000, São Sebastião, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 4,
+    "name": "FIT60+ Programa Mais vida - São Sebastião",
+    "address": "Avenida Guarda Mor Lobo Viana, 812 , Porto Gde, 11600-000, São Sebastião, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 5,
+    "name": "FIT60+ Serviço de Convivência e Fortalecimento de Vínculo - Cardoso",
+    "address": "Avenida Marinheiro, 1929 , Bairro Jardim Camargo, 15570-000, Cardoso, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 6,
+    "name": "FIT60+ Envelhecer com Saúde - Paraguaçu Paulista",
+    "address": "Rua Arthur Ebel, 1785 , Jardim América, 19700-000, Paraguaçu Paulista, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 7,
+    "name": "FIT60+ Grupo de hidroginástica - Águas de Santa Bárbara",
+    "address": "Rua Marechal Deodoro, 153, CRAS, centro, 18770-000, aguas de santa bárbara, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 8,
+    "name": "FIT60+ Grupo Alegria - Águas de Santa Bárbara",
+    "address": "Rua Marechal Deodoro, 153, CRAS, centro, 18770-000, Aguas de santa bárbara, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 9,
+    "name": "FIT60+ Grupo Inspiração - Águas de Santa Bárbara",
+    "address": "Rua Marechal Deodoro, 153, CRAS, centro, 18770-000, aguas de santa bárbara, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 10,
+    "name": "FIT60+ Grupo Trem Bala - Águas de Santa Bárbara",
+    "address": "Rua Marechal Deodoro, 153, CRAS, centro, 18770-000, Aguas de santa barbara, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 11,
+    "name": "FIT60+ Grupo Sorriso e Proza - Águas de Santa Bárbara",
+    "address": "Rua Marechal Deodoro, 153, CRAS, centro, 18770-000, aguas de santa bárbara, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 12,
+    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Vargem Grande do Sul",
+    "address": "Rua Coronel Lúcio, 324 , centro, 13880-000, vargem grande do sul, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 13,
+    "name": "FIT60+ Ginástica nos Bairros - Casa Branca",
+    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 14,
+    "name": "FIT60+ Grupo da Academia - Casa Branca",
+    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 15,
+    "name": "FIT60+ Geração Experiência - Grupo da melhor idade - Casa Branca",
+    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 16,
+    "name": "FIT60+ Programa de Atividade Física - Taiaçu",
+    "address": "Avenida 13 de Maio, 405, CCI, centro, 14725-000, Taiaçu, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 17,
+    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Ribeira",
+    "address": "Avenida 13 de Maio, 405, CCI, centro, 14725-000, Taiaçu, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 18,
+    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Ribeira",
+    "address": "Rua Frederico Dias Batista, 224, CRAS, centro, 18380-000, ribeira, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 19,
+    "name": "FIT60+ GRUPO do CCI - Mesópolis",
+    "address": "Rua Daniel Rodrigues de Oliveira, s/n , centro, 15748-000, mesópolis, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 20,
+    "name": "FIT60+ Grupo da cachola - Mesópolis",
+    "address": "Rua Daniel Rodrigues de Oliveira, s/n , centro, 15748-000, Mesópolis, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 21,
+    "name": "FIT60+ Feras do minibol - Sandovalina",
+    "address": "Avenida Prefeito João Borges, s/n, Secretaria de esportes, centro, 19250-000, Sandovalina, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 22,
+    "name": "FIT60+ Centro de Convivência e fortalecimento de vínculo - São Lourenço da Serra",
+    "address": "Praça 10 de Agosto, 55, CRAS, centro, 06890-000, São lourenço da serra, SP",
+    "limit": "23/12/23"
+  },
+  {
+    "id": 23,
+    "name": "FIT60+ Ginástica para idosos - Taciba",
+    "address": "Clube Municipal: Rua Manoel Xavier, 210 , centro, 19590-000, Taciba, SP",
+    "limit": "23/12/23"
+  }
+]

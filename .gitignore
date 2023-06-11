@@ -3,5 +3,4 @@ data/mock.json
 .env
 src/assets/images
 data/groups.json
-data/challenge.json
 dist/

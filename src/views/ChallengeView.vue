@@ -1,8 +1,8 @@
 <template>
   <v-card>
-    <h1 class="header">{{ challenge.title }}</h1>
+    <h1 class="header">{{ challenge.name }}</h1>
     <v-card-text>
-      {{ challenge.content }}
+      <OpenStreetMap :address="challenge.address" />
 
       <div v-if="error">Error while loading social share</div>
 
@@ -30,15 +30,17 @@
 
 <script lang="ts">
 import { computed, defineComponent, onErrorCaptured, ref } from "vue";
+import OpenStreetMap from "@/components/OpenStreetMap.vue";
 import { useRoute } from "vue-router";
 import Share from "@/components/Share.vue";
-import json from "../../data/challenge.json";
+import json from "../../data/culture.json";
 
 export default defineComponent({
   name: "ChallengeView",
 
   components: {
     Share,
+    OpenStreetMap,
   },
 
   setup() {

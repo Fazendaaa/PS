@@ -17,7 +17,6 @@
         </v-expansion-panel-title>
         <v-expansion-panel-text class="upper-bold">
           <ChallengesView />
-          <OpenStreetMap :address="button.address" />
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -39,7 +38,6 @@
         </v-expansion-panel-title>
         <v-expansion-panel-text class="upper-bold">
           <ChallengesView />
-          <OpenStreetMap :address="button.address" />
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -48,14 +46,12 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import OpenStreetMap from "@/components/OpenStreetMap.vue";
 import ChallengesView from "./ChallengesView.vue";
 
 export default defineComponent({
   name: "PrescriptionView",
 
   components: {
-    OpenStreetMap,
     ChallengesView,
   },
 
@@ -64,25 +60,18 @@ export default defineComponent({
       buttons: [
         {
           name: "physicalActivity",
-          address:
-            "Rua Rubens Arruda, 8-50 , Altos da cidade, 17014-300, Bauru",
         },
         {
           name: "nutrition",
-          address: "Rua Marechal Deodoro, 153, SP",
         },
         {
           name: "psychology",
-          address: "Avenida Guarda Mor Lobo Viana, 812, SP",
         },
         {
           name: "challenge",
-          address:
-            "Rua Coronel Lúcio, 324, centro, 13880-000, vargem grande do sul, SP",
         },
         {
           name: "map",
-          address: "Avenida Marinheiro, 1929, Cardoso, SP",
         },
       ],
     };
