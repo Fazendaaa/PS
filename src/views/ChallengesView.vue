@@ -1,7 +1,7 @@
 <template>
   <div v-for="item in buttons" v-bind:key="item.name">
     <v-btn block :to="{ name: 'challenge', params: { id: item.id } }">
-      <span>{{ item.name }}</span>
+      <span>{{ item.name.split("-")[0].replace("FIT60+", "") }}</span>
     </v-btn>
   </div>
 </template>

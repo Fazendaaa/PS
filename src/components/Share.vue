@@ -26,7 +26,7 @@
 import { defineComponent, toRefs } from "vue";
 
 export default defineComponent({
-  name: "ShareChapterComponent",
+  name: "ShareNetworkComponent",
 
   props: {
     title: {
@@ -39,12 +39,7 @@ export default defineComponent({
       required: true,
       default: "",
     },
-    quote: {
-      type: String,
-      required: true,
-      default: "",
-    },
-    hashtags: {
+    url: {
       type: String,
       required: true,
       default: "",
@@ -52,16 +47,16 @@ export default defineComponent({
   },
 
   async setup(props) {
-    const { title, description, quote, hashtags } = toRefs(props);
+    const { title, description, url } = toRefs(props);
 
     return {
       sharing: {
+        url: url.value,
+        title: title.value,
+        description: description.value,
+        quote: "",
+        hashtags: "",
         twitterUser: "testando",
-        url: "google.com.br",
-        title,
-        description,
-        quote,
-        hashtags,
       },
       networks: [
         {

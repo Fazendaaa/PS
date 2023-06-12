@@ -39,7 +39,7 @@ export default defineComponent({
     const zoom = ref(18);
     const rotation = ref(0);
     const normalized = address.value.replaceAll(" ", "+");
-    const url = `http://nominatim.openstreetmap.org/search?q=${normalized}&format=json&polygon=1&addressdetails=1`;
+    const url = `https://nominatim.openstreetmap.org/search?q=${normalized}&format=json&polygon=1&addressdetails=1`;
 
     fetch(url)
       .then((response) => {

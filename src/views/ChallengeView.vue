@@ -4,15 +4,15 @@
     <v-card-text>
       <OpenStreetMap :address="challenge.address" />
 
+      <h2 class="header">{{ challenge.address }}</h2>
       <div v-if="error">Error while loading social share</div>
 
       <Suspense v-else>
         <template #default>
-          <Share
-            title="Título"
-            description="Descrição"
-            quote="quote"
-            hashtags="hashtags"
+          <ShareNetwork
+            :title="challenge.name"
+            :description="challenge.address"
+            :url="`${url}${challenge.id}`"
           />
         </template>
         <template #fallback>
@@ -32,18 +32,21 @@
 import { computed, defineComponent, onErrorCaptured, ref } from "vue";
 import OpenStreetMap from "@/components/OpenStreetMap.vue";
 import { useRoute } from "vue-router";
-import Share from "@/components/Share.vue";
+import ShareNetwork from "@/components/Share.vue";
 import json from "../../data/culture.json";
 
 export default defineComponent({
   name: "ChallengeView",
 
   components: {
-    Share,
+    ShareNetwork,
     OpenStreetMap,
   },
 
   setup() {
+    const baseURL =
+      "/" !== process.env.BASE_URL ? process.env.BASE_URL : "http://localhost/";
+    const url = `${baseURL}challenge/`;
     const route = useRoute();
     const paramID = computed(() => {
       if (undefined !== route.params.id) {
@@ -68,6 +71,7 @@ export default defineComponent({
     const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
 
     return {
+      url,
       challenge,
       error,
       errorMessage,
