@@ -16,7 +16,7 @@
           />
         </v-expansion-panel-title>
         <v-expansion-panel-text class="upper-bold">
-          <ChallengesView />
+          <ChallengesView :kind="button.name" />
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
@@ -37,7 +37,7 @@
           />
         </v-expansion-panel-title>
         <v-expansion-panel-text class="upper-bold">
-          <ChallengesView />
+          <ChallengesView :kind="button.name" />
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>

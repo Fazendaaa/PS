@@ -1,8 +1,15 @@
 <template>
   <v-card>
     <h1 class="header">{{ challenge.name }}</h1>
+
     <v-card-text>
-      <OpenStreetMap :address="challenge.address" />
+      <h1 class="header">{{ challenge.limit }}</h1>
+      <h2 class="header">{{ challenge.description }}</h2>
+
+      <div v-if="challenge.address">
+        <br />
+        <OpenStreetMap :address="challenge.address" />
+      </div>
 
       <h2 class="header">{{ challenge.address }}</h2>
       <div v-if="error">Error while loading social share</div>
@@ -44,8 +51,7 @@ export default defineComponent({
   },
 
   setup() {
-    const baseURL =
-      "/" !== process.env.BASE_URL ? process.env.BASE_URL : "http://localhost/";
+    const baseURL = "https://viva.fazenda.solutions/";
     const url = `${baseURL}challenge/`;
     const route = useRoute();
     const paramID = computed(() => {
@@ -61,6 +67,7 @@ export default defineComponent({
     });
     const error = ref(false);
     const errorMessage = ref("");
+    const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
 
     onErrorCaptured((e) => {
       errorMessage.value = `${e}`;
@@ -68,7 +75,6 @@ export default defineComponent({
 
       return true;
     });
-    const challenge = json.filter(({ id }) => id == parseInt(paramID.value))[0];
 
     return {
       url,

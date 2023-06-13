@@ -7,15 +7,25 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 import json from "../../data/culture.json";
 
 export default defineComponent({
   name: "ChallengesView",
 
-  setup() {
+  props: {
+    kind: {
+      type: String,
+      required: true,
+      default: "",
+    },
+  },
+
+  setup(props) {
+    const { kind } = toRefs(props);
+
     return {
-      buttons: json,
+      buttons: json.filter((item) => kind.value == item.kind),
     };
   },
 });
