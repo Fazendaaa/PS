@@ -4,7 +4,7 @@
       <h1 v-html="$vuetify.locale.t('signIn.mobileMessage')" />
       <v-text-field
         :label="$vuetify.locale.t('signIn.mobile')"
-        :rules="rules"
+        :rules="userRules"
         :loading="loading"
         v-model="mobile"
         hide-details="auto"
@@ -12,7 +12,7 @@
       <h1 v-html="$vuetify.locale.t('signIn.passwordMessage')" />
       <v-text-field
         :label="$vuetify.locale.t('signIn.password')"
-        :rules="rules"
+        :rules="passwordRules"
         v-model="password"
         :loading="loading"
         hide-details="auto"
@@ -69,10 +69,15 @@ export default defineComponent({
       loading,
       checkPassword: (mobile: string, password: string) =>
         auth(store, mobile, password),
-      rules: [
-        (value: string) => !!value || "Required.",
+      userRules: [
+        (value: string) => !!value || "Necessário.",
         (value: string) =>
           (value && 11 === value.length) || "Tem que ser 11 dígitos",
+      ],
+      passwordRules: [
+        (value: string) => !!value || "Necessário.",
+        (value: string) =>
+          (value && 8 === value.length) || "Tem que ser 8 dígitos",
       ],
     };
   },
