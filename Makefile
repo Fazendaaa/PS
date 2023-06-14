@@ -4,7 +4,6 @@ export $(shell sed 's/=.*//' .env)
 REGISTRY_OWNER:=fazenda
 MULTIARCH:=true
 ARCHS:=linux/amd64
-PROJECT:=ps
 PROJECT_TAG:=$(shell date '+%d-%m-%Y-%H%M%S')
 
 ifeq (true, $(MULTIARCH))
@@ -33,12 +32,19 @@ setup:
 
 build:
 	@docker buildx build \
+	--file api/Dockerfile \
+	--platform $(ARCHS) \
+	--push \
+	--tag ${REGISTRY_OWNER}/ps-api:${PROJECT_TAG} \
+	api/
+	@echo "Built: ${REGISTRY_OWNER}/ps-api:${PROJECT_TAG}"
+	@docker buildx build \
 	--platform $(ARCHS) \
 	--build-arg VUE_APP_WA_NUMBER=${VUE_APP_WA_NUMBER} \
 	--push \
-	--tag ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG} \
+	--tag ${REGISTRY_OWNER}/ps:${PROJECT_TAG} \
 	.
-	@echo "Built: ${REGISTRY_OWNER}/${PROJECT}:${PROJECT_TAG}"
+	@echo "Built: ${REGISTRY_OWNER}/ps:${PROJECT_TAG}"
 
 test:
 	@docker-compose --file=docker-compose.test.yml up --build
