@@ -6,7 +6,13 @@ const password = process.env.DB_PASSWORD;
 const name = process.env.DB_NAME;
 const port = process.env.DB_PORT;
 const srv = process.env.DB_SRV;
-let URI = `${username}:${password}@${host}:${port}/${name}`;
+let URI = "";
+
+if ("" !== port) {
+  URI = `${username}:${password}@${host}:${port}/${name}`;
+} else {
+  URI = `${username}:${password}@${host}/${name}`;
+}
 
 if (String(true) === srv) {
   URI = `mongodb+srv://${URI}`;
