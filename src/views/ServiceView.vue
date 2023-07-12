@@ -73,7 +73,7 @@ export default defineComponent({
   setup() {
     return {
       toggle: ref(["green"]),
-      professionals: ["trainer", "nutritionist", "psychologist"],
+      professionals: ["trainer", "nutritionist", "psychologist", "nurse"],
     };
   },
 });
@@ -81,6 +81,6 @@ export default defineComponent({
 
 <style>
 .v-main {
-  background-color: #d22a2a;
+  background-color: #7f0000;
 }
 </style>

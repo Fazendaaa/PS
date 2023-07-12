@@ -23,17 +23,6 @@
                 <v-expansion-panel-title>
                   <span
                     class="upper-bold"
-                    v-html="$vuetify.locale.t('activities.automatic')"
-                  />
-                </v-expansion-panel-title>
-                <v-expansion-panel-text>
-                  <Stopwatch />
-                </v-expansion-panel-text>
-              </v-expansion-panel>
-              <v-expansion-panel>
-                <v-expansion-panel-title>
-                  <span
-                    class="upper-bold"
                     v-html="$vuetify.locale.t('activities.manual')"
                   />
                 </v-expansion-panel-title>
@@ -41,6 +30,18 @@
                   <div>
                     <vue-timepicker :modelValue="picker" />
                   </div>
+                </v-expansion-panel-text>
+              </v-expansion-panel>
+
+              <v-expansion-panel>
+                <v-expansion-panel-title>
+                  <span
+                    class="upper-bold"
+                    v-html="$vuetify.locale.t('activities.automatic')"
+                  />
+                </v-expansion-panel-title>
+                <v-expansion-panel-text>
+                  <Stopwatch />
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>

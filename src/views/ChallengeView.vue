@@ -4,7 +4,6 @@
 
     <v-card-text>
       <h1 class="header">{{ challenge.limit }}</h1>
-      <h2 class="header">{{ challenge.description }}</h2>
 
       <div v-if="challenge.address">
         <br />

@@ -200,6 +200,6 @@ export default defineComponent({
 
 <style>
 .v-main {
-  background-color: #0c2f86;
+  background-color: #005b96;
 }
 </style>

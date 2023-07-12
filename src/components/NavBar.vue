@@ -52,6 +52,11 @@ export default defineComponent({
           path: "/activities",
           icon: "mdi-format-list-checkbox",
         },
+        {
+          title: "results",
+          path: "/results",
+          icon: "mdi-file",
+        },
       ],
       ...baseItems,
     ];
@@ -61,11 +66,6 @@ export default defineComponent({
           title: "users",
           path: "/users",
           icon: "mdi-account",
-        },
-        {
-          title: "results",
-          path: "/results",
-          icon: "mdi-file",
         },
       ],
       ...baseItems,

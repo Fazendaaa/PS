@@ -7,5 +7,6 @@ export default {
   trainer: "Personal",
   nutritionist: "Nutritionist",
   psychologist: "Psychologist",
+  nurse: "Nurse",
   working: "Working",
 };

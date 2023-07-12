@@ -1,4 +1,4 @@
-const url = "https://api.docker.localhost/";
+const url = "https://api.viva.fazenda.solutions/";
 
 export const callAPI = async (
   endpoint: string,
