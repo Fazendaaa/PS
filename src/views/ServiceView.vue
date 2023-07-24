@@ -35,6 +35,7 @@
         <div v-for="professional in professionals" v-bind:key="professional">
           <WhatsApp
             :content="$vuetify.locale.t(`service.`.concat(professional))"
+            :kind="professional"
           />
         </div>
       </v-expansion-panel-text>

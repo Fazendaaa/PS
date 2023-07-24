@@ -15,6 +15,7 @@
         ></v-navigation-drawer>
         <v-main>
           <router-view v-slot="{ Component }">
+            <InstallBanner />
             <keep-alive>
               <component :is="Component" />
             </keep-alive>
@@ -33,6 +34,7 @@ import { defineComponent, ref } from "vue";
 import NavBar from "@/components/NavBar.vue";
 import SignIn from "@/components/SignIn.vue";
 import SystemTray from "@/components/SystemTray.vue";
+import InstallBanner from "@/components/InstallBanner.vue";
 
 export default defineComponent({
   name: "App",
@@ -41,6 +43,7 @@ export default defineComponent({
     NavBar,
     SignIn,
     SystemTray,
+    InstallBanner,
   },
 
   setup() {

@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, toRefs } from "vue";
 
 export default defineComponent({
   name: "WhatsAppComponent",
@@ -17,11 +17,21 @@ export default defineComponent({
       required: true,
       default: "",
     },
+    kind: {
+      type: String,
+      required: true,
+      default: "",
+    },
   },
 
-  setup() {
+  setup(props) {
+    const { kind } = toRefs(props);
+
     return {
-      number: "https://wa.me/".concat(process.env.VUE_APP_WA_NUMBER || ""),
+      number: "https://wa.me/"
+        .concat(process.env.VUE_APP_WA_NUMBER || "")
+        .concat("?text=")
+        .concat(encodeURIComponent(kind.value)),
     };
   },
 });

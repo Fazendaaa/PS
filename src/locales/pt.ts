@@ -14,6 +14,7 @@ import tip from "@/locales/pt/tip";
 import quiz from "@/locales/pt/quiz";
 import user from "@/locales/pt/user";
 import users from "@/locales/pt/users";
+import install from "@/locales/pt/install";
 
 export default {
   login,
@@ -32,4 +33,5 @@ export default {
   quiz,
   user,
   users,
+  install,
 };
