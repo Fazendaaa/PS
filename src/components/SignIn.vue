@@ -72,7 +72,7 @@ export default defineComponent({
       userRules: [
         (value: string) => !!value || "Necessário.",
         (value: string) =>
-          (value && 11 === value.length) || "Tem que ser 11 dígitos",
+          (value && 9 === value.length) || "Tem que ser 9 dígitos",
       ],
       passwordRules: [
         (value: string) => !!value || "Necessário.",

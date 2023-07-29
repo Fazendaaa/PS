@@ -23,6 +23,7 @@
         </v-main>
       </v-layout>
       <router-view v-else>
+        <InstallBanner />
         <SignIn />
       </router-view>
     </v-app>

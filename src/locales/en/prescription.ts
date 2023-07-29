@@ -1,5 +1,5 @@
 export default {
-  prescription: "Prescription",
+  prescription: "Guidelines",
   physicalActivity: "Physical Activity",
   nutrition: "Nutrition",
   psychology: "Psychology",

@@ -5,6 +5,6 @@ export default {
   tips: "Dicas",
   activities: "Entrar em Ação",
   results: "Resultados",
-  prescription: "Prescrição",
+  prescription: "Orientações",
   service: "Atendimento",
 };

@@ -59,30 +59,30 @@ export default defineComponent({
         twitterUser: "testando",
       },
       networks: [
-        {
-          network: "twitter",
-          name: "Twitter",
-          icon: "mdi-twitter",
-          color: "blue",
-        },
+        //{
+        //  network: "twitter",
+        //  name: "Twitter",
+        //  icon: "mdi-twitter",
+        //  color: "blue",
+        //},
         {
           network: "whatsapp",
           name: "Whatsapp",
           icon: "mdi-whatsapp",
           color: "green",
         },
-        {
-          network: "telegram",
-          name: "Telegram",
-          icon: "mdi-send-variant",
-          color: "#81c6eb",
-        },
-        {
-          network: "messenger",
-          name: "Messenger",
-          icon: "mdi-facebook-messenger",
-          color: "#e374b6",
-        },
+        //{
+        //  network: "telegram",
+        //  name: "Telegram",
+        //  icon: "mdi-send-variant",
+        //  color: "#81c6eb",
+        //},
+        //{
+        //  network: "messenger",
+        //  name: "Messenger",
+        //  icon: "mdi-facebook-messenger",
+        //  color: "#e374b6",
+        //},
       ],
     };
   },

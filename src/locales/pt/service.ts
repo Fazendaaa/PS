@@ -1,5 +1,6 @@
 export default {
   service: "Atendimento Profissional",
+  description: "Horário de atendimento: 8h até 18h - Segunda à Sexta",
   professionals: "Profissionais",
   about: "Sobre",
   groups: "Grupos",
@@ -9,4 +10,5 @@ export default {
   psychologist: "Psicologo",
   nurse: "Enfermeiro",
   working: "Funcionando",
+  physician: "Médico",
 };
