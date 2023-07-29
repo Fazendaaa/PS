@@ -29,6 +29,10 @@
                 <v-expansion-panel-text>
                   <div>
                     <vue-timepicker :modelValue="picker" />
+                    <v-btn block color="green">
+                      <v-icon>mdi-check-bold</v-icon>
+                      <span>CONFIRM</span>
+                    </v-btn>
                   </div>
                 </v-expansion-panel-text>
               </v-expansion-panel>
