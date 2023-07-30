@@ -19,8 +19,8 @@ services:
       - DB_HOST=mongodb
       - DB_PORT=27017
       - DB_SRV=false
-      - ADMIN_USERNAME=00000000000
-      - ADMIN_PASSWORD=00000000000
+      - ADMIN_USERNAME=000000000
+      - ADMIN_PASSWORD=00000000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.api.tls=true"

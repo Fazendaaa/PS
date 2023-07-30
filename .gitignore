@@ -4,3 +4,4 @@ data/mock.json
 src/assets/images
 data/groups.json
 dist/
+.env.local

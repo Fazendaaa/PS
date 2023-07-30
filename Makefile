@@ -2,7 +2,7 @@ include .env
 export $(shell sed 's/=.*//' .env)
 
 REGISTRY_OWNER:=fazenda
-MULTIARCH:=true
+MULTIARCH:=false
 ARCHS:=linux/amd64
 PROJECT_TAG:=$(shell date '+%d-%m-%Y-%H%M%S')
 
