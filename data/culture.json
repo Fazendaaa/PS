@@ -2,261 +2,29 @@
   {
     "id": 1,
     "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Voleibol adaptado de Iguaraçu do Tietê - Igaraçu do Tietê",
-    "address": "Rua Aniceto Astorga, 17350-000, SP",
+    "name": "FIT60+ Centro Dia de Referência para Idosos - Ribeirão Preto",
+    "address": "Rua Diná Sassi Steagall, 735",
     "limit": "23/12/23"
   },
   {
     "id": 2,
     "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Programa SESI - Bauru",
-    "address": "Rua Rubens Arruda , 8-50 , Altos da cidade, 17014-300, Bauru, SP",
+    "name": "FIT60+ Centro Dia de Referência para Idosos - Ribeirão Preto",
+    "address": "Rua Dr. Edgar Cajado, 400, Campos Elíseos, 14080-460, Ribeirão Preto, SP",
     "limit": "23/12/23"
   },
   {
     "id": 3,
     "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Centro de Referência do Idoso - São Sebastião",
-    "address": "Avenida Guarda Mor Lobo Viana, 812, 11600-000, São Sebastião, SP",
+    "name": "FIT60+ PIC Programa de Integração Comunitária - Ribeirão Preto",
+    "address": "Rua Camilo de Matos, 627, Campos Elíseos, 14040-900, Ribeirão Preto, SP",
     "limit": "23/12/23"
   },
   {
     "id": 4,
     "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Programa Mais vida - São Sebastião",
-    "address": "Avenida Guarda Mor Lobo Viana, 812, 11600-000, São Sebastião, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 5,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Serviço de Convivência e Fortalecimento de Vínculo - Cardoso",
-    "address": "Avenida Marinheiro, 1929, 15570-000, Cardoso, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 6,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Envelhecer com Saúde - Paraguaçu Paulista",
-    "address": "Rua Arthur Ebel, 1785, Jardim América, 19700-000, Paraguaçu Paulista, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 7,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo de hidroginástica - Águas de Santa Bárbara",
-    "address": "Rua Marechal Deodoro da Fonseca, 153",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 8,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo Alegria - Águas de Santa Bárbara",
-    "address": "Rua Marechal Deodoro da Fonseca, 153",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 9,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo Inspiração - Águas de Santa Bárbara",
-    "address": "Rua Marechal Deodoro da Fonseca, 153",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 10,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo Trem Bala - Águas de Santa Bárbara",
-    "address": "Rua Marechal Deodoro da Fonseca, 153",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 11,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo Sorriso e Proza - Águas de Santa Bárbara",
-    "address": "Rua Marechal Deodoro da Fonseca, 153",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 12,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Vargem Grande do Sul",
-    "address": "Rua Coronel Lúcio, 324 , centro, 13880-000, vargem grande do sul, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 13,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Ginástica nos Bairros - Casa Branca",
-    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 14,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo da Academia - Casa Branca",
-    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 15,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Geração Experiência - Grupo da melhor idade - Casa Branca",
-    "address": "Rua 12 de Outubro, s/n , são joão, 13700-000, casa branca, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 16,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Programa de Atividade Física - Taiaçu",
-    "address": "Avenida 13 de Maio, 405",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 17,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Ribeira",
-    "address": "Avenida 13 de Maio, 405",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 18,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Serviço de convivência e fortalecimento de vínculo - Ribeira",
-    "address": "Rua Frederico Dias Batista, 224, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 19,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ GRUPO do CCI - Mesópolis",
-    "address": "Rua Daniel Rodrigues de Oliveira, s/n, mesópolis, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 20,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Grupo da cachola - Mesópolis",
-    "address": "Rua Daniel Rodrigues de Oliveira, s/n, mesópolis, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 21,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Feras do minibol - Sandovalina",
-    "address": "Avenida Prefeito João Borges, s/n, Sandovalina",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 22,
-    "kind": "map",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "FIT60+ Centro de Convivência e fortalecimento de vínculo - São Lourenço da Serra",
-    "address": "Praça 10 de Agosto, 55, CRAS, centro, 06890-000, São lourenço da serra, SP",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 24,
-    "kind": "physicalActivity",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Atividade Fisica I",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 25,
-    "kind": "physicalActivity",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Atividade Fisica II",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 26,
-    "kind": "physicalActivity",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Atividade Fisica III",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 27,
-    "kind": "nutrition",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Nutrição I",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 28,
-    "kind": "nutrition",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Nutrição II",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 29,
-    "kind": "nutrition",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Nutrição III",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 30,
-    "kind": "psychology",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Psicologia I",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 31,
-    "kind": "psychology",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Psicologia II",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 32,
-    "kind": "psychology",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Psicologia III",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 33,
-    "kind": "challenge",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Desafio I",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 34,
-    "kind": "challenge",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Desafio II",
-    "limit": "23/12/23"
-  },
-  {
-    "id": 35,
-    "kind": "challenge",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "name": "Desafio III",
+    "name": "FIT60+ PEFI Programa de Exercício Físico para Idosos - Ribeirão Preto",
+    "address": "Avenida Bandeirantes, 3900, Monte Alegre, 14040-900",
     "limit": "23/12/23"
   }
 ]
