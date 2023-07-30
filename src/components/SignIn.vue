@@ -27,31 +27,47 @@
         <span v-html="$vuetify.locale.t('signIn.login')" />
       </v-btn>
     </v-container>
+
+    <v-dialog v-model="error" width="auto">
+      <v-card color="white">
+        <v-card-title>Ops! Algo aconteceu...</v-card-title>
+        <v-card-text>
+          Houve um erro ao entrar no sistema; verifique seu usuário e senha;
+          qualquer coisa entre em contato com o responsável
+        </v-card-text>
+        <v-card-actions>
+          <v-btn block color="green" class="my-4" @click="error = false">
+            <span class="upper-bold">Fechar</span>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-img>
 </template>
 
 <script lang="ts">
 import { callAPI } from "@/scripts/api";
-import { defineComponent, ref } from "vue";
+import { defineComponent, Ref, ref } from "vue";
 import { Store, useStore } from "vuex";
 
 const auth = async (
   store: Store<unknown>,
   mobile: string,
-  password: string
+  password: string,
+  error: Ref<boolean>
 ): Promise<boolean> => {
   const response = await callAPI("users/auth/", "POST", {
     mobile,
     password,
   });
 
-  console.log(response);
-
   if (undefined !== response && null !== response) {
     store.commit("setUser", response);
 
     return true;
   }
+
+  error.value = true;
 
   return false;
 };
@@ -64,13 +80,15 @@ export default defineComponent({
     const password = ref("");
     const loading = ref(false);
     const store = useStore();
+    const error = ref(false);
 
     return {
+      error,
       mobile,
       password,
       loading,
       checkPassword: (mobile: string, password: string) =>
-        auth(store, mobile, password),
+        auth(store, mobile, password, error),
       userRules: [
         (value: string) => !!value || "Necessário.",
         (value: string) =>
