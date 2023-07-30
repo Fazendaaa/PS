@@ -118,7 +118,7 @@ export default defineComponent({
       rules: [
         (value: string) => !!value || "Required.",
         (value: string) =>
-          (value && 11 === value.length) || "Tem que ser 11 dígitos",
+          (value && 9 === value.length) || "Tem que ser 9 dígitos",
       ],
     };
   },

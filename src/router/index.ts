@@ -66,7 +66,7 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "service" */ "../views/ServiceView.vue"),
   },
   {
-    path: "/tips",
+    path: "/tips/:reload?",
     name: "tips",
     component: () =>
       import(/* webpackChunkName: "tips" */ "../views/TipsView.vue"),

@@ -1,4 +1,6 @@
-const url = "https://api.viva.fazenda.solutions/";
+const url = process.env.VUE_APP_API_URL || "https://api.docker.localhost/";
+
+console.log("API URL: ", url);
 
 export const callAPI = async (
   endpoint: string,

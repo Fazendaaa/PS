@@ -93,11 +93,12 @@ const filterData = (data: Quiz[], answered: boolean): Quiz[] => {
       ? // @ts-expect-error: any
         JSON.parse(localStorage.getItem("user"))
       : {};
+  const questions = Object.keys(user["questions"]).map(Number);
 
   if (answered) {
-    return data.filter((item) => user["questionsAnswered"].includes(item.id));
+    return data.filter((item) => questions.includes(item.id));
   } else {
-    return data.filter((item) => !user["questionsAnswered"].includes(item.id));
+    return data.filter((item) => !questions.includes(item.id));
   }
 };
 

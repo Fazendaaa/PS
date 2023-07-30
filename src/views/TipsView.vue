@@ -83,8 +83,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { computed, defineComponent, onUpdated, ref } from "vue";
 import TipView from "@/views/TipView.vue";
+import { useRoute, useRouter } from "vue-router";
 
 export default defineComponent({
   name: "TipsView",
@@ -94,6 +95,27 @@ export default defineComponent({
   },
 
   setup() {
+    const route = useRoute();
+    const router = useRouter();
+    const reload = computed(() => {
+      if (undefined !== route.params.reload) {
+        const id =
+          "string" == typeof route.params.reload
+            ? route.params.reload
+            : route.params.reload[0];
+        return "true" === id;
+      } else {
+        return false;
+      }
+    });
+
+    // NOTE(Fazendaa): Jerry rig, may broke easily
+    onUpdated(() => {
+      if (reload.value) {
+        router.go(0);
+      }
+    });
+
     return {
       tab: ref(""),
     };

@@ -63,7 +63,7 @@
                 color="green"
                 class="my-4"
                 @click="showRight = false"
-                :to="{ name: 'tips' }"
+                :to="{ name: 'tips', params: { reload: 'true' } }"
               >
                 <span class="upper-bold">Responder mais</span>
               </v-btn>
@@ -93,16 +93,53 @@ import { defineComponent, ref, computed } from "vue";
 import { useRoute } from "vue-router";
 import json from "../../data/mock.json";
 
+interface User {
+  questions: any;
+}
+
+const userQuestions = (user: User) => {
+  return undefined !== user.questions && null !== user.questions
+    ? user.questions
+    : {};
+};
+
 const addToAnswered = async (id: number) => {
   const user =
     null !== localStorage.getItem("user") // @ts-expect-error: any
       ? JSON.parse(localStorage.getItem("user"))
       : [];
 
-  user.questionsAnswered = [...user.questionsAnswered, id];
+  user.questions = userQuestions(user);
+  user.questions[id] = {
+    ...user.questions[id],
+    answered: true,
+  };
   localStorage.setItem(
     "user",
-    JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
+    JSON.stringify(user)
+    //JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
+  );
+};
+
+const addWrong = async (id: number) => {
+  const user =
+    null !== localStorage.getItem("user") // @ts-expect-error: any
+      ? JSON.parse(localStorage.getItem("user"))
+      : [];
+  user.questions = userQuestions(user);
+  const attempts =
+    id.toString() in user.questions && "attempts" in user.questions[id]
+      ? user.questions[id].attempts
+      : 0;
+
+  user.questions[id] = {
+    answered: false,
+    attempts: attempts + 1,
+  };
+  localStorage.setItem(
+    "user",
+    JSON.stringify(user)
+    //JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
   );
 };
 
@@ -158,6 +195,7 @@ export default defineComponent({
           addToAnswered(topic.id);
         }
       } else {
+        addWrong(topic.id);
         showWrong.value = true;
       }
     };
