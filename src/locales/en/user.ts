@@ -8,4 +8,8 @@ export default {
   age: "age",
   illness: "illness",
   medication: "medication",
+  weight: "Weight",
+  waist: "Waist",
+  arterialPressure: "Arterial Pressure",
+  height: "Height",
 };

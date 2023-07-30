@@ -8,22 +8,25 @@
     <v-expansion-panel v-for="(button, index) in fields" v-bind:key="index">
       <v-expansion-panel-title
         class="upper-bold"
-        v-html="$vuetify.locale.t(`user.${button}`)"
+        v-html="$vuetify.locale.t(`user.${button.name}`)"
       />
       <v-expansion-panel-text>
-        <span> {{ data[button] }} </span>
+        <span> {{ button.value }} </span>
       </v-expansion-panel-text>
     </v-expansion-panel>
 
     <v-expansion-panel v-for="(button, index) in buttons" v-bind:key="index">
       <v-expansion-panel-title
         class="upper-bold"
-        v-html="$vuetify.locale.t(`user.${button}`)"
+        v-html="$vuetify.locale.t(`user.${button.name}`)"
       />
       <v-expansion-panel-text>
-        <v-btn>
-          <span v-html="$vuetify.locale.t(`user.${button}`)" />
-        </v-btn>
+        <v-text-field
+          :label="button.value"
+          v-model="values[button.name]"
+          hide-details="auto"
+          clearable
+        />
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -43,22 +46,48 @@ import { defineComponent, ref } from "vue";
 import { useStore } from "vuex";
 import { callAPI } from "@/scripts/api";
 
+// https://stackoverflow.com/a/50827764/7092954
+const getAge = (birthDate: string) => {
+  const value = birthDate.match(/.{1,2}/g);
+  const data =
+    null !== value
+      ? `${value[2]}${value[3]}-${value[1]}-${value[0]}`
+      : "1900-01-01";
+
+  return Math.floor(
+    // @ts-expect-error: don't know
+    (new Date() - new Date(data).getTime()) / 3.15576e10
+  );
+};
+
 export default defineComponent({
   name: "UserView",
 
   setup() {
     const store = useStore();
-    const mobile = store.getters.getUser["mobile"];
-    const data = ref({});
+    const user = store.getters.getUser;
+    const values = ref({});
 
-    callAPI(`users/${mobile}`, "GET").then((response) => {
-      data.value = response;
-    });
+    //callAPI(`users/${mobile}`, "GET").then((response) => {
+    //  data.value = response;
+    //});
 
     return {
-      data,
-      fields: ["name", "age"],
-      buttons: ["illness", "medication", "skin", "others"],
+      fields: [
+        { name: "name", value: user["name"] },
+        { name: "age", value: `${getAge(user["birthday"])} anos` },
+      ],
+      values,
+      buttons: [
+        { name: "weight", value: "ABC" },
+        { name: "waist", value: "ABC" },
+        { name: "arterialPressure", value: "ABC" },
+        { name: "height", value: "ABC" },
+        { name: "illness", value: "ABC" },
+        { name: "medication", value: "ABC" },
+        { name: "skin", value: "ABC" },
+        { name: "others", value: "ABC" },
+      ],
     };
   },
 });
