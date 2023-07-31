@@ -21,7 +21,7 @@
         v-html="$vuetify.locale.t(`user.${button.name}`)"
       />
       <v-expansion-panel-text>
-        Atual: {{ user[button.name] }}
+        Atual: {{ user[button.name][user[button.name].length - 1] }}
         <v-text-field
           :label="button.value"
           v-model="values[button.name]"
@@ -36,7 +36,7 @@
     <v-icon>mdi-check</v-icon>
     <span>Salvar</span>
   </v-btn>
-  <v-btn block color="red" class="my-4">
+  <v-btn block color="red" class="my-4" @click="cancelUser">
     <v-icon>mdi-cancel</v-icon>
     <span>Cancelar</span>
   </v-btn>
@@ -44,8 +44,8 @@
 
 <script lang="ts">
 import { defineComponent, Ref, ref } from "vue";
+import { Router, useRouter } from "vue-router";
 import { Store, useStore } from "vuex";
-import { callAPI } from "@/scripts/api";
 
 // https://stackoverflow.com/a/50827764/7092954
 const getAge = (birthDate: string) => {
@@ -61,18 +61,37 @@ const getAge = (birthDate: string) => {
   );
 };
 
-const updateUser = (values: Ref<object>, store: Store<any>) => {
-  const user =
-    undefined !== localStorage.getItem("user")
-      ? // @ts-expect-error: any
-        JSON.parse(localStorage.getItem("user"))
-      : {};
-  const updated = {
-    ...user,
-    ...values.value,
-  };
+const updateUser = (values: Ref<object>, store: Store<any>, router: Router) => {
+  const user = store.getters.getUser;
+  const read = values.value;
 
-  store.commit("setUser", updated);
+  if ("weight" in read) {
+    user["weight"].push(read["weight"]);
+  }
+  if ("waist" in read) {
+    user["waist"].push(read["waist"]);
+  }
+  if ("arterialPressure" in read) {
+    user["arterialPressure"].push(read["arterialPressure"]);
+  }
+  if ("height" in read) {
+    user["height"].push(read["height"]);
+  }
+  if ("illness" in read) {
+    user["illness"].push(read["illness"]);
+  }
+  if ("medication" in read) {
+    user["medication"].push(read["medication"]);
+  }
+  if ("skin" in read) {
+    user["skin"].push(read["skin"]);
+  }
+  if ("others" in read) {
+    user["others"].push(read["others"]);
+  }
+
+  store.commit("setUser", user);
+  router.go(0);
 };
 
 export default defineComponent({
@@ -80,25 +99,21 @@ export default defineComponent({
 
   setup() {
     const store = useStore();
+    const router = useRouter();
     const user = store.getters.getUser;
     const values = ref({});
 
-    console.log(user);
-
-    //callAPI(`users/${mobile}`, "GET").then((response) => {
-    //  data.value = response;
-    //});
-
     return {
       user,
-      updateUser: () => updateUser(values, store),
+      updateUser: () => updateUser(values, store, router),
+      cancelUser: () => router.go(0),
       fields: [
         { name: "name", value: user["name"] },
         { name: "age", value: `${getAge(user["birthday"])} anos` },
       ],
       values,
       buttons: [
-        { name: "weight", value: "Em centimetros" },
+        { name: "weight", value: "Em kilogramas" },
         { name: "waist", value: "Em centimetros" },
         { name: "arterialPressure", value: "" },
         { name: "height", value: "Em centimetros" },

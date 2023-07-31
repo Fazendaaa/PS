@@ -8,29 +8,37 @@ interface Questions {
 }
 
 export class User {
-  hair: string;
-  skin: string;
   name: string;
-  illnesses: string[];
-  medication: string[];
-  docs: string[];
   mobile: string;
   password: string;
   birthday: string;
   isAdmin: boolean;
   questions: Questions;
+  hair: string[];
+  skin: string[];
+  illnesses: string[];
+  medication: string[];
+  others: string[];
+  weight: number[];
+  waist: number[];
+  arterialPressure: number[];
+  height: number[];
 
   constructor() {
-    this.hair = "";
-    this.skin = "";
     this.name = "";
-    this.illnesses = [""];
-    this.medication = [""];
-    this.docs = [""];
     this.mobile = "";
     this.password = "";
     this.birthday = "";
     this.isAdmin = false;
+    this.hair = [];
+    this.skin = [];
+    this.illnesses = [];
+    this.medication = [];
+    this.others = [];
     this.questions = [];
+    this.weight = [];
+    this.waist = [];
+    this.arterialPressure = [];
+    this.height = [];
   }
 }

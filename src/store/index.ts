@@ -1,3 +1,4 @@
+import { callAPI } from "@/scripts/api";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -17,6 +18,8 @@ export default createStore({
     setUser: (state, value) => {
       state.user = value;
       localStorage.setItem("user", JSON.stringify(value));
+
+      callAPI(`users/${value["mobile"]}`, "PATCH", value).catch(console.error);
 
       return value;
     },

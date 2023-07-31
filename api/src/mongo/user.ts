@@ -3,17 +3,21 @@ import { User } from "../models/user";
 import { connection } from "./mongo";
 
 const schema = new Schema<User>({
-  hair: String,
-  skin: String,
   name: String,
   illnesses: [String],
+  hair: [String],
+  skin: [String],
   medication: [String],
-  docs: [String],
+  others: [String],
   mobile: String,
   password: String,
   birthday: String,
   isAdmin: Boolean,
   questions: Map,
+  weight: [Number],
+  waist: [Number],
+  arterialPressure: [Number],
+  height: [Number],
 });
 const userModel = model("User", schema);
 
@@ -46,12 +50,16 @@ export const updateUser = async (mobile: string, user: User) => {
     found.name = user.name;
     found.illnesses = user.illnesses;
     found.medication = user.medication;
-    found.docs = user.docs;
+    found.others = user.others;
     found.mobile = user.mobile;
     found.password = user.password;
     found.birthday = user.birthday;
     found.isAdmin = user.isAdmin;
     found.questions = user.questions;
+    found.weight = user.weight;
+    found.waist = user.waist;
+    found.arterialPressure = user.arterialPressure;
+    found.height = user.height;
 
     await found.save();
 

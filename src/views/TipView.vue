@@ -52,6 +52,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, toRefs } from "vue";
+import { Store, useStore } from "vuex";
 import json from "../../data/mock.json";
 
 // https://stackoverflow.com/a/50477423/7092954
@@ -87,12 +88,12 @@ interface Quiz {
   }[];
 }
 
-const filterData = (data: Quiz[], answered: boolean): Quiz[] => {
-  const user =
-    null !== localStorage.getItem("user")
-      ? // @ts-expect-error: any
-        JSON.parse(localStorage.getItem("user"))
-      : {};
+const filterData = (
+  data: Quiz[],
+  answered: boolean,
+  store: Store<any>
+): Quiz[] => {
+  const user = store.getters.getUser;
   const questions = Object.keys(user["questions"]).map(Number);
 
   if (answered) {
@@ -115,8 +116,9 @@ export default defineComponent({
 
   setup(props) {
     const { readonly } = toRefs(props);
+    const store = useStore();
     // @ts-expect-error: any
-    const data = filterData(json.quizzes, readonly.value);
+    const data = filterData(json.quizzes, readonly.value, store);
     const entries = data.map((item) => ({
       title: item.title,
       subtitle: item.text,

@@ -88,45 +88,28 @@
 </template>
 
 <script lang="ts">
-import { callAPI } from "@/scripts/api";
 import { defineComponent, ref, computed } from "vue";
 import { useRoute } from "vue-router";
+import { Store, useStore } from "vuex";
 import json from "../../data/mock.json";
 
 interface User {
   questions: any;
 }
 
-const userQuestions = (user: User) => {
-  return undefined !== user.questions && null !== user.questions
-    ? user.questions
-    : {};
-};
+const addToAnswered = async (id: number, store: Store<any>) => {
+  const user = store.getters.getUser;
 
-const addToAnswered = async (id: number) => {
-  const user =
-    null !== localStorage.getItem("user") // @ts-expect-error: any
-      ? JSON.parse(localStorage.getItem("user"))
-      : [];
-
-  user.questions = userQuestions(user);
   user.questions[id] = {
     ...user.questions[id],
     answered: true,
   };
-  localStorage.setItem(
-    "user",
-    JSON.stringify(user)
-    //JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
-  );
+
+  store.commit("setUser", user);
 };
 
-const addWrong = async (id: number) => {
-  const user =
-    null !== localStorage.getItem("user") // @ts-expect-error: any
-      ? JSON.parse(localStorage.getItem("user"))
-      : [];
-  user.questions = userQuestions(user);
+const addWrong = async (id: number, store: Store<any>) => {
+  const user = store.getters.getUser;
   const attempts =
     id.toString() in user.questions && "attempts" in user.questions[id]
       ? user.questions[id].attempts
@@ -136,11 +119,8 @@ const addWrong = async (id: number) => {
     answered: false,
     attempts: attempts + 1,
   };
-  localStorage.setItem(
-    "user",
-    JSON.stringify(user)
-    //JSON.stringify(await callAPI(`users/${user["mobile"]}`, "PATCH", user))
-  );
+
+  store.commit("setUser", user);
 };
 
 interface Question {
@@ -153,6 +133,7 @@ export default defineComponent({
   name: "QuizView",
 
   setup() {
+    const store = useStore();
     const route = useRoute();
     const paramID = computed(() => {
       if (undefined !== route.params.id) {
@@ -192,10 +173,10 @@ export default defineComponent({
           currentQuestion.value = questions[currentQuestionIndex.value];
         } else {
           showRight.value = true;
-          addToAnswered(topic.id);
+          addToAnswered(topic.id, store);
         }
       } else {
-        addWrong(topic.id);
+        addWrong(topic.id, store);
         showWrong.value = true;
       }
     };
