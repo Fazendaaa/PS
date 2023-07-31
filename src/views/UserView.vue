@@ -21,6 +21,7 @@
         v-html="$vuetify.locale.t(`user.${button.name}`)"
       />
       <v-expansion-panel-text>
+        Atual: {{ user[button.name] }}
         <v-text-field
           :label="button.value"
           v-model="values[button.name]"
@@ -31,7 +32,7 @@
     </v-expansion-panel>
   </v-expansion-panels>
 
-  <v-btn block color="green" class="my-4">
+  <v-btn block color="green" class="my-4" @click="updateUser">
     <v-icon>mdi-check</v-icon>
     <span>Salvar</span>
   </v-btn>
@@ -42,8 +43,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { useStore } from "vuex";
+import { defineComponent, Ref, ref } from "vue";
+import { Store, useStore } from "vuex";
 import { callAPI } from "@/scripts/api";
 
 // https://stackoverflow.com/a/50827764/7092954
@@ -60,6 +61,20 @@ const getAge = (birthDate: string) => {
   );
 };
 
+const updateUser = (values: Ref<object>, store: Store<any>) => {
+  const user =
+    undefined !== localStorage.getItem("user")
+      ? // @ts-expect-error: any
+        JSON.parse(localStorage.getItem("user"))
+      : {};
+  const updated = {
+    ...user,
+    ...values.value,
+  };
+
+  store.commit("setUser", updated);
+};
+
 export default defineComponent({
   name: "UserView",
 
@@ -68,25 +83,29 @@ export default defineComponent({
     const user = store.getters.getUser;
     const values = ref({});
 
+    console.log(user);
+
     //callAPI(`users/${mobile}`, "GET").then((response) => {
     //  data.value = response;
     //});
 
     return {
+      user,
+      updateUser: () => updateUser(values, store),
       fields: [
         { name: "name", value: user["name"] },
         { name: "age", value: `${getAge(user["birthday"])} anos` },
       ],
       values,
       buttons: [
-        { name: "weight", value: "ABC" },
-        { name: "waist", value: "ABC" },
-        { name: "arterialPressure", value: "ABC" },
-        { name: "height", value: "ABC" },
-        { name: "illness", value: "ABC" },
-        { name: "medication", value: "ABC" },
-        { name: "skin", value: "ABC" },
-        { name: "others", value: "ABC" },
+        { name: "weight", value: "Em centimetros" },
+        { name: "waist", value: "Em centimetros" },
+        { name: "arterialPressure", value: "" },
+        { name: "height", value: "Em centimetros" },
+        { name: "illness", value: "" },
+        { name: "medication", value: "" },
+        { name: "skin", value: "" },
+        { name: "others", value: "" },
       ],
     };
   },
