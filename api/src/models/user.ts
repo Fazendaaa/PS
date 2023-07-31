@@ -1,3 +1,12 @@
+interface Answers {
+  answered: boolean;
+  attempts: number;
+}
+
+interface Questions {
+  [id: number]: Answers;
+}
+
 export class User {
   hair: string;
   skin: string;
@@ -9,7 +18,7 @@ export class User {
   password: string;
   birthday: string;
   isAdmin: boolean;
-  questionsAnswered: number[];
+  questions: Questions;
 
   constructor() {
     this.hair = "";
@@ -22,6 +31,6 @@ export class User {
     this.password = "";
     this.birthday = "";
     this.isAdmin = false;
-    this.questionsAnswered = [];
+    this.questions = [];
   }
 }

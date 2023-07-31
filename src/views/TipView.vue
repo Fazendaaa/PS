@@ -5,7 +5,7 @@
     class="mx-auto"
     max-width="344"
   >
-    <v-img src="@/assets/images.jpeg" height="200px" cover></v-img>
+    <v-img :src="item.img" height="200px" cover></v-img>
 
     <v-card-title class="upper-bold"> {{ item.title }} </v-card-title>
     <v-card-subtitle class="upper-bold"> {{ item.subtitle }} </v-card-subtitle>

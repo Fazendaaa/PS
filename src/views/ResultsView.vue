@@ -1,8 +1,8 @@
 <template>
   <h1 class="header" v-html="$vuetify.locale.t('results.results')" />
 
-  <v-expansion-panels>
-    <v-expansion-panel variant="inset" class="my-4">
+  <v-expansion-panels variant="inset" class="my-4">
+    <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-view-list</v-icon>
         <span
@@ -11,24 +11,11 @@
         />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.name')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.responsible')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-btn block color="green" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.accept')" />
-        </v-btn>
-        <v-btn block color="red" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.cancel')" />
-        </v-btn>
+        {{ user["results"] }}
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel variant="inset" class="my-4">
+    <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-chevron-triple-up</v-icon>
         <span
@@ -37,24 +24,11 @@
         />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.name')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.responsible')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-btn block color="green" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.accept')" />
-        </v-btn>
-        <v-btn block color="red" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.cancel')" />
-        </v-btn>
+        {{ user["ranking"] }}
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel variant="inset" class="my-4">
+    <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-history</v-icon>
         <span
@@ -63,24 +37,11 @@
         />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.name')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.responsible')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-btn block color="green" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.accept')" />
-        </v-btn>
-        <v-btn block color="red" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.cancel')" />
-        </v-btn>
+        {{ user["history"] }}
       </v-expansion-panel-text>
     </v-expansion-panel>
 
-    <v-expansion-panel variant="inset" class="my-4">
+    <v-expansion-panel>
       <v-expansion-panel-title>
         <v-icon>mdi-alert-box</v-icon>
         <span
@@ -89,20 +50,7 @@
         />
       </v-expansion-panel-title>
       <v-expansion-panel-text>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.name')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-text-field
-          :label="$vuetify.locale.t('groups.responsible')"
-          hide-details="auto"
-        ></v-text-field>
-        <v-btn block color="green" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.accept')" />
-        </v-btn>
-        <v-btn block color="red" class="my-4">
-          <span v-html="$vuetify.locale.t('groups.cancel')" />
-        </v-btn>
+        {{ user["evaluations"] }}
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
@@ -110,9 +58,17 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "ResultsView",
+
+  setup() {
+    const store = useStore();
+    const user = store.getters.getUser;
+
+    return { user };
+  },
 });
 </script>
 

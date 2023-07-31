@@ -1,5 +1,7 @@
 export default {
+  add: "Adicionar usuários",
   user: "Usuário",
+  users: "Usuários",
   hair: "cabelo",
   skin: "pele",
   clothes: "roupas",
@@ -12,4 +14,5 @@ export default {
   waist: "Tamanho da cintura",
   arterialPressure: "Pressão arterial",
   height: "Altura",
+  list: "Listar Usuários",
 };

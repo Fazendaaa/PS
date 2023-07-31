@@ -13,7 +13,7 @@ const schema = new Schema<User>({
   password: String,
   birthday: String,
   isAdmin: Boolean,
-  questionsAnswered: [Number],
+  questions: Map,
 });
 const userModel = model("User", schema);
 
@@ -51,7 +51,7 @@ export const updateUser = async (mobile: string, user: User) => {
     found.password = user.password;
     found.birthday = user.birthday;
     found.isAdmin = user.isAdmin;
-    found.questionsAnswered = user.questionsAnswered;
+    found.questions = user.questions;
 
     await found.save();
 

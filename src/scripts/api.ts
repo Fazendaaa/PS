@@ -1,4 +1,5 @@
-const url = process.env.VUE_APP_API_URL || "https://api.docker.localhost/";
+const url =
+  process.env.VUE_APP_API_URL || "https://api.viva.fazenda.solutions/";
 
 console.log("API URL: ", url);
 

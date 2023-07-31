@@ -37,7 +37,7 @@
                 </v-expansion-panel-text>
               </v-expansion-panel>
 
-              <v-expansion-panel>
+              <!--<v-expansion-panel>
                 <v-expansion-panel-title>
                   <span
                     class="upper-bold"
@@ -47,7 +47,7 @@
                 <v-expansion-panel-text>
                   <Stopwatch />
                 </v-expansion-panel-text>
-              </v-expansion-panel>
+              </v-expansion-panel>-->
             </v-expansion-panels>
           </div>
         </v-expansion-panel-text>
@@ -67,7 +67,7 @@ export default defineComponent({
   name: "ActivitiesView",
 
   components: {
-    Stopwatch,
+    //Stopwatch,
     VueTimepicker,
   },
 
