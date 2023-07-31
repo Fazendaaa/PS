@@ -1,8 +1,6 @@
 const url =
   process.env.VUE_APP_API_URL || "https://api.viva.fazenda.solutions/";
 
-console.log("API URL: ", url);
-
 export const callAPI = async (
   endpoint: string,
   method: string,

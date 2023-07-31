@@ -7,6 +7,15 @@ interface Questions {
   [id: number]: Answers;
 }
 
+interface Activity {
+  name: string;
+  duration: number;
+}
+
+interface Activities {
+  [id: string]: Activity[];
+}
+
 export class User {
   name: string;
   mobile: string;
@@ -14,6 +23,7 @@ export class User {
   birthday: string;
   isAdmin: boolean;
   questions: Questions;
+  activities: Activities;
   hair: string[];
   skin: string[];
   illnesses: string[];
@@ -29,13 +39,14 @@ export class User {
     this.mobile = "";
     this.password = "";
     this.birthday = "";
+    this.questions = {};
+    this.activities = {};
     this.isAdmin = false;
     this.hair = [];
     this.skin = [];
     this.illnesses = [];
     this.medication = [];
     this.others = [];
-    this.questions = [];
     this.weight = [];
     this.waist = [];
     this.arterialPressure = [];

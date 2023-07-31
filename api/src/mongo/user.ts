@@ -4,16 +4,17 @@ import { connection } from "./mongo";
 
 const schema = new Schema<User>({
   name: String,
-  illnesses: [String],
-  hair: [String],
-  skin: [String],
-  medication: [String],
-  others: [String],
   mobile: String,
   password: String,
   birthday: String,
   isAdmin: Boolean,
   questions: Map,
+  activities: Map,
+  illnesses: [String],
+  hair: [String],
+  skin: [String],
+  medication: [String],
+  others: [String],
   weight: [Number],
   waist: [Number],
   arterialPressure: [Number],
@@ -60,6 +61,7 @@ export const updateUser = async (mobile: string, user: User) => {
     found.waist = user.waist;
     found.arterialPressure = user.arterialPressure;
     found.height = user.height;
+    found.activities = user.activities;
 
     await found.save();
 

@@ -12,12 +12,12 @@
         </v-expansion-panel-title>
         <v-expansion-panel-text>
           <v-select
-            v-model="activity"
+            v-model="activity[item.name]"
             label="Atividade"
             :items="item.items"
             variant="solo"
           />
-          <div v-if="activity">
+          <div v-if="activity[item.name]">
             <v-expansion-panels variant="inset" class="my-4">
               <v-expansion-panel>
                 <v-expansion-panel-title>
@@ -28,8 +28,14 @@
                 </v-expansion-panel-title>
                 <v-expansion-panel-text>
                   <div>
-                    <vue-timepicker :modelValue="picker" />
-                    <v-btn block color="green">
+                    <vue-timepicker v-model="picker" />
+                    <v-btn
+                      block
+                      color="green"
+                      @click="
+                        saveActivity(item.name, activity[item.name], picker)
+                      "
+                    >
                       <v-icon>mdi-check-bold</v-icon>
                       <span>CONFIRM</span>
                     </v-btn>
@@ -53,15 +59,59 @@
         </v-expansion-panel-text>
       </v-expansion-panel>
     </v-expansion-panels>
+
+    <v-dialog v-model="ok" width="auto">
+      <v-card color="white">
+        <v-card-title>Atividade Recebida :)</v-card-title>
+        <v-card-text>
+          Recebemos sua atividade e iremos processar ela no nosso sistema!
+        </v-card-text>
+        <v-card-actions>
+          <v-btn block color="green" class="my-4" @click="ok = false">
+            <span class="upper-bold">Fechar</span>
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, Ref, ref } from "vue";
 import Stopwatch from "@/components/Stopwatch.vue";
 // @ts-expect-error: missing type declaration
 import VueTimepicker from "vue3-timepicker";
 import "vue3-timepicker/dist/VueTimepicker.css";
+import { Store, useStore } from "vuex";
+
+const save = (
+  field: string,
+  activity: string,
+  time: string,
+  store: Store<any>,
+  ok: Ref<boolean>
+) => {
+  const user = store.getters.getUser;
+  // https://stackoverflow.com/a/29774197/7092954
+  const date = new Date().toISOString().split("T")[0];
+  const item = {
+    name: activity,
+    duration: time,
+  };
+
+  if (!(field in user["activities"])) {
+    user["activities"][field] = {};
+  }
+  if (date in user["activities"][field]) {
+    user["activities"][field][date].push(item);
+  } else {
+    user["activities"][field][date] = [item];
+  }
+
+  ok.value = true;
+
+  store.commit("setUser", user);
+};
 
 export default defineComponent({
   name: "ActivitiesView",
@@ -72,7 +122,13 @@ export default defineComponent({
   },
 
   setup() {
+    const store = useStore();
+    const ok = ref(false);
+
     return {
+      ok,
+      saveActivity: (field: string, activity: string, time: string) =>
+        save(field, activity, time, store, ok),
       activities: [
         {
           name: "healthcare",
@@ -152,8 +208,8 @@ export default defineComponent({
           ],
         },
       ],
-      activity: ref(""),
-      picker: "",
+      activity: ref({}),
+      picker: ref(""),
     };
   },
 });

@@ -60,11 +60,30 @@
       </v-expansion-panel-text>
     </v-expansion-panel>
   </v-expansion-panels>
+
+  <v-expansion-panels variant="inset" class="my-4">
+    <v-expansion-panel>
+      <v-expansion-panel-title>
+        <span class="upper-bold">Sair do sistema</span>
+      </v-expansion-panel-title>
+      <v-expansion-panel-text>
+        <v-btn block color="orange" @click="logout">
+          <span>SAIR</span>
+        </v-btn>
+      </v-expansion-panel-text>
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script lang="ts">
 import WhatsApp from "@/components/WhatsApp.vue";
 import { defineComponent, ref } from "vue";
+import { Router, useRouter } from "vue-router";
+
+const logout = (router: Router) => {
+  localStorage.clear();
+  router.go(0);
+};
 
 export default defineComponent({
   name: "ServiceView",
@@ -74,7 +93,10 @@ export default defineComponent({
   },
 
   setup() {
+    const router = useRouter();
+
     return {
+      logout: () => logout(router),
       toggle: ref(["green"]),
       professionals: [
         "trainer",
