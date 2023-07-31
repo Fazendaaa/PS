@@ -6,7 +6,7 @@ export default {
   others: "others",
   name: "name",
   age: "age",
-  illness: "illness",
+  illnesses: "illnesses",
   medication: "medication",
   weight: "Weight",
   waist: "Waist",

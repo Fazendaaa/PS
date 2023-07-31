@@ -21,7 +21,9 @@
         v-html="$vuetify.locale.t(`user.${button.name}`)"
       />
       <v-expansion-panel-text>
-        Atual: {{ user[button.name][user[button.name].length - 1] }}
+        <div v-if="user[button.name].length != 0">
+          Atual: {{ user[button.name][user[button.name].length - 1] }}
+        </div>
         <v-text-field
           :label="button.value"
           v-model="values[button.name]"
@@ -77,8 +79,8 @@ const updateUser = (values: Ref<object>, store: Store<any>, router: Router) => {
   if ("height" in read) {
     user["height"].push(read["height"]);
   }
-  if ("illness" in read) {
-    user["illness"].push(read["illness"]);
+  if ("illnesses" in read) {
+    user["illnesses"].push(read["illnesses"]);
   }
   if ("medication" in read) {
     user["medication"].push(read["medication"]);
@@ -117,7 +119,7 @@ export default defineComponent({
         { name: "waist", value: "Em centimetros" },
         { name: "arterialPressure", value: "" },
         { name: "height", value: "Em centimetros" },
-        { name: "illness", value: "" },
+        { name: "illnesses", value: "" },
         { name: "medication", value: "" },
         { name: "skin", value: "" },
         { name: "others", value: "" },

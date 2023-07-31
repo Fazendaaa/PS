@@ -8,7 +8,7 @@ export default {
   others: "outros",
   name: "nome",
   age: "idade",
-  illness: "doenças",
+  illnesses: "doenças",
   medication: "medicações",
   weight: "Peso",
   waist: "Tamanho da cintura",
